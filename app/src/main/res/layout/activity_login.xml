@@ -11,10 +11,10 @@
 <!--logo-->
     <de.hdodenhof.circleimageview.CircleImageView
         android:src="@drawable/logo"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:padding="30dp"
         android:layout_width="wrap_content"
-        android:layout_height="260dp"/>
+        android:layout_height="230dp"/>
 <!--    brand name-->
     <TextView
         android:layout_width="wrap_content"
@@ -25,11 +25,67 @@
         android:textColor="@color/black"
         />
 <!--    textview username-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Username"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
+    
 <!--    edittext username-->
+    <EditText
+        android:id="@+id/etusername"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:hint="Username"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/roundcorners"
+        />
 <!--textview password-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Password"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
 <!--    edittext password-->
+    <EditText
+        android:id="@+id/etpassword"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:hint="Password"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/roundcorners"
+        />
 <!--    login button-->
-<!--    fogot password-->
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/loginbtnround"
+        app:backgroundTint=""
+        android:text="Log In"
+        android:textSize="20sp" />
+    <!--    fogot password-->
 <!--    stay logged in-->
 <!--    sign up-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:id="@+id/tvsignuplink"
+        android:text="Sign up"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
 </LinearLayout>
