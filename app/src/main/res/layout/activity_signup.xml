@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_bg"
+    tools:context=".SignupActivity">
+<!--    logo-->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/logo"
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JoJo"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        />
+<!--    user type-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvselect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select user type :"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="20dp"
+            />
+
+        <!--    spinner for user type-->
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/usertypespinner"
+            android:layout_toRightOf="@+id/tvselect"
+            android:layout_marginTop="20dp"
+            />
+    </RelativeLayout>
+
+<!--    username textview-->
+    <EditText
+        android:id="@+id/etusername"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Username"
+        android:background="@drawable/roundcorners"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        />
+<!--    email textview-->
+    <EditText
+        android:id="@+id/etemail"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Email"
+        android:background="@drawable/roundcorners"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        />
+<!--    password textview-->
+    <EditText
+        android:id="@+id/etpassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Password"
+        android:background="@drawable/roundcorners"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        />
+<!--    confirm password-->
+    <EditText
+        android:id="@+id/etconfirmpassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Confirm Password"
+        android:background="@drawable/roundcorners"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        />
+<!--    sign in button-->
+    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/loginbtnround"
+        app:backgroundTint=""
+        android:text="Sign Up"
+        android:textSize="20sp" />
+<!--    already have an account-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Already have an account?"
+            android:textColor="@color/black"
+            />
+        <!--    login-->
+        <TextView
+            android:id="@+id/tvlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:linksClickable="true"
+            android:text="Log In"
+            android:textColor="#260A95"
+            android:textColorLink="@color/black"
+            android:layout_toRightOf="@+id/tvtext"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>
