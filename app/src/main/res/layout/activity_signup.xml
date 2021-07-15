@@ -94,7 +94,7 @@
         android:layout_height="70dp"
         android:layout_margin="10dp"
         android:background="@drawable/loginbtnround"
-        app:backgroundTint=""
+        app:backgroundTint="#689DFF"
         android:text="Sign Up"
         android:textSize="20sp" />
 <!--    already have an account-->
@@ -114,7 +114,7 @@
             android:id="@+id/tvlogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:linksClickable="true"
+            android:clickable="true"
             android:text="Log In"
             android:textColor="#260A95"
             android:textColorLink="@color/black"

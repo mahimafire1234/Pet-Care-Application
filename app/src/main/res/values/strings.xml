@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">AnimeStreamingApp</string>
+    <string name="app_name">PetCareApp</string>
+    <string name="title_activity_dashboard">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_mypet">My pet</string>
+    <string name="title_myprofile">My profile</string>
 </resources>
