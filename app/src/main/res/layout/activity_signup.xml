@@ -22,6 +22,8 @@
         android:layout_gravity="center_horizontal"
         android:textSize="30sp"
         android:textColor="@color/black"
+        android:fontFamily="@font/fontlogo"
+
         />
 <!--    user type-->
     <RelativeLayout

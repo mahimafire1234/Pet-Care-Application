@@ -22,9 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="JoJo"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textColor="@color/black"
         android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fontlogo"
         />
 </RelativeLayout>

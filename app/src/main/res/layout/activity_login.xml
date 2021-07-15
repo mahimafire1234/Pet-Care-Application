@@ -20,8 +20,9 @@
         android:layout_height="wrap_content"
         android:text="JoJo"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textColor="@color/black"
+        android:fontFamily="@font/fontlogo"
         />
 <!--    textview username-->
     <TextView
