@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.mahima.animestreamingapp.ui.mypet.MypetFragment"
+        android:name="com.mahima.animestreamingapp.ui.myprofile.MyprofileFragment"
         android:label="@string/title_myprofile"
         tools:layout="@layout/myprofile_fragment" />
 </navigation>

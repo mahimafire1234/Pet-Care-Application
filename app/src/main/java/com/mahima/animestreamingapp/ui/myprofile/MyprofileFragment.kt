@@ -6,27 +6,43 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.Observer
 import com.mahima.animestreamingapp.R
+import com.mahima.animestreamingapp.databinding.MyprofileFragmentBinding
+import com.mahima.animestreamingapp.ui.myprofile.MyprofileViewModel
 
 class MyprofileFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MyprofileFragment()
-    }
+    private lateinit var myprofileViewModel: MyprofileViewModel
+    private var _binding: MyprofileFragmentBinding ? = null
 
-    private lateinit var viewModel: MyprofileViewModel
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.myprofile_fragment, container, false)
+        myprofileViewModel =
+            ViewModelProvider(this).get(MyprofileViewModel::class.java)
+
+        _binding = MyprofileFragmentBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        val textView: TextView = binding.textMyprofile
+        myprofileViewModel.text.observe(viewLifecycleOwner, Observer {
+            textView.text = it
+        })
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MyprofileViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
-
 }
+
+

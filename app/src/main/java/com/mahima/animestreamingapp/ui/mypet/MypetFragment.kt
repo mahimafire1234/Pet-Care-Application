@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.databinding.FragmentMypetBinding
 
 class MypetFragment : Fragment() {
