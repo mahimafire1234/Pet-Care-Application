@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -55,7 +57,14 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 //    coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+    // Room Database
+    def room_version = "2.2.6"
 
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation  'androidx.room:room-ktx:2.2.6'
+
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha06"
 
 
 }
