@@ -16,7 +16,7 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var tvlogin:TextView
 
 //    a list for user types
-    private val userTypeList= arrayOf<String>("Admin","Seller","Pet owner")
+    private val userTypeList= arrayOf<String>("Admin","Pet owner")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
