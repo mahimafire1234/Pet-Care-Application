@@ -53,8 +53,11 @@ class SignupActivity : AppCompatActivity() {
 
 //        click on sign up
         btnsignup.setOnClickListener {
+            check()
             register()
+            clear()
             Toast.makeText(this@SignupActivity, "Registered successfully ", Toast.LENGTH_SHORT).show()
+            loginRedirect()
         }
     }
 //    function for registration and insertion to room
@@ -80,5 +83,36 @@ class SignupActivity : AppCompatActivity() {
         }
         Toast.makeText(this, "User registered successfully",Toast.LENGTH_SHORT).show()
 
+    }
+//    check data
+    private fun check(){
+
+        if(etusername.text.toString().isEmpty()){
+            etusername.error = "Username field is empty"
+            etusername.requestFocus()
+        }
+        if(etemail.text.toString().isEmpty()){
+            etemail.error = "Email field is empty"
+            etemail.requestFocus()
+        }
+        if(etpassword.text.toString().isEmpty()){
+            etpassword.error = "Password field is empty"
+            etpassword.requestFocus()
+        }
+        if(etconfirmpassword.text.toString().isEmpty()){
+            etconfirmpassword.error = "Confirm Password is empty"
+            etconfirmpassword.requestFocus()
+        }
+    }
+//    clear
+    private fun clear(){
+        etusername.setText("")
+        etemail.setText("")
+        etpassword.setText("")
+        etconfirmpassword.setText("")
+    }
+//    login direct
+    private fun loginRedirect(){
+        startActivity(Intent(this,LoginActivity::class.java))
     }
 }
