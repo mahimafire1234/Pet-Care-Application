@@ -4,6 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.mahima.animestreamingapp.database.UserDatabase
+import com.mahima.animestreamingapp.entity.adminEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SignupActivity : AppCompatActivity() {
 //    declaration of variables
@@ -46,6 +51,34 @@ class SignupActivity : AppCompatActivity() {
         usertypespinner.adapter=spinner_adapter
 //        code for selected spinner item left..
 
+//        click on sign up
+        btnsignup.setOnClickListener {
+            register()
+            Toast.makeText(this@SignupActivity, "Registered successfully ", Toast.LENGTH_SHORT).show()
+        }
+    }
+//    function for registration and insertion to room
+
+    private fun register(){
+
+//        get the data from ui
+        val username = etusername.text.toString()
+        val email = etemail.text.toString()
+        val password = etpassword.text.toString()
+        val confirmpassword =  etconfirmpassword.text.toString()
+
+//        check if fields are empty
+//        check if password matches
+        if(confirmpassword != password ){
+            etconfirmpassword.error = "Passwords don't match"
+            etconfirmpassword.requestFocus()
+        }
+//        database registration
+        val insertData = adminEntity(username = username, email = email ,password = password)
+        CoroutineScope(Dispatchers.IO).launch {
+            UserDatabase.getDatabase(this@SignupActivity).userDao().register(insertData)
+        }
+        Toast.makeText(this, "User registered successfully",Toast.LENGTH_SHORT).show()
 
     }
 }
