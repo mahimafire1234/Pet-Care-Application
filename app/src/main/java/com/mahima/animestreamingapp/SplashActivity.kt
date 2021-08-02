@@ -4,16 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
-    private lateinit var logo: CircleImageView
+    private lateinit var logo: ImageView
     private lateinit var tvtext: TextView
     private lateinit var rel: RelativeLayout
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,9 +29,7 @@ class SplashActivity : AppCompatActivity() {
         val animation1=AnimationUtils.loadAnimation(this,R.anim.bottom_animation)
         logo.setAnimation(animation)
         tvtext.setAnimation(animation1)
-
-
-
+        
 
 //        using coroutine for splash activity
         CoroutineScope(Dispatchers.Main).launch{
