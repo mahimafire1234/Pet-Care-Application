@@ -52,7 +52,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             else{
-                Toast.makeText(this@LoginActivity,"Logging in",Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
             }
         }
