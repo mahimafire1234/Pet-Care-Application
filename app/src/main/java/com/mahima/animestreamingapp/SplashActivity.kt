@@ -7,15 +7,17 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import android.widget.Toast
+import com.mahima.animestreamingapp.database.UserDatabase
+import com.mahima.animestreamingapp.entity.adminEntity
+import kotlinx.coroutines.*
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var logo: ImageView
     private lateinit var tvtext: TextView
     private lateinit var rel: RelativeLayout
+    var username : String ? =" "
+    var password : String ? =" "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -29,18 +31,44 @@ class SplashActivity : AppCompatActivity() {
         val animation1=AnimationUtils.loadAnimation(this,R.anim.bottom_animation)
         logo.setAnimation(animation)
         tvtext.setAnimation(animation1)
-        
+
+//        for shared preference
+        getusernamepassword()
+        login()
 
 //        using coroutine for splash activity
-        CoroutineScope(Dispatchers.Main).launch{
-//            suspend for the splash activity
+//        CoroutineScope(Dispatchers.Main).launch{
+////            suspend for the splash activity
+//            delay(5000)
+////            open intent activity
+////            startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+////            finish or destroy the splash screen
+////            finish()
+//        }
+    }
+
+//    get username and password
+    private fun getusernamepassword(){
+        val sharedPreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+        username=sharedPreferences.getString("username"," ")
+        password=sharedPreferences.getString("password", "")
+    }
+//    login function
+    private fun login(){
+        var user : adminEntity? =null
+        CoroutineScope(Dispatchers.IO).launch {
             delay(5000)
-//            open intent activity
-            startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-//            finish or destroy the splash screen
+            user= UserDatabase.getDatabase(this@SplashActivity).userDao().checkUser(username!!,password!!)
+            if(user == null){
+                withContext(Dispatchers.Main){
+                    startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+            }
+        }
+        else{
+            startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
+        }
             finish()
         }
-
     }
 }
 
