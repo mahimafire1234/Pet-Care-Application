@@ -53,50 +53,50 @@
     <EditText
         android:id="@+id/etusername"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:hint="Username"
         android:background="@drawable/roundcorners"
-        android:padding="20dp"
+        android:padding="10dp"
         android:layout_margin="10dp"
         />
 <!--    email textview-->
     <EditText
         android:id="@+id/etemail"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:background="@drawable/roundcorners"
-        android:padding="20dp"
+        android:padding="10dp"
         android:layout_margin="10dp"
         />
 <!--    password textview-->
     <EditText
         android:id="@+id/etpassword"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:background="@drawable/roundcorners"
-        android:padding="20dp"
+        android:padding="10dp"
         android:layout_margin="10dp"
         />
 <!--    confirm password-->
     <EditText
         android:id="@+id/etconfirmpassword"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:hint="Confirm Password"
         android:inputType="textPassword"
         android:background="@drawable/roundcorners"
-        android:padding="20dp"
+        android:padding="10dp"
         android:layout_margin="10dp"
         />
 <!--    sign in button-->
     <Button
         android:id="@+id/btnsignup"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_margin="10dp"
         android:background="@drawable/loginbtnround"
         app:backgroundTint="#689DFF"
