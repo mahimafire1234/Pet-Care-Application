@@ -53,7 +53,19 @@ class LoginActivity : AppCompatActivity() {
             }
             else{
                 startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
+//                if user exists save their user data
+                saveUserData()
             }
         }
+    }
+//    for shared preferences
+    private fun saveUserData(){
+        val sharedpreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+        val editor=sharedpreferences.edit()
+
+//        add data
+        editor.putString("username",etusername.text.toString())
+        editor.putString("password",etpassword.text.toString())
+        editor.apply()
     }
 }
