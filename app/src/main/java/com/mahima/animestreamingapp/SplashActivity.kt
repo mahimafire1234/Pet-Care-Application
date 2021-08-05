@@ -35,16 +35,6 @@ class SplashActivity : AppCompatActivity() {
 //        for shared preference
         getusernamepassword()
         login()
-
-//        using coroutine for splash activity
-//        CoroutineScope(Dispatchers.Main).launch{
-////            suspend for the splash activity
-//            delay(5000)
-////            open intent activity
-////            startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-////            finish or destroy the splash screen
-////            finish()
-//        }
     }
 
 //    get username and password
