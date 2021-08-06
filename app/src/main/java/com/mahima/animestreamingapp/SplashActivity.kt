@@ -16,6 +16,7 @@ class SplashActivity : AppCompatActivity() {
     private lateinit var logo: ImageView
     private lateinit var tvtext: TextView
     private lateinit var rel: RelativeLayout
+//    username and password variable declaration for shared preferences
     var username : String ? =" "
     var password : String ? =" "
     override fun onCreate(savedInstanceState: Bundle?) {
