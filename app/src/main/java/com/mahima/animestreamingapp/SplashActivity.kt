@@ -48,6 +48,7 @@ class SplashActivity : AppCompatActivity() {
     private fun login(){
         var user : adminEntity? =null
         CoroutineScope(Dispatchers.IO).launch {
+//            delays the splash screen for 5 seconds
             delay(5000)
             user= UserDatabase.getDatabase(this@SplashActivity).userDao().checkUser(username!!,password!!)
             if(user == null){
@@ -58,6 +59,7 @@ class SplashActivity : AppCompatActivity() {
         else{
             startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
         }
+//            finishes the splash screen
             finish()
         }
     }
