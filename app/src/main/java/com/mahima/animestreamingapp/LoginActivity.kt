@@ -60,7 +60,9 @@ class LoginActivity : AppCompatActivity() {
     }
 //    for shared preferences
     private fun saveUserData(){
+//    creating a shared preferences file with mode private
         val sharedpreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+//    creating an editor
         val editor=sharedpreferences.edit()
 
 //        add data
