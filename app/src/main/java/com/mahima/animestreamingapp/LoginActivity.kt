@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
+//    declaring variables
     private lateinit var tvsignup:TextView
     private lateinit var btnlogin:Button
     private lateinit var etusername:EditText
@@ -23,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+//initializing variables
         tvsignup=findViewById(R.id.tvsignuplink)
         btnlogin=findViewById(R.id.btnlogin)
         etusername=findViewById(R.id.etusername)
