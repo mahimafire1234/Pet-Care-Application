@@ -22,11 +22,9 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-//        for shared prefernces
-//
-//        logo=findViewById(R.id.logo)
-//        tvtext=findViewById(R.id.tvtext)
-//        rel=findViewById(R.id.rel)
+        logo=findViewById(R.id.logo)
+        tvtext=findViewById(R.id.tvtext)
+        rel=findViewById(R.id.rel)
         //        for animation
 
         val animation=AnimationUtils.loadAnimation(this,R.anim.top_animation)
@@ -35,42 +33,44 @@ class SplashActivity : AppCompatActivity() {
         tvtext.setAnimation(animation1)
 
         CoroutineScope(Dispatchers.Main).launch{
-            //            suspend for the splash activity
-                        delay(5000)
-            //            open intent activity
-                        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-            //            finish or destroy the splash screen
-                        finish()
+            //suspend for the splash activity
+            delay(5000)
+            //open intent activity
+            startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+            //finish or destroy the splash screen
+            finish()
+        }
 
 //        for shared preference
 //        getusernamepassword()
 //        login()
-    }
+
 
 //    get username and password
-    private fun getusernamepassword(){
-        val sharedPreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
-        username=sharedPreferences.getString("username"," ")
-        password=sharedPreferences.getString("password", "")
-    }
-//    login function
-    private fun login(){
-        var user : adminEntity? =null
-        CoroutineScope(Dispatchers.IO).launch {
-//            delays the splash screen for 5 seconds
-            delay(5000)
-            user= UserDatabase.getDatabase(this@SplashActivity).userDao().checkUser(username!!,password!!)
-            if(user == null){
-                withContext(Dispatchers.Main){
-                    startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-            }
-        }
-        else{
-            startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
-        }
-//            finishes the splash screen
-            finish()
-        }
-    }
-}
+//    private fun getusernamepassword(){
+//        val sharedPreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+//        username=sharedPreferences.getString("username"," ")
+//        password=sharedPreferences.getString("password", "")
+//    }
+////    login function
+//    private fun login(){
+//        var user : adminEntity? =null
+//        CoroutineScope(Dispatchers.IO).launch {
+////            delays the splash screen for 5 seconds
+//            delay(5000)
+//            user= UserDatabase.getDatabase(this@SplashActivity).userDao().checkUser(username!!,password!!)
+//            if(user == null){
+//                withContext(Dispatchers.Main){
+//                    startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+//            }
+//        }
+//        else{
+//            startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
+//        }
+////            finishes the splash screen
+//            finish()
+//        }
+//    }
+}}
+
 
