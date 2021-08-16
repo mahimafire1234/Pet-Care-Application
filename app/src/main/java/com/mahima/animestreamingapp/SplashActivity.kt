@@ -22,10 +22,11 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
-        logo=findViewById(R.id.logo)
-        tvtext=findViewById(R.id.tvtext)
-        rel=findViewById(R.id.rel)
+//        for shared prefernces
+//
+//        logo=findViewById(R.id.logo)
+//        tvtext=findViewById(R.id.tvtext)
+//        rel=findViewById(R.id.rel)
         //        for animation
 
         val animation=AnimationUtils.loadAnimation(this,R.anim.top_animation)
@@ -33,9 +34,17 @@ class SplashActivity : AppCompatActivity() {
         logo.setAnimation(animation)
         tvtext.setAnimation(animation1)
 
+        CoroutineScope(Dispatchers.Main).launch{
+            //            suspend for the splash activity
+                        delay(5000)
+            //            open intent activity
+                        startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+            //            finish or destroy the splash screen
+                        finish()
+
 //        for shared preference
-        getusernamepassword()
-        login()
+//        getusernamepassword()
+//        login()
     }
 
 //    get username and password
