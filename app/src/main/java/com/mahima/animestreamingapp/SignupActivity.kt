@@ -60,30 +60,35 @@ class SignupActivity : AppCompatActivity() {
             loginRedirect()
         }
     }
+//the api way
+    private fun register() {
+        TODO("Not yet implemented")
+    }
+//    the room database way
 //    function for registration and insertion to room
 
-    private fun register(){
-
-//        get the data from ui
-        val username = etusername.text.toString()
-        val email = etemail.text.toString()
-        val password = etpassword.text.toString()
-        val confirmpassword =  etconfirmpassword.text.toString()
-
-//        check if fields are empty
-//        check if password matches
-        if(confirmpassword != password ){
-            etconfirmpassword.error = "Passwords don't match"
-            etconfirmpassword.requestFocus()
-        }
-//        database registration
-        val insertData = adminEntity(username = username, email = email ,password = password)
-        CoroutineScope(Dispatchers.IO).launch {
-            UserDatabase.getDatabase(this@SignupActivity).userDao().register(insertData)
-        }
-        Toast.makeText(this, "User registered successfully",Toast.LENGTH_SHORT).show()
-
-    }
+//    private fun register(){
+//
+////        get the data from ui
+//        val username = etusername.text.toString()
+//        val email = etemail.text.toString()
+//        val password = etpassword.text.toString()
+//        val confirmpassword =  etconfirmpassword.text.toString()
+//
+////        check if fields are empty
+////        check if password matches
+//        if(confirmpassword != password ){
+//            etconfirmpassword.error = "Passwords don't match"
+//            etconfirmpassword.requestFocus()
+//        }
+////        database registration
+//        val insertData = adminEntity(username = username, email = email ,password = password)
+//        CoroutineScope(Dispatchers.IO).launch {
+//            UserDatabase.getDatabase(this@SignupActivity).userDao().register(insertData)
+//        }
+//        Toast.makeText(this, "User registered successfully",Toast.LENGTH_SHORT).show()
+//
+//    }
 //    check data
     private fun check(){
 
