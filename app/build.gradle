@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-
 }
 
 android {
@@ -70,6 +69,8 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.3.0'
 
     implementation 'androidx.datastore:datastore-preferences:1.0.0-rc02'
-
+//implementations for retrofit and gson
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
 }
