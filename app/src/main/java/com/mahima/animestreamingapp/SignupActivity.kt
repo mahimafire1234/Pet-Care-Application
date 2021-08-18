@@ -62,7 +62,7 @@ class SignupActivity : AppCompatActivity() {
             register()
             clear()
 //            Toast.makeText(this@SignupActivity, "Registered successfully ", Toast.LENGTH_SHORT).show()
-            loginRedirect()
+//            loginRedirect()
         }
     }
 //the api way
@@ -88,11 +88,13 @@ class SignupActivity : AppCompatActivity() {
                 try{
                     val repository = UserRepository()
                     val response =repository.userRegister(user)
-                    if(response.success == true){
+                    if(response.success==true){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(this@SignupActivity,"Registered successfully",Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@SignupActivity, "Successfully registered", Toast.LENGTH_SHORT).show()
+                            loginRedirect()
                         }
                     }
+
                 }catch (ex:Exception){
                     withContext(Dispatchers.Main) {
                         Toast.makeText(this@SignupActivity, ex.toString(), Toast.LENGTH_SHORT)
