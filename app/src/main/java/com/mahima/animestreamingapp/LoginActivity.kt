@@ -7,13 +7,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.database.UserDatabase
 import com.mahima.animestreamingapp.entity.adminEntity
+import com.mahima.animestreamingapp.model.UserModel
+import com.mahima.animestreamingapp.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class LoginActivity : AppCompatActivity() {
 //    declaring variables
@@ -40,7 +44,36 @@ class LoginActivity : AppCompatActivity() {
     }
 // api way
     private fun userValidation() {
-        TODO("Not yet implemented")
+        val username = etusername.text.toString()
+        val password = etpassword.text.toString()
+
+//        inserting in user model
+        val user = UserModel(fullName = username,password = password)
+     CoroutineScope(Dispatchers.IO).launch {
+        try{
+            val repository = UserRepository()
+            val response =repository.userLogin(username, password)
+            if(response.success == true){
+                ServiceBuilder.token = "Bearer ${response.token}"
+                withContext(Dispatchers.Main){
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Successfully logged in",
+                        Toast.LENGTH_SHORT).
+                    show()
+                    withContext(Dispatchers.Main){
+                        startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
+                    }
+                }
+            }
+
+        }catch (ex: Exception){
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@LoginActivity, ex.toString(), Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+    }
     }
 //    check user validation room way
 //    private fun userValidation(){
