@@ -6,19 +6,19 @@ import retrofit2.Response
 import java.io.IOException
 
 abstract class MyApiRequest {
-    suspend fun <T> apiRequest(call: suspend () -> Response<T>) : T{
-//        response variable
+    suspend fun<T> apiRequest(call : suspend() -> Response<T>) : T{
         val response = call.invoke()
+
         if(response.isSuccessful){
             return response.body()!!
-        }else{
+        }
+        else {
             val error = response.errorBody()?.string()
             val message = StringBuilder()
             error?.let {
-                try{
+                try {
                     message.append(JSONObject(it).getString("success"))
-                }catch (e:JSONException){
-
+                } catch (e: JSONException) {
                 }
                 message.append("\n")
             }
