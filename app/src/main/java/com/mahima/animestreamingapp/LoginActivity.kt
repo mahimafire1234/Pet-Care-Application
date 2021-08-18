@@ -44,15 +44,15 @@ class LoginActivity : AppCompatActivity() {
     }
 // api way
     private fun userValidation() {
-        val username = etusername.text.toString()
+        val email = etusername.text.toString()
         val password = etpassword.text.toString()
 
 //        inserting in user model
-        val user = UserModel(fullName = username,password = password)
+        val user = UserModel(email = email,password = password)
      CoroutineScope(Dispatchers.IO).launch {
         try{
             val repository = UserRepository()
-            val response =repository.userLogin(username, password)
+            val response =repository.userLogin(email, password)
             if(response.success == true){
                 ServiceBuilder.token = "Bearer ${response.token}"
                 withContext(Dispatchers.Main){

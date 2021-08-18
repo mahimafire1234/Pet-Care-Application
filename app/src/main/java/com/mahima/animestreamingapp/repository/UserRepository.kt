@@ -19,9 +19,9 @@ class UserRepository  : MyApiRequest(){
         }
     }
 //    function for login
-    suspend fun userLogin(username :String,password:String) : UserResponse{
+    suspend fun userLogin(email :String,password:String) : UserResponse{
         return apiRequest {
-            userApi.LoginUser(username,password)
+            userApi.LoginUser(email,password)
         }
     }
 }
