@@ -88,8 +88,8 @@ class SignupActivity : AppCompatActivity() {
                 try{
                     val repository = UserRepository()
                     val response =repository.userRegister(user)
-                    if(response.success == true){
-                        withContext(Main){
+                    if(response.success == 201){
+                        withContext(Dispatchers.Main){
                             Toast.makeText(this@SignupActivity,"Registered successfully",Toast.LENGTH_LONG).show()
                         }
                     }
