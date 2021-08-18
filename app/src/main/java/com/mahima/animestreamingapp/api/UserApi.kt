@@ -21,5 +21,5 @@ interface UserApi {
     suspend fun LoginUser(
         @Field("email") email: String ,
         @Field("password") password :String
-    )
+    ):Response<UserResponse>
 }
