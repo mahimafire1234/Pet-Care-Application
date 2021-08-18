@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:text="Username"
+        android:text="Email"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
@@ -40,7 +40,7 @@
         android:id="@+id/etusername"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Username"
+        android:hint="Email"
         android:paddingHorizontal="20dp"
         android:layout_margin="10dp"
         android:background="@drawable/roundcorners"
