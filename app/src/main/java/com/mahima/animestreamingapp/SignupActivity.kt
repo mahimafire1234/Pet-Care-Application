@@ -88,9 +88,13 @@ class SignupActivity : AppCompatActivity() {
                 try{
                     val repository = UserRepository()
                     val response =repository.userRegister(user)
-                    if(response.success==true){
+                    if(response.success == true){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(this@SignupActivity, "Successfully registered", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this@SignupActivity,
+                                "Successfully registered",
+                                Toast.LENGTH_SHORT).
+                            show()
                             loginRedirect()
                         }
                     }
