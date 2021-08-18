@@ -6,9 +6,14 @@ import android.os.Bundle
 import android.widget.*
 import com.mahima.animestreamingapp.database.UserDatabase
 import com.mahima.animestreamingapp.entity.adminEntity
+import com.mahima.animestreamingapp.model.UserModel
+import com.mahima.animestreamingapp.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class SignupActivity : AppCompatActivity() {
 //    declaration of variables
@@ -56,13 +61,47 @@ class SignupActivity : AppCompatActivity() {
             check()
             register()
             clear()
-            Toast.makeText(this@SignupActivity, "Registered successfully ", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this@SignupActivity, "Registered successfully ", Toast.LENGTH_SHORT).show()
             loginRedirect()
         }
     }
 //the api way
     private fun register() {
-        TODO("Not yet implemented")
+        val username = etusername.text.toString()
+        val email = etemail.text.toString()
+        val password = etpassword.text.toString()
+        val confirmpassword =  etconfirmpassword.text.toString()
+
+//        check if fields are empty
+//        check if password matches
+        if(confirmpassword != password ){
+            etconfirmpassword.error = "Passwords don't match"
+            etconfirmpassword.requestFocus()
+        }else{
+            val user = UserModel(
+                fullName = username,
+                email = email,
+                password = password
+            )
+//            coroutines part
+            CoroutineScope(Dispatchers.IO).launch {
+                try{
+                    val repository = UserRepository()
+                    val response =repository.userRegister(user)
+                    if(response.success == true){
+                        withContext(Main){
+                            Toast.makeText(this@SignupActivity,"Registered successfully",Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }catch (ex:Exception){
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@SignupActivity, ex.toString(), Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+        }
+
     }
 //    the room database way
 //    function for registration and insertion to room
