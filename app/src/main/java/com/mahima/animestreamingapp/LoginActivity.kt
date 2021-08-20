@@ -69,8 +69,12 @@ class LoginActivity : AppCompatActivity() {
 
         }catch (ex: Exception){
             withContext(Dispatchers.Main) {
-                Toast.makeText(this@LoginActivity, ex.toString(), Toast.LENGTH_SHORT)
+                if(ex.message=="The password does not match"){
+                    Toast.makeText(this@LoginActivity, "Incorrect password", Toast.LENGTH_SHORT)
                     .show()
+                }else if(ex.message=="The email does not exist"){
+                    Toast.makeText(this@LoginActivity,"Email does not exist",Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
