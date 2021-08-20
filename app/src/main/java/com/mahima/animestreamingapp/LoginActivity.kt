@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.database.UserDatabase
 import com.mahima.animestreamingapp.entity.adminEntity
@@ -65,18 +66,19 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
                     }
                 }
-            }
-
-        }catch (ex: Exception){
-            withContext(Dispatchers.Main) {
-                if(ex.message=="The password does not match"){
-                    Toast.makeText(this@LoginActivity, "Incorrect password", Toast.LENGTH_SHORT)
-                    .show()
-                }else if(ex.message=="The email does not exist"){
-                    Toast.makeText(this@LoginActivity,"Email does not exist",Toast.LENGTH_SHORT).show()
+            }else {
+                withContext(Dispatchers.Main) {
+                        Toast.makeText(this@LoginActivity,"Invalid", Toast.LENGTH_SHORT)
+                            .show()
                 }
             }
-        }
+        }catch (ex: Exception){
+            withContext(Dispatchers.Main) {
+                    Toast.makeText(this@LoginActivity,ex.toString(), Toast.LENGTH_SHORT)
+                    .show()
+                }
+            }
+
     }
     }
 //    check user validation room way
