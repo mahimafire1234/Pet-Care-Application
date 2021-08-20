@@ -8,6 +8,9 @@
     android:orientation="vertical"
     android:background="@drawable/gradient_bg"
     tools:context=".SignupActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 <!--    logo-->
     <de.hdodenhof.circleimageview.CircleImageView
         android:src="@drawable/logo"
@@ -128,6 +131,5 @@
             android:textSize="15sp"
             />
     </RelativeLayout>
-
-
+    </ScrollView>
 </LinearLayout>
