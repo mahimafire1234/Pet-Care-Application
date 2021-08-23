@@ -36,15 +36,7 @@ class MyprofileFragment : Fragment() {
         _binding = MyprofileFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        for listview
-        listview = root.findViewById(R.id.listview)
-//        adapter
-        val adapter = ArrayAdapter(
-            root.context,
-            android.R.layout.simple_expandable_list_item_1,
-            items
-        )
-        listview.adapter=adapter
+
 
         return root
     }
