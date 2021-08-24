@@ -1,5 +1,6 @@
 package com.mahima.animestreamingapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.mahima.animestreamingapp.MapsActivity
 import com.mahima.animestreamingapp.R
 
 class AboutusFragment : Fragment() {
@@ -57,6 +59,12 @@ class AboutusFragment : Fragment() {
 //        btnclick
         btnopenmaps.setOnClickListener {
             Toast.makeText(view.context,"clicked button",Toast.LENGTH_SHORT).show()
+            startActivity(
+                Intent(
+                    view.context,
+                    MapsActivity::class.java
+                )
+            )
         }
 
         return view
