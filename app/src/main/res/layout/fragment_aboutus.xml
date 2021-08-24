@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.AboutusFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -117,8 +120,12 @@
         android:id="@+id/btnopenmaps"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:text="Show in maps"/>
+        android:layout_height="80dp"
+        android:text="Show in maps"
+        android:textSize="18dp"
+        android:background="@drawable/loginbtnround"
+        app:backgroundTint="#9A92F1"
+        />
 
 </LinearLayout>
 </ScrollView>
