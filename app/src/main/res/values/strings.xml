@@ -5,4 +5,6 @@
     <string name="title_shop">Shop</string>
     <string name="title_mypet">My pet</string>
     <string name="title_myprofile">My profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

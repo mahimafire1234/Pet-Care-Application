@@ -65,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
                     withContext(Dispatchers.Main){
                         startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
                     }
+//                    saveUserData()
                 }
             }else {
                 withContext(Dispatchers.Main) {
@@ -103,16 +104,16 @@ class LoginActivity : AppCompatActivity() {
 //        }
 //    }
 //    for shared preferences
-//    private fun saveUserData(){
-////    creating a shared preferences file with mode private
-//        val sharedpreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
-////    creating an editor
-//        val editor=sharedpreferences.edit()
-//
-////        add data
-//        editor.putString("username",etusername.text.toString())
-//        editor.putString("password",etpassword.text.toString())
-//        editor.apply()
-//    }
+    private fun saveUserData(){
+//    creating a shared preferences file with mode private
+        val sharedpreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+//    creating an editor
+        val editor=sharedpreferences.edit()
+
+//        add data
+        editor.putString("username",etusername.text.toString())
+        editor.putString("password",etpassword.text.toString())
+        editor.apply()
+    }
 }
 

@@ -1,5 +1,6 @@
 package com.mahima.animestreamingapp.ui.myprofile
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,21 +10,22 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.databinding.MyprofileFragmentBinding
+import com.mahima.animestreamingapp.ui.AboutUsFragment
 import com.mahima.animestreamingapp.ui.myprofile.MyprofileViewModel
 
 class MyprofileFragment : Fragment() {
 
     private lateinit var myprofileViewModel: MyprofileViewModel
     private var _binding: MyprofileFragmentBinding ? = null
-
+    private lateinit var aboutus: CardView
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private val items = arrayOf("Name","Edit","About Us","Terms and Conditions","Log out")
-    private lateinit var listview : ListView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +37,14 @@ class MyprofileFragment : Fragment() {
 
         _binding = MyprofileFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+//        cardview
+        aboutus = root.findViewById(R.id.aboutus)
+        aboutus.setOnClickListener {
+            Toast.makeText(root.context,"Clicked on about us",Toast.LENGTH_LONG).show()
+//            to open another fragment
+            supportFragmentManager.begin
+        }
 
 
 
