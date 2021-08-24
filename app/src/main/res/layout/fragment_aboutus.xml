@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.AboutusFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-<LinearLayout
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -60,72 +60,88 @@
         android:textSize="30dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/fontlogo"
+        android:textColor="@color/black"
         />
 <!--    imageview-->
-    <ImageView
-        android:id="@+id/imgview"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        />
 <!--    about jojo-->
     <TextView
         android:id="@+id/paragraphtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="13dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:padding="20dp"
         />
 <!--    out services-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Our services"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
         />
     <TextView
         android:id="@+id/servicetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="10dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+
         />
 <!--    out location-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Our location"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+
         />
     <TextView
         android:id="@+id/locationtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="10dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+
         />
 <!--    open google maps-->
     <Button
         android:id="@+id/btnopenmaps"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="Show in maps"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:background="@drawable/loginbtnround"
         app:backgroundTint="#9A92F1"
-        />
+        android:layout_marginTop="20dp"
 
-</LinearLayout>
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+
+            />
+
+    </LinearLayout>
 </ScrollView>
