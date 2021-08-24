@@ -13,6 +13,9 @@
         <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.2013157894736842" />
         <entry key="app/src/main/res/layout/fragment_aboutus.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1763157894736842" />
+        <entry key="app/src/main/res/layout/fragment_mypet.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/layout/fragment_pet_care_taker.xml" value="0.144017094017094" />
+        <entry key="app/src/main/res/layout/fragment_pet_item.xml" value="0.144017094017094" />
         <entry key="app/src/main/res/layout/fragment_shop.xml" value="0.23924050632911392" />
         <entry key="app/src/main/res/layout/myprofile_fragment.xml" value="0.165" />
       </map>
