@@ -36,6 +36,5 @@ abstract class PetProductDatabase: RoomDatabase() {
                 PetProductDatabase::class.java,
                 "PetDatabase"
             ).build()
-
         }
 }

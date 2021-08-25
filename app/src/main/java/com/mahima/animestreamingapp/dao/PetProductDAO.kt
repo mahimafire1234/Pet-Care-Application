@@ -12,9 +12,9 @@ interface PetProductDAO {
 
 //    insert product in room database
     @Insert
-    suspend fun insertProduct(petProductEntity: PetProductEntity)
+    fun insertProduct(petProductEntity: PetProductEntity)
 //    query to get data
     @Query("Select * from petProduct")
-    suspend fun getProduct(): LiveData<List<PetProductEntity>>
+    fun getProduct(): LiveData<List<PetProductEntity>>
 
 }
