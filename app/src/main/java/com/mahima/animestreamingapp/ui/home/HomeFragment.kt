@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
 //        open pet form
         fabaddpet.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().apply {
-                replace(R.id.layouthome,AddPetFragment())
+                replace(R.id.linearContainer,AddPetFragment())
                     .addToBackStack(null)
                     .commit()
             }
