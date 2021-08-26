@@ -15,6 +15,8 @@ interface PetProductDAO {
     fun insertProduct(petProductEntity: PetProductEntity)
 //    query to get data
     @Query("Select * from petProduct")
-    fun getProduct(): LiveData<List<PetProductEntity>>
+    fun getProducts(): LiveData<List<PetProductEntity>>
 
+    @Query("Select * from petProduct")
+    suspend fun getProduct():List<PetProductEntity>
 }

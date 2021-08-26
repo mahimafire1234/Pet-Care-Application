@@ -34,7 +34,7 @@ abstract class PetProductDatabase: RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 PetProductDatabase::class.java,
-                "PetDatabase"
+                "PetDatabase_"
             ).build()
         }
 }

@@ -1,33 +1,49 @@
 package com.mahima.animestreamingapp.ui.shop
 
+import android.app.Application
+import android.app.Service
+import android.content.Context.CONNECTIVITY_SERVICE
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.mahima.animestreamingapp.R
+import com.mahima.animestreamingapp.database.PetProductDatabase
+import com.mahima.animestreamingapp.entity.PetProductEntity
+import com.mahima.animestreamingapp.model.PetProductModel
+import com.mahima.animestreamingapp.repository.PetProductRespository
+import com.mahima.animestreamingapp.repository.PetRepository
+import com.mahima.animestreamingapp.response.petresponse
+import com.mahima.animestreamingapp.viewmodel.viewmodel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.Connection
+import okhttp3.Response
+import java.lang.Exception
+import java.net.ConnectException
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PetItemFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PetItemFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var tv:TextView
+    companion object{
+        private lateinit var data:MutableList<PetProductModel>
+        private lateinit var repository: PetProductRespository
+        private lateinit var response:petresponse
+        var alreadyExecuted = false
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -35,26 +51,47 @@ class PetItemFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pet_item, container, false)
-    }
+        val view= inflater.inflate(R.layout.fragment_pet_item, container, false)
+        tv=view.findViewById(R.id.tv)
+//        get data code
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PetItemFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PetItemFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+//        check if has internet
+
+        val ConnectionManager = view.context.getSystemService(Service.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkinfo = ConnectionManager.activeNetworkInfo
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                repository = PetProductRespository()
+                response = repository.showProducts()
+                data = response.data!!
+                withContext(Main){
+                    if(networkinfo != null && networkinfo.isConnected ==true){
+//                        if has internet sets the textview with api response data
+                        tv.setText(data.toString())
+                    }
                 }
             }
+            catch (ex:ConnectException){
+//                if no internet gets the response data from api and inserts it to room db and shows in tv
+                    insertRb()
+                withContext(Main){
+                    val showData=PetProductDatabase.getDatabase(view.context).petProductDao().getProduct()
+                    tv.setText(showData.toString())
+                    Toast.makeText(view.context,"room db",Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+        return view
+    }
+    private fun insertRb(){
+        for(i in data){
+            var insertData = PetProductEntity(
+                productName = i.productName!!,
+                productDescription = i.productDescription!!,
+                productPrice = i.productPrice!!
+            )
+            PetProductDatabase.getDatabase(requireContext()!!).petProductDao().insertProduct(insertData)
+        }
     }
 }

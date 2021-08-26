@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName
 data class PetProductEntity(
     @PrimaryKey(autoGenerate = true)
     @SerializedName("_id")
-    var id : Int,
+    var id : Int=0,
 
     @SerializedName("productName")
     var productName : String,

@@ -8,6 +8,7 @@ import com.mahima.animestreamingapp.database.PetProductDatabase
 import com.mahima.animestreamingapp.entity.PetProductEntity
 
 class PetRepository(application:Application) {
+
 //    dao
     private lateinit var petProductDAO: PetProductDAO
 //    pet details
@@ -18,11 +19,11 @@ class PetRepository(application:Application) {
         if(database != null){
             petProductDAO = database.petProductDao()
         }
-        petdetails = petProductDAO.getProduct()
+        petdetails = petProductDAO.getProducts()
     }
 //    insert function
-    fun insert(petdatabase : PetProductEntity){
-        val insertPetproductAsyncTask = InsertPetproductAsyncTask(petProductDAO).execute(petdatabase)
+    fun insert(data : PetProductEntity){
+        val insertPetproductAsyncTask = InsertPetproductAsyncTask(petProductDAO).execute(data)
     }
 
     fun getpetdetails():LiveData<List<PetProductEntity>>{
