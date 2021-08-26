@@ -7,6 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.mahima.animestreamingapp.R
+import com.mahima.animestreamingapp.database.PetProductDatabase
+import com.mahima.animestreamingapp.entity.PetEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class AddPetFragment : Fragment() {
 
@@ -69,10 +77,30 @@ class AddPetFragment : Fragment() {
                 rbtnmale.isChecked()-> { gender = "Male"}
                 rbtnfemale.isChecked() -> { gender ="Female"}
             }
-
-            Toast.makeText(view.context,"$petname + $petage + $gender + $petType",Toast.LENGTH_LONG).show()
+            val pet = PetEntity(
+                petName = petname,
+                petAge = petage,
+                petGender = gender,
+                petType = petType
+            )
+            try {
+                CoroutineScope(Dispatchers.IO).launch {
+                    PetProductDatabase.getDatabase(view.context).petDao().insertPet(pet)
+                    withContext(Main){
+                        Toast.makeText(
+                            view.context,
+                            "Pet added successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+            catch (ex:Exception){
+                Toast.makeText(view.context,ex.toString(),Toast.LENGTH_SHORT).show()
+            }
         }
-
         return view
+    }
+    private fun check(){
     }
 }

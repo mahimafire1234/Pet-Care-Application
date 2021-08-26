@@ -11,7 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mahima.animestreamingapp.R
+import com.mahima.animestreamingapp.database.PetProductDatabase
 import com.mahima.animestreamingapp.databinding.FragmentHomeBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -36,6 +40,16 @@ class HomeFragment : Fragment() {
 //        binding views
         tvpet = root.findViewById(R.id.tvpet)
         fabaddpet=root.findViewById(R.id.fabaddpet)
+
+//        get data
+        CoroutineScope(Dispatchers.IO).launch {
+            val pet = PetProductDatabase.getDatabase(requireContext()).petDao().getPet()
+            if (pet.equals(null)){
+                tvpet.setText("No pets to show. Add one")
+            }else{
+                tvpet.setText(pet.toString())
+            }
+        }
 
 //        open pet form
         fabaddpet.setOnClickListener {
