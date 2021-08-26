@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.AddPetFragment"
+    android:layout_marginTop="100dp"
+    >
+<!--    scrollview-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--linear layout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+<!--            textview-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add your pet details"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+<!--            pet name-->
+            <TextView
+                android:text="Pet Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etpetname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="#f0efeb"
+                android:layout_margin="15dp"
+                />
+<!--            pet type spinner-->
+            <TextView
+                android:text="Pet Type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+<!--            pet age-->
+            <TextView
+                android:text="Pet Age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+            <EditText
+                android:id="@+id/etpetage"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="#f0efeb"
+                android:layout_margin="15dp"
+                />
+<!--            pet birthday-->
+            <TextView
+                android:text="Pet Birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+<!--            pet gender-->
+            <TextView
+                android:text="Pet Gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/rbtnmale"
+                    android:text="Male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/rbtnfemale"
+                    android:text="Female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+<!--            pet weight-->
+            <TextView
+                android:text="Pet Weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+            <EditText
+                android:id="@+id/etpetweight"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="#f0efeb"
+                android:layout_margin="15dp"
+                />
+
+
+<!--            add button-->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Add Button"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/loginbtnround"
+                app:backgroundTint="#bde0fe"
+
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</FrameLayout>
