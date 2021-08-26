@@ -11,10 +11,16 @@
 
     <TextView
             android:layout_marginTop="100dp"
-            android:text="hihi"
+            android:text=""
             android:id="@+id/tvpet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+<!--    recycler view-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
         <!--    floating action button-->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -22,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="70dp"
             android:layout_gravity="end|bottom"
             android:src="@drawable/paw"
             android:translationZ="-3dp"
