@@ -1,5 +1,6 @@
 package com.mahima.animestreamingapp.api
 
+import androidx.lifecycle.LiveData
 import com.mahima.animestreamingapp.model.PetProductModel
 import com.mahima.animestreamingapp.response.petresponse
 import kotlinx.coroutines.Deferred
@@ -11,5 +12,7 @@ interface PetProductApi {
 //    api for getting data
     @GET("product")
     suspend fun getProduct():Response<petresponse>
-    fun getProductAsync():Deferred<Response<List<PetProductModel>>>
+
+    @GET("product")
+    fun getProductAsync():LiveData<petresponse>
 }

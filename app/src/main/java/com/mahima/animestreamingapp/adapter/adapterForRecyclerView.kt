@@ -1,4 +1,8 @@
 package com.mahima.animestreamingapp.adapter
 
-class adapterForRecyclerView {
+import com.mahima.animestreamingapp.entity.PetProductEntity
+
+class adapterForRecyclerView(
+    var ProductList : ArrayList<PetProductEntity>
+) {
 }

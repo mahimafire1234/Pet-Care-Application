@@ -1,5 +1,7 @@
 package com.mahima.animestreamingapp.entity
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Dao
 import androidx.room.Entity
@@ -20,4 +22,33 @@ data class PetProductEntity(
 
     @SerializedName("productPrice")
     var productPrice: Int
-)
+):Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readInt(),
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readInt()
+    ) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
+        parcel.writeString(productName)
+        parcel.writeString(productDescription)
+        parcel.writeInt(productPrice)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<PetProductEntity> {
+        override fun createFromParcel(parcel: Parcel): PetProductEntity {
+            return PetProductEntity(parcel)
+        }
+
+        override fun newArray(size: Int): Array<PetProductEntity?> {
+            return arrayOfNulls(size)
+        }
+    }
+}
