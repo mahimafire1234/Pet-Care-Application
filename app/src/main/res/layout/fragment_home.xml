@@ -16,14 +16,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <!--    floating action button-->
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabaddpet"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fabSize="normal"
-            android:src="@drawable/paw"
-            android:layout_gravity="end|bottom"
-            android:layout_marginBottom="50dp"
+            android:layout_height="60dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/paw"
+            android:translationZ="-3dp"
             />
 </FrameLayout>
