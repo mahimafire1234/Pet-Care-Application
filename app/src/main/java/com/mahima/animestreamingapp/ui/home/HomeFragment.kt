@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
-    private lateinit var tvpet : TextView
+    private lateinit var tvpettext : TextView
     private lateinit var fabaddpet : FloatingActionButton
     private lateinit var recyclerview: RecyclerView
 
@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
 //        binding views
-        tvpet = root.findViewById(R.id.tvpet)
+        tvpettext = root.findViewById(R.id.tvpettext)
         fabaddpet=root.findViewById(R.id.fabaddpet)
         recyclerview=root.findViewById(R.id.recyclerview)
 
@@ -78,9 +78,10 @@ class HomeFragment : Fragment() {
         //        get data
         CoroutineScope(Dispatchers.IO).launch {
             val pet = PetProductDatabase.getDatabase(requireContext()).petDao().getPet()
-            if (pet.equals(null)){
-                tvpet.setText("No pets to show. Add one")
+            if (pet.isEmpty()){
+                tvpettext.setText("No pets to show. Add one")
             }else{
+                tvpettext.setText("")
                 for(i in pet){
                     PetList.add(
                         PetEntity(i.id,

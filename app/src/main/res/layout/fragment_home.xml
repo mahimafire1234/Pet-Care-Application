@@ -22,6 +22,19 @@
             android:textSize="20dp"
             android:textAlignment="center"
             android:fontFamily="@font/fontforproduct"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:text=""
+            android:id="@+id/tvpettext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#5B5B5B"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/fontforproduct"
             />
     </LinearLayout>
 
