@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"
+                android:src="@drawable/pet"
                 />
             <TextView
                 android:layout_below="@+id/imgpet"
@@ -31,6 +32,8 @@
                 android:textSize="15dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
+                android:fontFamily="@font/fontforproduct"
+
                 />
             <TextView
                 android:layout_below="@+id/tvpetname"
@@ -40,6 +43,8 @@
                 android:textSize="15dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
+                android:fontFamily="@font/fontforproduct"
+
                 />
             <TextView
                 android:layout_below="@+id/tvpetage"
@@ -48,7 +53,9 @@
                 android:layout_height="20dp"
                 android:textSize="15dp"
                 android:textAlignment="center"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/fontforproduct"
+                />
             <TextView
                 android:layout_below="@+id/tvpettype"
                 android:id="@+id/tvpetgender"
@@ -56,7 +63,9 @@
                 android:layout_height="20dp"
                 android:textSize="15dp"
                 android:textAlignment="center"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/fontforproduct"
+                />
         </RelativeLayout>
 
 

@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.shop.PetItemFragment"
     android:layout_marginTop="150dp"
+    android:background="#FFFFFF"
+
     >
     <ScrollView
         android:layout_marginTop="160dp"
@@ -14,6 +16,7 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-127dp"
+        android:background="#FFFFFF"
         >
         <!--    for recycler view-->
         <androidx.recyclerview.widget.RecyclerView

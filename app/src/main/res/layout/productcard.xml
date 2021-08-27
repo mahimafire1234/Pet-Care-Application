@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
     >
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
+        app:cardElevation="50dp"
         android:layout_margin="10dp"
+        android:background="#FFFFFF"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,30 +22,44 @@
             <ImageView
                 android:id="@+id/imgproduct"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/pet"
-                android:layout_margin="20dp"
+                android:scaleType="fitXY"
+                android:layout_height="140dp"
+                android:src="@drawable/food"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
                 />
-            <!--        productname-->
-            <TextView
-                android:id="@+id/tvproductname"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:textSize="20dp"
-                android:textColor="@color/black"
+            <LinearLayout
                 android:layout_below="@+id/imgproduct"
-                android:layout_margin="10dp"
-                />
-            <!--        product price-->
-            <TextView
-                android:id="@+id/tvproductPrice"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:layout_below="@+id/tvproductname"
-                android:layout_margin="10dp"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#F5F7F5"
+                >
+                <!--        productname-->
+                <TextView
+                    android:id="@+id/tvproductname"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textSize="13dp"
+                    android:textColor="@color/black"
+                    android:layout_margin="10dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/fontforproduct"
+                    />
+                <!--        product price-->
+                <TextView
+                    android:id="@+id/tvproductPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textSize="17dp"
+                    android:layout_margin="10dp"
+                    android:textAlignment="center"
+                    android:textColor="#0019FF"
+                    android:fontFamily="@font/fontforproduct"
+                    />
+
+            </LinearLayout>
+
         </RelativeLayout>
 
 

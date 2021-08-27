@@ -8,23 +8,34 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
     >
-
-    <TextView
-            android:layout_marginTop="100dp"
-            android:text=""
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="My pet"
             android:id="@+id/tvpet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/fontforproduct"
+            />
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-127dp"
+
         >
         <!--    recycler view-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="150dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </ScrollView>
