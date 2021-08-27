@@ -1,14 +1,19 @@
 package com.mahima.animestreamingapp.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.entity.PetProductEntity
+import kotlinx.coroutines.NonDisposableHandle.parent
+import kotlin.coroutines.coroutineContext
 
 class adapterForPetProduct (
+    private val context: Context,
     var productList : ArrayList<PetProductEntity>
     ):RecyclerView.Adapter<adapterForPetProduct.ProductViewHolder>()
 {
@@ -26,6 +31,11 @@ class adapterForPetProduct (
         val product = productList[position]
         holder.tvproductname.text = product.productName
         holder.tvproductprice.text = "Rs" + " " + product.productPrice.toString()
+
+//        view click listener
+        holder.itemView.setOnClickListener {
+            Toast.makeText(context,"${product.productName}",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {

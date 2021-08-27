@@ -59,7 +59,7 @@ class PetItemFragment : Fragment() {
         recyclerview=view.findViewById(R.id.recyclerview)
 
         //adapter for recyclerview
-        val adapter = adapterForPetProduct(ProductList)
+        val adapter = adapterForPetProduct(requireContext(),ProductList)
         CoroutineScope(Dispatchers.IO).launch {
             try {
 //                gets data from repository
