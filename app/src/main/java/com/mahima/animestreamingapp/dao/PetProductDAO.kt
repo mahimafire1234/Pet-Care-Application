@@ -3,6 +3,7 @@ package com.mahima.animestreamingapp.dao
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.mahima.animestreamingapp.entity.PetProductEntity
 
@@ -11,7 +12,7 @@ interface PetProductDAO {
 //    queries
 
 //    insert product in room database
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertProduct(petProductEntity: PetProductEntity)
 //    query to get data
     @Query("Select * from petProduct")

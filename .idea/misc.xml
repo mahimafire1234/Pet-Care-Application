@@ -6,7 +6,7 @@
         <entry key="app/src/main/res/drawable/border.xml" value="0.2523206751054852" />
         <entry key="app/src/main/res/drawable/circularbtn.xml" value="0.1841880341880342" />
         <entry key="app/src/main/res/drawable/loginbtnround.xml" value="0.12991452991452992" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.11623931623931624" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.17922077922077922" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.14487179487179488" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1673203662780635" />

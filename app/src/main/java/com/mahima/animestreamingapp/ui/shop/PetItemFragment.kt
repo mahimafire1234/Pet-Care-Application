@@ -62,30 +62,36 @@ class PetItemFragment : Fragment() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
+//                gets data from repository
                 repository = PetProductRespository()
                 response = repository.showProducts()
                 data = response.data!!
+//                inserts data into room database
+                insertRb()
                 withContext(Main){
                     val showData=PetProductDatabase.getDatabase(view.context).petProductDao().getProduct()
                     tv.setText(showData.toString())
 //                    if(networkinfo != null && networkinfo.isConnected ==true){
 ////                        if has internet sets the textview with api response data
 //                        tv.setText(data.toString())
+
 //                    }
                 }
             }
             catch (ex:Exception){
 ////                if no internet gets the response data from api and inserts it to room db and shows in tv
 //                    insertRb()
-//                withContext(Main){
+                withContext(Main){
 //                    tv.setText(showData.toString())
 //                    Toast.makeText(view.context,"room db",Toast.LENGTH_LONG).show()
-//                }
-                Toast.makeText(view.context,ex.toString(),Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),ex.toString(),Toast.LENGTH_SHORT).show()
+
+                }
             }
         }
         return view
     }
+//    function to insert data in room database
     private fun insertRb(){
         for(i in data){
             var insertData = PetProductEntity(
