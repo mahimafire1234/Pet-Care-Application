@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.shop.ShopFragment">
 
-
 <!--    tab layout-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout"

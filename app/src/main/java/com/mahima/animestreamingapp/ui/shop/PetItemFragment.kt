@@ -14,8 +14,12 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mahima.animestreamingapp.R
+import com.mahima.animestreamingapp.adapter.adapterForPetProduct
 import com.mahima.animestreamingapp.database.PetProductDatabase
+import com.mahima.animestreamingapp.entity.PetEntity
 import com.mahima.animestreamingapp.entity.PetProductEntity
 import com.mahima.animestreamingapp.model.PetProductModel
 import com.mahima.animestreamingapp.repository.PetProductRespository
@@ -32,13 +36,14 @@ import okhttp3.Response
 import java.lang.Exception
 import java.net.ConnectException
 
-
 class PetItemFragment : Fragment() {
-    private lateinit var tv:TextView
+//    declaration of variables
+    private lateinit var recyclerview:RecyclerView
     companion object{
         private lateinit var data:MutableList<PetProductModel>
         private lateinit var repository: PetProductRespository
         private lateinit var response:petresponse
+        val ProductList: ArrayList<PetProductEntity> = ArrayList<PetProductEntity>()
         var alreadyExecuted = false
     }
 
@@ -52,8 +57,15 @@ class PetItemFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_pet_item, container, false)
-        tv=view.findViewById(R.id.tv)
-//        get data code
+        recyclerview=view.findViewById(R.id.recyclerview)
+
+        //adapter for recyclerview
+        val adapter = adapterForPetProduct(ProductList)
+        recyclerview.layoutManager=GridLayoutManager(requireContext(),2)
+        recyclerview.adapter=adapter
+        ProductList.clear()
+
+
 
 //        check if has internet
 
@@ -68,15 +80,16 @@ class PetItemFragment : Fragment() {
                 data = response.data!!
 //                inserts data into room database
                 insertRb()
-                withContext(Main){
-                    val showData=PetProductDatabase.getDatabase(view.context).petProductDao().getProduct()
-                    tv.setText(showData.toString())
-//                    if(networkinfo != null && networkinfo.isConnected ==true){
-////                        if has internet sets the textview with api response data
-//                        tv.setText(data.toString())
+                //        calling cuntion to show products
 
-//                    }
-                }
+                withContext(Main){
+                    getProducts()
+//                    tv.setText(showData.toString())
+////                    if(networkinfo != null && networkinfo.isConnected ==true){
+//////                        if has internet sets the textview with api response data
+////                        tv.setText(data.toString())
+                 }
+//
             }
             catch (ex:Exception){
 ////                if no internet gets the response data from api and inserts it to room db and shows in tv
@@ -100,6 +113,28 @@ class PetItemFragment : Fragment() {
                 productPrice = i.productPrice!!
             )
             PetProductDatabase.getDatabase(requireContext()!!).petProductDao().insertProduct(insertData)
+        }
+    }
+//    function to get products
+    private fun getProducts(){
+        CoroutineScope(Dispatchers.IO).launch {
+            val showData=PetProductDatabase.getDatabase(requireContext()).petProductDao().getProduct()
+            if(showData == null){
+                Toast.makeText(requireContext(),"No products yet",Toast.LENGTH_SHORT).show()
+            }else{
+                for(product in showData){
+                    ProductList.add(
+                        PetProductEntity(
+                            product.id,
+                            product.productName,
+                            product.productDescription,
+                            product.productPrice
+
+                        )
+                    )
+                }
+            }
+
         }
     }
 }

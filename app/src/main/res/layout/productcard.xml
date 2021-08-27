@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        android:layout_margin="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--        product image-->
+            <ImageView
+                android:id="@+id/imgproduct"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/pet"
+                android:layout_margin="20dp"
+                />
+            <!--        productname-->
+            <TextView
+                android:id="@+id/tvproductname"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_below="@+id/imgproduct"
+                android:layout_margin="10dp"
+                />
+            <!--        product price-->
+            <TextView
+                android:id="@+id/tvproductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_below="@+id/tvproductname"
+                android:layout_margin="10dp"
+                />
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
