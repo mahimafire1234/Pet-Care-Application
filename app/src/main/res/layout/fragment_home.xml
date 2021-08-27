@@ -15,12 +15,20 @@
             android:id="@+id/tvpet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-<!--    recycler view-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_marginTop="100dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-127dp"
+        >
+        <!--    recycler view-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+
         <!--    floating action button-->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -9,7 +9,7 @@
     android:layout_marginTop="150dp"
     >
     <ScrollView
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="160dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"

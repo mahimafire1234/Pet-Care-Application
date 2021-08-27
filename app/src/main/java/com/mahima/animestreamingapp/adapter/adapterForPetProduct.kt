@@ -16,9 +16,7 @@ class adapterForPetProduct (
 //        vairables
         val tvproductname : TextView = view.findViewById(R.id.tvproductname)
         val tvproductprice : TextView =view.findViewById(R.id.tvproductPrice)
-
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.productcard,parent,false)
         return ProductViewHolder(view)
@@ -27,7 +25,7 @@ class adapterForPetProduct (
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
         holder.tvproductname.text = product.productName
-        holder.tvproductprice.text = product.productPrice.toString()
+        holder.tvproductprice.text = "Rs" + " " + product.productPrice.toString()
     }
 
     override fun getItemCount(): Int {

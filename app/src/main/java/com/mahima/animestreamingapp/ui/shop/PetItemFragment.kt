@@ -44,7 +44,6 @@ class PetItemFragment : Fragment() {
         private lateinit var repository: PetProductRespository
         private lateinit var response:petresponse
         val ProductList: ArrayList<PetProductEntity> = ArrayList<PetProductEntity>()
-        var alreadyExecuted = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,17 +60,6 @@ class PetItemFragment : Fragment() {
 
         //adapter for recyclerview
         val adapter = adapterForPetProduct(ProductList)
-        recyclerview.layoutManager=GridLayoutManager(requireContext(),2)
-        recyclerview.adapter=adapter
-        ProductList.clear()
-
-
-
-//        check if has internet
-
-        val ConnectionManager = view.context.getSystemService(Service.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkinfo = ConnectionManager.activeNetworkInfo
-
         CoroutineScope(Dispatchers.IO).launch {
             try {
 //                gets data from repository
@@ -80,23 +68,16 @@ class PetItemFragment : Fragment() {
                 data = response.data!!
 //                inserts data into room database
                 insertRb()
-                //        calling cuntion to show products
-
                 withContext(Main){
+                    recyclerview.layoutManager=GridLayoutManager(requireContext(),2)
+                    recyclerview.adapter=adapter
+                    ProductList.clear()
                     getProducts()
-//                    tv.setText(showData.toString())
-////                    if(networkinfo != null && networkinfo.isConnected ==true){
-//////                        if has internet sets the textview with api response data
-////                        tv.setText(data.toString())
-                 }
-//
+                }
+                //        calling cuntion to show products
             }
             catch (ex:Exception){
-////                if no internet gets the response data from api and inserts it to room db and shows in tv
-//                    insertRb()
                 withContext(Main){
-//                    tv.setText(showData.toString())
-//                    Toast.makeText(view.context,"room db",Toast.LENGTH_LONG).show()
                 Toast.makeText(requireContext(),ex.toString(),Toast.LENGTH_SHORT).show()
 
                 }
