@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -194,7 +193,6 @@
 
 </GridLayout>
 </ScrollView>
-=======
 <FrameLayout
     android:id="@+id/linearContainer"
     android:layout_width="fill_parent"
@@ -388,4 +386,3 @@
     </GridLayout>
 
 </FrameLayout>
->>>>>>> Dashboard
