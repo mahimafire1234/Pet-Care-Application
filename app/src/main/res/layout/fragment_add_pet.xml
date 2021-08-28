@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    scrollview-->
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="#ffffff"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-127dp"
+    >
+        <!--linear layout-->
+        <LinearLayout
+            android:background="@drawable/border"
+            android:layout_margin="20dp"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--            textview-->
+            <TextView
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add your pet details"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+
+            <EditText
+                android:id="@+id/etpetname"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="#dfe7fd"
+                android:layout_margin="15dp"
+                android:hint="Pet Name"
+                android:padding="10dp"
+                />
+            <!--            pet type spinner-->
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="#dfe7fd"
+                android:layout_height="50dp"/>
+            <!--            pet age-->
+
+            <EditText
+                android:id="@+id/etpetage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="#dfe7fd"
+                android:layout_margin="15dp"
+                android:hint="Pet Age"
+                android:padding="10dp"
+                />
+            <!--            pet gender-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="#dfe7fd"
+                >
+                <RadioButton
+                    android:id="@+id/rbtnmale"
+                    android:text="Male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    />
+
+                <RadioButton
+                    android:id="@+id/rbtnfemale"
+                    android:text="Female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    />
+            </RadioGroup>
+            <!--            add button-->
+            <Button
+                android:id="@+id/addpet"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Add Pet"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/loginbtnround"
+                app:backgroundTint="#90e0ef"
+                />
+        </LinearLayout>
+
+</ScrollView>
+

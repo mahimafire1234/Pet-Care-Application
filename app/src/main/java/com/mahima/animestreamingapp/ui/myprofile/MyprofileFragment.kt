@@ -15,7 +15,11 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.databinding.MyprofileFragmentBinding
+<<<<<<< HEAD
 import com.mahima.animestreamingapp.ui.AboutUsFragment
+=======
+import com.mahima.animestreamingapp.ui.AboutusFragment
+>>>>>>> Dashboard
 import com.mahima.animestreamingapp.ui.myprofile.MyprofileViewModel
 
 class MyprofileFragment : Fragment() {
@@ -41,20 +45,32 @@ class MyprofileFragment : Fragment() {
 //        cardview
         aboutus = root.findViewById(R.id.aboutus)
         aboutus.setOnClickListener {
+<<<<<<< HEAD
             Toast.makeText(root.context,"Clicked on about us",Toast.LENGTH_LONG).show()
 //            to open another fragment
             supportFragmentManager.begin
         }
 
 
+=======
+            Toast.makeText(root.context, "Clicked on about us", Toast.LENGTH_LONG).show()
+//            opens fragment
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+
+                replace(R.id.linearContainer,AboutusFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+>>>>>>> Dashboard
 
         return root
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
+
 
 
