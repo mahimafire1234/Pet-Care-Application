@@ -19,7 +19,9 @@ import com.mahima.animestreamingapp.databinding.FragmentHomeBinding
 import com.mahima.animestreamingapp.entity.PetEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
 
@@ -79,7 +81,10 @@ class HomeFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             val pet = PetProductDatabase.getDatabase(requireContext()).petDao().getPet()
             if (pet.isEmpty()){
-                tvpettext.setText("No pets to show. Add one")
+                withContext(Main){
+                    tvpettext.setText("No pets to show. Add one")
+
+                }
             }else{
                 tvpettext.setText("")
                 for(i in pet){
@@ -92,7 +97,6 @@ class HomeFragment : Fragment() {
                         )
                     )
                 }
-
             }
         }
     }

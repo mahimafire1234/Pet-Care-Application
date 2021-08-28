@@ -7,8 +7,10 @@
         <entry key="app/src/main/res/drawable/circularbtn.xml" value="0.1841880341880342" />
         <entry key="app/src/main/res/drawable/loginbtnround.xml" value="0.12991452991452992" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_detail_page.xml" value="0.23076923076923078" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.17922077922077922" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.14487179487179488" />
+        <entry key="app/src/main/res/layout/activity_product_detail.xml" value="0.23076923076923078" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1673203662780635" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.24912280701754386" />
@@ -19,6 +21,8 @@
         <entry key="app/src/main/res/layout/fragment_mypet.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/fragment_pet_care_taker.xml" value="0.144017094017094" />
         <entry key="app/src/main/res/layout/fragment_pet_item.xml" value="0.144017094017094" />
+        <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.18803418803418803" />
+        <entry key="app/src/main/res/layout/fragment_product_detail2.xml" value="0.23076923076923078" />
         <entry key="app/src/main/res/layout/fragment_shop.xml" value="0.23924050632911392" />
         <entry key="app/src/main/res/layout/myprofile_fragment.xml" value="0.165" />
         <entry key="app/src/main/res/layout/pet_item_layout.xml" value="0.24145299145299146" />
