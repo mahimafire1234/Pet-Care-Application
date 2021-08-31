@@ -34,7 +34,7 @@ class adapterForPetProduct (
         val product = productList[position]
         holder.tvproductname.text = product.productName
         holder.tvproductprice.text = "Rs" + " " + product.productPrice.toString()
-        holder.imgproduct.setImageResource(R.drawable.food)
+
 
 //        view click listener
         holder.itemView.setOnClickListener {

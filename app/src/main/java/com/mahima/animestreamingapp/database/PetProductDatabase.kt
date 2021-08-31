@@ -11,7 +11,7 @@ import com.mahima.animestreamingapp.entity.PetProductEntity
 
 @Database(
     entities = (arrayOf(PetProductEntity::class,PetEntity::class)),
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class PetProductDatabase: RoomDatabase() {

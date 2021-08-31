@@ -2,6 +2,7 @@ package com.mahima.animestreamingapp.entity
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.ImageView
 import androidx.room.ColumnInfo
 import androidx.room.Dao
 import androidx.room.Entity
@@ -21,13 +22,22 @@ data class PetProductEntity(
     var productDescription : String,
 
     @SerializedName("productPrice")
-    var productPrice: Int
+    var productPrice: Int,
+
+    @SerializedName("productCategory")
+    var productCategory: String,
+
+    @SerializedName("productImage")
+    var productImage: String
+
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readInt()
+        parcel.readInt(),
+        parcel.readString()!!,
+        parcel.readString()!!
     ) {
     }
 
@@ -36,6 +46,8 @@ data class PetProductEntity(
         parcel.writeString(productName)
         parcel.writeString(productDescription)
         parcel.writeInt(productPrice)
+        parcel.writeString(productCategory)
+        parcel.writeString(productImage)
     }
 
     override fun describeContents(): Int {

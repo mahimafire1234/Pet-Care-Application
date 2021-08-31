@@ -19,6 +19,9 @@
         android:theme="@style/Theme.AnimeStreamingApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.shop.PetCareTakerDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.shop.ProductDetailActivity"
             android:exported="true" />
         <activity

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.shop.ProductDetailActivity"
+    tools:context=".ui.shop.PetCareTakerDetailActivity"
     android:orientation="vertical"
     android:layout_margin="5dp"
     android:background="@drawable/border"
@@ -25,37 +25,51 @@
                 android:layout_height="300dp"
                 android:id="@+id/imgviewproductimg"
                 />
-            <!--    product name-->
+            <!--    petcaretaker fullname-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvproduct_name"
-                android:textSize="15dp"
+                android:id="@+id/tvfull_name"
+                android:textSize="20dp"
                 android:textColor="@color/black"
                 />
 
-            <!--    product price-->
+            <!--    age-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvproduct_price"
+                android:id="@+id/tvage"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvphonenum"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvhireprice"
                 android:textSize="24dp"
                 android:textColor="#0019FF"
                 />
-
             <!--    product description-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textColor="@color/black"
-                android:text="Description:"
+                android:text="Bio:"
                 />
             <TextView
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvproductdescription"
+                android:id="@+id/tvBio"
                 android:textSize="15dp"
                 android:textColor="@color/black"
                 />
@@ -88,7 +102,7 @@
 
         </LinearLayout>
     </ScrollView>
-<!--    product image-->
+    <!--    product image-->
 
 
 </LinearLayout>

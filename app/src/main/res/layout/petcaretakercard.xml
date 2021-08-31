@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +34,7 @@
                 >
                 <!--        productname-->
                 <TextView
-                    android:id="@+id/tvproductname"
+                    android:id="@+id/tvfullname"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:textSize="13dp"
@@ -46,7 +45,7 @@
                     />
                 <!--        product price-->
                 <TextView
-                    android:id="@+id/tvproductPrice"
+                    android:id="@+id/tvhirerate"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:textSize="17dp"

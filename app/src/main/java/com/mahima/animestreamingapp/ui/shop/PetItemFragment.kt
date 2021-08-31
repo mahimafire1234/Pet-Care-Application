@@ -60,6 +60,7 @@ class PetItemFragment : Fragment() {
 
         //adapter for recyclerview
         val adapter = adapterForPetProduct(requireContext(),ProductList)
+//        
         CoroutineScope(Dispatchers.IO).launch {
             try {
 //                gets data from repository
@@ -79,7 +80,6 @@ class PetItemFragment : Fragment() {
             catch (ex:Exception){
                 withContext(Main){
                 Toast.makeText(requireContext(),ex.toString(),Toast.LENGTH_SHORT).show()
-
                 }
             }
         }
@@ -88,12 +88,14 @@ class PetItemFragment : Fragment() {
 //    function to insert data in room database
     private fun insertRb(){
         for(i in data){
-            var insertData = PetProductEntity(
+            val insertData = PetProductEntity(
                 productName = i.productName!!,
                 productDescription = i.productDescription!!,
-                productPrice = i.productPrice!!
+                productPrice = i.productPrice!!,
+                productCategory = i.productCategory!!,
+                productImage = i.productImage!!
             )
-            PetProductDatabase.getDatabase(requireContext()!!).petProductDao().insertProduct(insertData)
+            PetProductDatabase.getDatabase(requireContext()).petProductDao().insertProduct(insertData)
         }
     }
 //    function to get products
@@ -109,7 +111,9 @@ class PetItemFragment : Fragment() {
                             product.id,
                             product.productName,
                             product.productDescription,
-                            product.productPrice
+                            product.productPrice,
+                            product.productCategory,
+                            product.productImage
 
                         )
                     )

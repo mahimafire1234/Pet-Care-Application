@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.entity.PetProductEntity
 
@@ -29,7 +30,10 @@ class ProductDetailActivity : AppCompatActivity() {
 //        get intent
         val getintent = intent.getParcelableExtra<PetProductEntity>("productDetail")
         if(getintent != null){
-            imgviewproductimg.setImageResource(R.drawable.food)
+            Glide.with(this)
+                .load("http://localhost:80/"+ getintent.productImage)
+                .into(imgviewproductimg)
+
             tvproductname.setText(getintent.productName)
             tvproductprice.setText("Rs "+ "" + getintent.productPrice.toString())
             tvproductdescription.setText(getintent.productDescription)
