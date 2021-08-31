@@ -55,6 +55,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <receiver android:name=".classes.AlarmManager"></receiver>
     </application>
 
 </manifest>

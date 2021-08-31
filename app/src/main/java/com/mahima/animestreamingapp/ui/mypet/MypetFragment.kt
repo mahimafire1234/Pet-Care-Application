@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,6 +16,7 @@ class MypetFragment : Fragment() {
 
     private lateinit var notificationsViewModel: MypetViewModel
     private var _binding: FragmentMypetBinding? = null
+    private lateinit var walkcontainer: LinearLayout
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -31,10 +33,17 @@ class MypetFragment : Fragment() {
         _binding = FragmentMypetBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+//        binding
+        walkcontainer = root.findViewById(R.id.walkcontainer)
+//        set on click listener
+        walkcontainer.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+                replace(R.id.containermypet,WalkreminderFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
         return root
     }
 
