@@ -5,13 +5,11 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
-import android.content.Context.ALARM_SERVICE
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -20,17 +18,16 @@ import android.widget.Toast
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.mahima.animestreamingapp.R
-import java.sql.Time
 import java.util.*
 
-class WalkreminderFragment : Fragment() {
-//    variable declaration
+class BathReminderFragment : Fragment() {
+    //    variable declaration
     private lateinit var tvtime : TextView
     private lateinit var btnselecttime : Button
     private lateinit var btndone : Button
     private lateinit var picker: MaterialTimePicker
     private lateinit var alarmManager: AlarmManager
-    private lateinit var calendar:Calendar
+    private lateinit var calendar: Calendar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -40,8 +37,8 @@ class WalkreminderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_walkreminder, container, false)
-//        initializing variables
+        val view= inflater.inflate(R.layout.fragment_bath_reminder, container, false)
+
         tvtime = view.findViewById(R.id.tvtime)
 
         btnselecttime = view.findViewById(R.id.btnselecttime)
@@ -55,11 +52,10 @@ class WalkreminderFragment : Fragment() {
 
         return view
     }
-
-//    set the time
+    //    set the time
     private fun done() {
-        alarmManager= requireActivity().getSystemService(ALARM_SERVICE) as AlarmManager
-        val intent = Intent(requireContext(),com.mahima.animestreamingapp.classes.AlarmManager::class.java)
+        alarmManager= requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(requireContext(),com.mahima.animestreamingapp.classes.AlarmManagerForBath::class.java)
         var pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, 0)
 
         alarmManager.setRepeating(
@@ -67,9 +63,9 @@ class WalkreminderFragment : Fragment() {
             AlarmManager.INTERVAL_DAY,pendingIntent
         )
 
-    Toast.makeText(requireContext(),"Reminder added successfully", Toast.LENGTH_SHORT).show()
-}
-//function for time picker
+        Toast.makeText(requireContext(),"Reminder for bathtime added successfully", Toast.LENGTH_SHORT).show()
+    }
+    //function for time picker
     private fun selectTime() {
 
         picker = MaterialTimePicker.Builder()
@@ -79,7 +75,7 @@ class WalkreminderFragment : Fragment() {
             .setTitleText("Select reminder time")
             .build()
 
-        picker.show(requireActivity().supportFragmentManager,"forpetwalk")
+        picker.show(requireActivity().supportFragmentManager,"forpetbath")
 
         picker.addOnPositiveButtonClickListener {
             if(picker.hour > 12){
@@ -87,7 +83,7 @@ class WalkreminderFragment : Fragment() {
                     String.format("%02d",picker.hour - 12) + " : " +
                             String.format("%02d",picker.minute) + " PM"
             }else{
-                tvtime.text=
+                tvtime.text =
                 String.format("%02d",picker.hour) + " : " +
                         String.format("%02d",picker.minute) + " AM"
 
@@ -103,11 +99,13 @@ class WalkreminderFragment : Fragment() {
 
     //    function to create notification channel
     private fun createNotificationChannel(){
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val name : CharSequence= "forremindertowalkpet"
-            val description= "Channel_1"
+
+            val name : CharSequence= "forpetbathreminder"
+            val description= "Channel_2"
             val importance = NotificationManager.IMPORTANCE_HIGH
-            val channel = NotificationChannel("forpetwalk",name,importance)
+            val channel = NotificationChannel("forpetbath",name,importance)
             channel.description= description
 
             val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -115,5 +113,6 @@ class WalkreminderFragment : Fragment() {
 
         }
     }
+
 
 }

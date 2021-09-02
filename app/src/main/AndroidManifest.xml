@@ -56,6 +56,7 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <receiver android:name=".classes.AlarmManager"></receiver>
+        <receiver android:name=".classes.AlarmManagerForBath"></receiver>
     </application>
 
 </manifest>

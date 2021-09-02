@@ -66,6 +66,34 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/fontforproduct"
                 />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <ImageView
+                    android:id="@+id/updatebtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/edit"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    />
+                <ImageView
+                    android:id="@+id/deletebtn"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@+id/updatebtn"
+                    android:src="@drawable/delete"
+                    />
+            </LinearLayout>
+
         </RelativeLayout>
 
 

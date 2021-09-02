@@ -17,6 +17,7 @@ class MypetFragment : Fragment() {
     private lateinit var notificationsViewModel: MypetViewModel
     private var _binding: FragmentMypetBinding? = null
     private lateinit var walkcontainer: LinearLayout
+    private lateinit var bathcontainer : LinearLayout
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,10 +36,20 @@ class MypetFragment : Fragment() {
 
 //        binding
         walkcontainer = root.findViewById(R.id.walkcontainer)
+        bathcontainer = root.findViewById(R.id.bathcontainer)
 //        set on click listener
         walkcontainer.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().apply {
                 replace(R.id.containermypet,WalkreminderFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+//        for bath
+        bathcontainer.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+                replace(R.id.containermypet,BathReminderFragment())
                     .addToBackStack(null)
                     .commit()
             }

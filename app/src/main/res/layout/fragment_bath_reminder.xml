@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mypet.BathReminderFragment"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/walkcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:background="#E8F8F8"
+            android:padding="10dp"
+            >
+            <!--            walk-->
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="5dp"
+                android:src="@drawable/bath"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bath"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+        <!--textview-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Schedule Bath for your pet"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="5dp"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:gravity="center"
+            >
+            <!--    time-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time:"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                />
+            <TextView
+                android:id="@+id/tvtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:47 PM"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:layout_marginTop="10dp"
+                />
+            <!--    select time button-->
+            <Button
+                android:id="@+id/btnselecttime"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Select Time"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/roundcorners"
+                app:backgroundTint="#8FADFF"
+                />
+            <Button
+                android:id="@+id/btndone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Done"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/roundcorners"
+                android:layout_marginBottom="10dp"
+                app:backgroundTint="#A7FF8F"
+                />
+            <!--    -->
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+
+</LinearLayout>

@@ -21,7 +21,7 @@ class AlarmManager : BroadcastReceiver() {
 
 //        notification builder
         val builder = NotificationCompat.Builder(context!!,"forpetwalk")
-            .setSmallIcon(R.drawable.logo)
+            .setSmallIcon(R.drawable.run)
             .setContentTitle("Jojo")
             .setContentText("Time to go for a walk!!!")
             .setAutoCancel(true)
@@ -30,7 +30,8 @@ class AlarmManager : BroadcastReceiver() {
             .setContentIntent(pendingIntent)
             .build()
 
-        val notificationManager= NotificationManagerCompat.from(context)
-        notificationManager.notify(1,builder)
+
+        val notificationManager1 = NotificationManagerCompat.from(context)
+        notificationManager1.notify(1,builder)
     }
 }
