@@ -1,2 +1,3 @@
 rootProject.name = "AnimeStreamingApp"
 include ':app'
+include ':petcarewear'

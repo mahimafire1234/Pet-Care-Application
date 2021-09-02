@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    android:background="#B497D0"
+    android:gravity="center"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    tools:deviceIds="wear">
+
+    <EditText
+        android:id="@+id/etemail"
+        android:hint="Email Address"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#F0E8F8"
+        android:textColorHint="#000000"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:textSize="10dp"
+        android:inputType="textEmailAddress"
+        />
+    <EditText
+        android:id="@+id/etpassword"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#F0E8F8"
+        android:textColorHint="#000000"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:textSize="10dp"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:id="@+id/btnlogin"
+        android:text="Log in"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:textColor="#080C0D"
+        android:layout_height="40dp"
+        android:backgroundTint="#DACFDC"
+        />
+</LinearLayout>
