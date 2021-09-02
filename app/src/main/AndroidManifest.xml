@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mahima.animestreamingapp">
+    package="com.mahima.animestreamingapp" >
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -17,7 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimeStreamingApp"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".ui.home.UpdatePetActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.shop.PetCareTakerDetailActivity"
             android:exported="true" />
@@ -47,7 +50,7 @@
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,8 +58,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <receiver android:name=".classes.AlarmManager"></receiver>
-        <receiver android:name=".classes.AlarmManagerForBath"></receiver>
+
+        <receiver android:name=".classes.AlarmManager" />
+        <receiver android:name=".classes.AlarmManagerForBath" />
     </application>
 
 </manifest>

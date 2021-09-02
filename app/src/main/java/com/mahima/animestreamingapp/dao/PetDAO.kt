@@ -1,9 +1,8 @@
 package com.mahima.animestreamingapp.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.mahima.animestreamingapp.entity.PetEntity
+import retrofit2.http.DELETE
 
 @Dao
 interface PetDAO {
@@ -13,5 +12,12 @@ interface PetDAO {
 
     @Query("Select * from PetEntity")
     suspend fun getPet() : List<PetEntity>
+
+//    delete pet
+    @Delete
+    suspend fun deletePet(petEntity: PetEntity)
+
+    @Update
+    suspend fun updatePet(petEntity: PetEntity )
 
 }

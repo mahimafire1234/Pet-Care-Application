@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
         fabaddpet=root.findViewById(R.id.fabaddpet)
         recyclerview=root.findViewById(R.id.recyclerview)
 
-        val adapter = adapterForRecyclerView(PetList)
+        val adapter = adapterForRecyclerView(PetList,requireContext())
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
         recyclerview.adapter=adapter
         PetList.clear()
@@ -89,11 +89,12 @@ class HomeFragment : Fragment() {
                 tvpettext.setText("")
                 for(i in pet){
                     PetList.add(
-                        PetEntity(i.id,
-                            i.petName,
-                            i.petAge,
-                            i.petGender,
-                            i.petType
+                        PetEntity(
+                            id= i.id,
+                            petName= i.petName,
+                            petType= i.petType,
+                            petAge= i.petAge,
+                            petGender = i.petGender
                         )
                     )
                 }
