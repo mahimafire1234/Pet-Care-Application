@@ -31,7 +31,7 @@ class ProductDetailActivity : AppCompatActivity() {
         val getintent = intent.getParcelableExtra<PetProductEntity>("productDetail")
         if(getintent != null){
             Glide.with(this)
-                .load("http://localhost:80/"+ getintent.productImage)
+                .load("http://192.168.1.80:80/"+getintent.productImage)
                 .into(imgviewproductimg)
 
             tvproductname.setText(getintent.productName)

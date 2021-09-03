@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.entity.PetProductEntity
 import com.mahima.animestreamingapp.ui.shop.ProductDetailActivity
@@ -34,6 +35,9 @@ class adapterForPetProduct (
         val product = productList[position]
         holder.tvproductname.text = product.productName
         holder.tvproductprice.text = "Rs" + " " + product.productPrice.toString()
+        Glide.with(context)
+            .load("http://192.168.1.80:80/"+product.productImage)
+            .into(holder.imgproduct)
 
 
 //        view click listener

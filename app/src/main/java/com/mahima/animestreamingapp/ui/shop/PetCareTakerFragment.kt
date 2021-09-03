@@ -114,7 +114,8 @@ class PetCareTakerFragment : Fragment() {
                             price = i.price,
                             Bio = i.Bio,
                             age = i.age,
-                            phoneNum = i.phoneNum
+                            phoneNum = i.phoneNum,
+                            photo = i.photo
                         )
                     )
                 }

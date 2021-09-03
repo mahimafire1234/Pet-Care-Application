@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.entity.PetCareTakerEntity
 import com.mahima.animestreamingapp.ui.shop.PetCareTakerDetailActivity
@@ -35,6 +36,11 @@ class adapterforPetCareTaker(
         val careTaker = petCareTakerList[position]
         holder.tvfullname.text=careTaker.fullName
         holder.tvhirerate.text= "Rs"+careTaker.price.toString() + "per week"
+        Glide.with(context)
+            .load("http://192.168.1.80:80/"+careTaker.photo)
+            .into(holder.imgproduct)
+
+
 //        holder.imgproduct.setImageResource(R.drawable.food)
 
 //        to open detail page

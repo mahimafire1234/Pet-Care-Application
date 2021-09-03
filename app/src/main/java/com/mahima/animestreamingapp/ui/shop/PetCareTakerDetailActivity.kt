@@ -37,14 +37,16 @@ class PetCareTakerDetailActivity : AppCompatActivity() {
 //        intent
         val intent= intent.getParcelableExtra<PetCareTakerEntity>("PetCareDetail")
         if(intent != null){
-            Glide.with(this)
-                .load("http://localhost:80/"+ intent.photo)
-                .into(imgviewproductimg)
+
             tvfull_name.setText(intent.fullName)
             tvage.setText("Age:"+" " + intent.age.toString())
             tvphonenum.setText("Phone number:" +" "+ intent.phoneNum.toString())
             tvBio.setText(intent.Bio)
             tvhireprice.setText("Rs" + intent.price.toString() +" "+ "per week")
+
+            Glide.with(this)
+                .load("http://192.168.1.80:80/"+intent.photo)
+                .into(imgviewproductimg)
 
         }
     }
