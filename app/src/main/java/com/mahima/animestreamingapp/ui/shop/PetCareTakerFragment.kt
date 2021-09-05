@@ -27,7 +27,7 @@ class PetCareTakerFragment : Fragment() {
 
 //    companion object of variables
     companion object{
-        private lateinit var data:MutableList<PetCareTakerModel>
+        private lateinit var data:ArrayList<PetCareTakerEntity>
         private lateinit var repository:PetCareTakerRepository
         private lateinit var response:petCareTakerresponse
         val PetCareList : ArrayList<PetCareTakerEntity> = ArrayList<PetCareTakerEntity>()
@@ -85,6 +85,7 @@ class PetCareTakerFragment : Fragment() {
     CoroutineScope(Dispatchers.IO).launch {
         for(i in data){
             var dataToInsert = PetCareTakerEntity(
+                _id=i._id,
                 fullName = i.fullName,
                 age = i.age,
                 Bio = i.Bio,
@@ -110,6 +111,7 @@ class PetCareTakerFragment : Fragment() {
                     PetCareList.add(
                         PetCareTakerEntity(
                             id = i.id,
+                            _id=i._id,
                             fullName = i.fullName,
                             price = i.price,
                             Bio = i.Bio,

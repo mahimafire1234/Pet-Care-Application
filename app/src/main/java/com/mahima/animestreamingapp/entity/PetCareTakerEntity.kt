@@ -3,14 +3,16 @@ package com.mahima.animestreamingapp.entity
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "PetCareTaker")
+@Entity(tableName = "PetCareTaker",indices = [Index(value = arrayOf("_id"), unique = true)])
 data class PetCareTakerEntity(
     @PrimaryKey(autoGenerate = true)
-    @SerializedName("_id")
     val id: Int =0,
+    @SerializedName("_id")
+    val _id:String,
     @SerializedName("photo")
     val photo : String ?= null,
     @SerializedName("fullName")
@@ -27,6 +29,7 @@ data class PetCareTakerEntity(
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
+        parcel.readString()!!,
         parcel.readString(),
         parcel.readString(),
         parcel.readValue(Int::class.java.classLoader) as? Int,
@@ -38,6 +41,7 @@ data class PetCareTakerEntity(
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
+        parcel.writeString(_id)
         parcel.writeString(photo)
         parcel.writeString(fullName)
         parcel.writeValue(age)

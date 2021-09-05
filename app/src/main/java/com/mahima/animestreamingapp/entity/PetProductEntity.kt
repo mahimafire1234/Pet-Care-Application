@@ -3,17 +3,16 @@ package com.mahima.animestreamingapp.entity
 import android.os.Parcel
 import android.os.Parcelable
 import android.widget.ImageView
-import androidx.room.ColumnInfo
-import androidx.room.Dao
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "petProduct")
+@Entity(tableName = "petProduct",indices = [Index(value = arrayOf("_id"), unique = true)])
 data class PetProductEntity(
     @PrimaryKey(autoGenerate = true)
+    var id:Int = 0,
+
     @SerializedName("_id")
-    var id : Int=0,
+    var _id : String,
 
     @SerializedName("productName")
     var productName : String,
@@ -35,6 +34,7 @@ data class PetProductEntity(
         parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
+        parcel.readString()!!,
         parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!
@@ -43,6 +43,7 @@ data class PetProductEntity(
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
+        parcel.writeString(_id)
         parcel.writeString(productName)
         parcel.writeString(productDescription)
         parcel.writeInt(productPrice)

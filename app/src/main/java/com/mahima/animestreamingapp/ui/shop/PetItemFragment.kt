@@ -39,8 +39,8 @@ import java.net.ConnectException
 class PetItemFragment : Fragment() {
 //    declaration of variables
     private lateinit var recyclerview:RecyclerView
+    private var data= ArrayList<PetProductEntity>()
     companion object{
-        private lateinit var data:MutableList<PetProductModel>
         private lateinit var repository: PetProductRespository
         private lateinit var response:petresponse
         val ProductList: ArrayList<PetProductEntity> = ArrayList<PetProductEntity>()
@@ -89,6 +89,7 @@ class PetItemFragment : Fragment() {
     private fun insertRb(){
         for(i in data){
             val insertData = PetProductEntity(
+                _id=i._id,
                 productName = i.productName!!,
                 productDescription = i.productDescription!!,
                 productPrice = i.productPrice!!,
@@ -109,6 +110,7 @@ class PetItemFragment : Fragment() {
                     ProductList.add(
                         PetProductEntity(
                             product.id,
+                            product._id,
                             product.productName,
                             product.productDescription,
                             product.productPrice,
