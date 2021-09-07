@@ -66,6 +66,12 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 >
+                <EditText
+                    android:id="@+id/etquantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Quantity"
+                    />
                 <!--    add to cart button-->
                 <Button
                     android:id="@+id/btnaddtocart"

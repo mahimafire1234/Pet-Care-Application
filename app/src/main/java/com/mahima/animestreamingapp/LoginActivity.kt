@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
             val response =repository.userLogin(email, password)
             if(response.success == true){
                 ServiceBuilder.token = "Bearer ${response.token}"
+                ServiceBuilder.userId = response.userId
                 withContext(Dispatchers.Main){
                     Toast.makeText(
                         this@LoginActivity,

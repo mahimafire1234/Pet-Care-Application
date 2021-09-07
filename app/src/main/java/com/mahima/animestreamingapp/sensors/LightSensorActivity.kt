@@ -1,4 +1,4 @@
-package com.mahima.animestreamingapp
+package com.mahima.animestreamingapp.sensors
 
 import android.content.Intent
 import android.hardware.Sensor
@@ -7,21 +7,15 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.net.Uri
 import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.mahima.animestreamingapp.databinding.ActivityDashboardBinding
+import com.mahima.animestreamingapp.R
 
-class DashboardActivity : AppCompatActivity(), SensorEventListener {
-
-    private lateinit var binding: ActivityDashboardBinding
+class LightSensorActivity : AppCompatActivity(), SensorEventListener {
+//    declaring variables
     private lateinit var sensorManager : SensorManager
-    private var sensor : Sensor?= null
+    private var sensor : Sensor ?= null
     private var success : Boolean = true
     private var permission : Boolean = true
     private var brightnessValue : Int =0
@@ -29,24 +23,10 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_light_sensor)
 
-        binding = ActivityDashboardBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_dashboard)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_shop, R.id.navigation_pet,R.id.navigation_profile,R.id.aboutus
-            )
-        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-
-        //        initializing sensormanager
+//        initializing sensormanager
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
 //        if sensor does not exist
@@ -57,8 +37,9 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
 
         }
+
     }
-    //    function to check if light sensor is present or not
+//    function to check if light sensor is present or not
     private fun CheckSensor() : Boolean{
         var present =true
 

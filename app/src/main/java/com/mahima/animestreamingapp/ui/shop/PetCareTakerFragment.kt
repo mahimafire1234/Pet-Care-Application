@@ -46,6 +46,7 @@ class PetCareTakerFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_pet_care_taker, container, false)
 //        recyclerview
         recyclerview=view.findViewById(R.id.recyclerview)
+        
         val adapter = adapterforPetCareTaker(requireContext(), PetCareList)
 
 
@@ -59,8 +60,7 @@ class PetCareTakerFragment : Fragment() {
 //                function call for insertion
                 insertInRoomDb()
 //                show recyclerview
-                withContext(Main){
-
+                withContext(Dispatchers.Main){
                     recyclerview.layoutManager= GridLayoutManager(requireContext(),2)
                     recyclerview.adapter=adapter
                     PetCareList.clear()

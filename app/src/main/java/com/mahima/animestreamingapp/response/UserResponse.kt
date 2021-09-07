@@ -3,6 +3,7 @@ package com.mahima.animestreamingapp.response
 data class UserResponse (
      val success : Boolean?= null,
      val token: String?= null,
-     val message :String?=null
+     val message :String?=null,
+     val userId : String?=null
 
 )

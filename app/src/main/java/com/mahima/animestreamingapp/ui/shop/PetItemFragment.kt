@@ -69,7 +69,7 @@ class PetItemFragment : Fragment() {
                 data = response.data!!
 //                inserts data into room database
                 insertRb()
-                withContext(Main){
+                withContext(Dispatchers.Main){
                     recyclerview.layoutManager=GridLayoutManager(requireContext(),2)
                     recyclerview.adapter=adapter
                     ProductList.clear()
