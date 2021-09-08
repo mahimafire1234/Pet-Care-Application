@@ -12,9 +12,9 @@ class ShoppingCartRepository:MyApiRequest() {
     private val shoppingCartApi = ServiceBuilder.buildService(ShoppingCartApi::class.java)
 
 //    function to add items to cart
-    suspend fun showProducts(shoppingCartEntity: ShoppingCartEntity): ShoppingCartResponse {
+    suspend fun addProducts(userId:String,productId:String,quantity:Int): ShoppingCartResponse {
         return apiRequest {
-            shoppingCartApi.addToCart(shoppingCartEntity)
+            shoppingCartApi.addToCart(userId,productId,quantity)
         }
     }
 }

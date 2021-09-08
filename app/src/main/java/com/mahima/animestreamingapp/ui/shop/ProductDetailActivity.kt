@@ -9,6 +9,15 @@ import com.bumptech.glide.Glide
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.entity.PetProductEntity
+import com.mahima.animestreamingapp.entity.Product
+import com.mahima.animestreamingapp.entity.ShoppingCartEntity
+import com.mahima.animestreamingapp.repository.ShoppingCartRepository
+import com.mahima.animestreamingapp.repository.UserRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class ProductDetailActivity : AppCompatActivity() {
 //    decalring variables
@@ -31,8 +40,6 @@ class ProductDetailActivity : AppCompatActivity() {
         btnaddtocart=findViewById(R.id.btnaddtocart)
         etquantity=findViewById(R.id.etquantity)
 
-//        get the quantity
-//        var quantity = etquantity.text.toString().toInt()
 
 //        get intent
         val getintent = intent.getParcelableExtra<PetProductEntity>("productDetail")
@@ -47,7 +54,50 @@ class ProductDetailActivity : AppCompatActivity() {
 
 //        click on add to cart
         btnaddtocart.setOnClickListener {
-            Toast.makeText(this,ServiceBuilder.userId.toString(),Toast.LENGTH_SHORT).show()
+            //        get the quantity
+
+            var quantity = etquantity.text.toString().toInt()
+//            check if quantity is empty
+            if(etquantity.equals("")){
+                etquantity.error = "Type a quantity"
+                etquantity.requestFocus()
+            }
+            val shoppingCart = ShoppingCartEntity(
+                userId = ServiceBuilder.userId,
+                product = listOf(Product(
+                    productId = getintent!!._id,
+                    quantity= quantity.toInt()
+                ))
+            )
+//            coroutines
+            CoroutineScope(Dispatchers.IO).launch {
+                try{
+                    val repository = ShoppingCartRepository()
+                    val response =repository.addProducts(
+                        userId = ServiceBuilder.userId!!,
+                        productId = getintent._id,
+                        quantity = quantity
+
+                    )
+                    if(response.success == true){
+                        withContext(Dispatchers.Main){
+                            Toast.makeText(
+                                this@ProductDetailActivity,
+                                "Added to cart",
+                                Toast.LENGTH_SHORT).show()
+                        }
+                        print(shoppingCart)
+                    }
+
+                }catch (ex: Exception){
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@ProductDetailActivity, ex.toString(), Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+
+//            Toast.makeText(this,ServiceBuilder.userId.toString(),Toast.LENGTH_SHORT).show()
         }
 
 
