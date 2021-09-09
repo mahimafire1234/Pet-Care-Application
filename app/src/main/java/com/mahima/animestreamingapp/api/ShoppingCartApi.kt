@@ -1,6 +1,7 @@
 package com.mahima.animestreamingapp.api
 
 import com.mahima.animestreamingapp.entity.ShoppingCartEntity
+import com.mahima.animestreamingapp.response.ShoppingCartDeleteResponse
 import com.mahima.animestreamingapp.response.ShoppingCartResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -22,4 +23,11 @@ interface ShoppingCartApi {
     suspend fun showCart(
         @Path("id") id: String
     ): Response<ShoppingCartResponse>
+
+//    api to delete cart item
+    @DELETE("/deleteitem/{id}/{itemid}")
+    suspend fun deleteCart(
+        @Path("id") id :String,
+        @Path("itemid") itemid :String
+    ):Response<ShoppingCartDeleteResponse>
 }

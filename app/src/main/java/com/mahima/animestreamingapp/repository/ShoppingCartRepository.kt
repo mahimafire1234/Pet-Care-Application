@@ -4,6 +4,7 @@ import com.mahima.animestreamingapp.api.MyApiRequest
 import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.api.ShoppingCartApi
 import com.mahima.animestreamingapp.entity.ShoppingCartEntity
+import com.mahima.animestreamingapp.response.ShoppingCartDeleteResponse
 import com.mahima.animestreamingapp.response.ShoppingCartResponse
 import com.mahima.animestreamingapp.response.petresponse
 
@@ -21,6 +22,13 @@ class ShoppingCartRepository:MyApiRequest() {
     suspend fun getProduct(id: String) : ShoppingCartResponse{
         return apiRequest {
             shoppingCartApi.showCart(id)
+        }
+    }
+
+//    function to delete item from cart
+    suspend fun deleteItem(id:String,itemid:String) : ShoppingCartDeleteResponse{
+        return apiRequest {
+            shoppingCartApi.deleteCart(id,itemid)
         }
     }
 }

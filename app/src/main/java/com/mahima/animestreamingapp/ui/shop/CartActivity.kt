@@ -23,7 +23,9 @@ class CartActivity : AppCompatActivity() {
 
     private var data: ShoppingCartEntity ?= null
     private var productList : List<Product> ?= null
-    private var productListForRecyclerView:ArrayList<Product> = ArrayList<Product>()
+    companion object{
+        var productListForRecyclerView:ArrayList<Product> = ArrayList<Product>()
+    }
     private lateinit var tvbillcart : TextView
 
 //    recycler view
