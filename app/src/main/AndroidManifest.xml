@@ -9,7 +9,10 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- permission for internet use -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- change settings -->
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimeStreamingApp"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.shop.CartActivity"
+            android:exported="true" />
         <activity
             android:name=".sensors.LightSensorActivity"
             android:exported="true" />
@@ -66,10 +72,5 @@
         <receiver android:name=".classes.AlarmManager" />
         <receiver android:name=".classes.AlarmManagerForBath" />
     </application>
-
-<!--    change settings-->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" />
-
 
 </manifest>

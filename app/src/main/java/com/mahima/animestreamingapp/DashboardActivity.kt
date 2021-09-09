@@ -9,6 +9,9 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -16,6 +19,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.mahima.animestreamingapp.databinding.ActivityDashboardBinding
+import com.mahima.animestreamingapp.ui.shop.CartActivity
 
 class DashboardActivity : AppCompatActivity(), SensorEventListener {
 
@@ -25,6 +29,9 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
     private var success : Boolean = true
     private var permission : Boolean = true
     private var brightnessValue : Int =0
+
+//    cart btn
+    private lateinit var btnforcart : ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +56,9 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         //        initializing sensormanager
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
+//        cart
+        btnforcart = findViewById(R.id.btnforcart)
+
 //        if sensor does not exist
         if(!CheckSensor()){
             return
@@ -56,6 +66,12 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
             sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
 
+        }
+
+//        onclick for cart
+        btnforcart.setOnClickListener {
+            showCartActivty()
+            Toast.makeText(this,"Clicked on cart",Toast.LENGTH_SHORT).show()
         }
     }
     //    function to check if light sensor is present or not
@@ -115,6 +131,13 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS,brightnessValue)
 
 
+    }
+
+//    show cart btn
+    private fun showCartActivty(){
+        startActivity(
+            Intent(this,CartActivity::class.java)
+        )
     }
 
 }

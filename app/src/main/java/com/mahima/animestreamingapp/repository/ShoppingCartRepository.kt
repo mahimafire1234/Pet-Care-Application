@@ -17,4 +17,10 @@ class ShoppingCartRepository:MyApiRequest() {
             shoppingCartApi.addToCart(userId,productId,quantity)
         }
     }
+//    function to get cart items
+    suspend fun getProduct(id: String) : ShoppingCartResponse{
+        return apiRequest {
+            shoppingCartApi.showCart(id)
+        }
+    }
 }
