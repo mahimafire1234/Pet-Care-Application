@@ -17,4 +17,11 @@ class OrderRespository : MyApiRequest() {
         }
     }
 
+//    function to show order
+    suspend fun showOrder(id:String) :OrderResponse{
+        return apiRequest {
+            orderCartApi.showOrder(id)
+        }
+    }
+
 }

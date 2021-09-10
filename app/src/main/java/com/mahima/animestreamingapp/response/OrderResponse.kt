@@ -4,5 +4,5 @@ import com.mahima.animestreamingapp.entity.OrderEntity
 
 data class OrderResponse(
     val success : Boolean ?= null,
-    val order : OrderEntity ?= null
+    val order : ArrayList<OrderEntity> ?= null
 )
