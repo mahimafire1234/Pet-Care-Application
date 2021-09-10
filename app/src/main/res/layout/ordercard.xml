@@ -9,58 +9,64 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imgproductcart"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-                />
-
-            <!--        product Image-->
+            android:layout_height="match_parent"
+            android:background="#D0F8F8"
+            android:orientation="vertical"
+            >
             <TextView
-                android:id="@+id/tvproductnamecart"
+                android:id="@+id/tvproductnameorder"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:textColor="@color/black"
                 android:textSize="13dp"
                 android:fontFamily="@font/fontforproduct"
-                android:layout_toRightOf="@+id/imgproductcart"
                 android:layout_marginLeft="5dp"
                 />
             <!--        product Name-->
             <!--        product quantity-->
             <TextView
-                android:id="@+id/tvproductqtycart"
+                android:id="@+id/tvproductqtyorder"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:textColor="@color/black"
                 android:textSize="13dp"
                 android:fontFamily="@font/fontforproduct"
                 android:layout_below="@+id/tvproductnamecart"
-                android:layout_toRightOf="@+id/imgproductcart"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 />
-            <ImageView
-                android:layout_alignParentEnd="true"
-                android:id="@+id/btndeleteforcart"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@drawable/delete"
-                android:layout_margin="10dp"
+            <TextView
+                android:id="@+id/tvorderdate"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:fontFamily="@font/fontforproduct"
+                android:layout_below="@+id/tvproductnamecart"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:id="@+id/tvdeliveryaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:fontFamily="@font/fontforproduct"
+                android:layout_below="@+id/tvproductnamecart"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
                 />
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>

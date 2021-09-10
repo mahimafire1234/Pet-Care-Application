@@ -23,6 +23,7 @@ class MyprofileFragment : Fragment() {
     private lateinit var myprofileViewModel: MyprofileViewModel
     private var _binding: MyprofileFragmentBinding ? = null
     private lateinit var aboutus: CardView
+    private lateinit var myorders : CardView
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -47,6 +48,17 @@ class MyprofileFragment : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction().apply {
 
                 replace(R.id.linearContainer,AboutusFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+//        myorders
+        myorders = root.findViewById(R.id.myorders)
+        myorders.setOnClickListener {
+            Toast.makeText(root.context,"Clicked on my orders",Toast.LENGTH_SHORT).show()
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+                replace(R.id.linearContainer,MyOrdersFragment())
                     .addToBackStack(null)
                     .commit()
             }

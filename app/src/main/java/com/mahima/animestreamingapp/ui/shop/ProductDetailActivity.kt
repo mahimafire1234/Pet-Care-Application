@@ -96,10 +96,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     }
                 }
             }
-
 //            Toast.makeText(this,ServiceBuilder.userId.toString(),Toast.LENGTH_SHORT).show()
         }
-
-
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.shop.OrderActivity"
+    android:orientation="vertical"
+
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Orders"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/fontforproduct"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        />
+    <EditText
+        android:id="@+id/etpayment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Card Number"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="#E6F2F2"
+        />
+
+    <EditText
+        android:id="@+id/etdelivery_address"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Delivery Address"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="#E6F2F2"
+        />
+
+    <Button
+        android:id="@+id/btnorder"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Order"
+        android:backgroundTint="#09F4F4"
+
+        />
+
+</LinearLayout>

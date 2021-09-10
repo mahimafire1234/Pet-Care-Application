@@ -23,6 +23,9 @@
         android:theme="@style/Theme.AnimeStreamingApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.shop.OrderActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.shop.CartActivity"
             android:exported="true" />
         <activity
