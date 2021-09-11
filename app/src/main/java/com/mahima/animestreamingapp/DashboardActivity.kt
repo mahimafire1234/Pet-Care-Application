@@ -57,7 +57,7 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
 //        cart
-        btnforcart = findViewById(R.id.btnforcart)
+//        btnforcart = findViewById(R.id.btnforcart)
 
 //        if sensor does not exist
         if(!CheckSensor()){
@@ -69,10 +69,10 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         }
 
 //        onclick for cart
-        btnforcart.setOnClickListener {
-            showCartActivty()
-            Toast.makeText(this,"Clicked on cart",Toast.LENGTH_SHORT).show()
-        }
+//        btnforcart.setOnClickListener {
+//            showCartActivty()
+//            Toast.makeText(this,"Clicked on cart",Toast.LENGTH_SHORT).show()
+//        }
     }
     //    function to check if light sensor is present or not
     private fun CheckSensor() : Boolean{

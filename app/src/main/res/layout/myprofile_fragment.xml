@@ -56,7 +56,7 @@
             </androidx.cardview.widget.CardView>
             <!--    edit cardview-->
             <androidx.cardview.widget.CardView
-                android:id="@+id/editinfo"
+                android:id="@+id/cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
@@ -77,14 +77,14 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/edit" />
+                        android:src="@drawable/trolley" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Edit"
+                        android:text="Cart"
                         android:textAlignment="center" />
 
                 </LinearLayout>

@@ -23,7 +23,7 @@ class adapterForMyOrders (
             var tvproductnameorder : TextView = view.findViewById(R.id.tvproductnameorder)
             var tvproductqtyorder : TextView = view.findViewById(R.id.tvproductqtyorder)
             var tvdeliveryaddress : TextView = view.findViewById(R.id.tvdeliveryaddress)
-            var tvorderdate : TextView = view.findViewById(R.id.tvorderdate)
+//            var tvorderdate : TextView = view.findViewById(R.id.tvorderdate)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyOrderHolder {
@@ -33,12 +33,12 @@ class adapterForMyOrders (
 
     override fun onBindViewHolder(holder: MyOrderHolder, position: Int) {
         var order = orderList[position]
-        holder.tvorderdate.text = "Order Date:"+ order.date_added
-        holder.tvdeliveryaddress.text = " Delivery Address: "+order.delivery_address.toString()
+        holder.tvdeliveryaddress.text = " Delivery Address: "+" "+order.delivery_address.toString()
         for(i in order.product!!){
             holder.tvproductnameorder.append("Product Name:" + i.productName +" "+  "Quantity :"+i.quantity+"\n" )
 
         }
+        holder.tvproductqtyorder.text = "Bill:" + order.bill
     }
 
     override fun getItemCount(): Int {

@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_margin="10dp"
-        app:cardElevation="20dp"
+        app:cardElevation="5dp"
         app:cardCornerRadius="20dp"
         android:layout_width="match_parent"
         android:layout_height="300dp">
@@ -95,8 +95,6 @@
             </LinearLayout>
 
         </RelativeLayout>
-
-
 
     </androidx.cardview.widget.CardView>
 

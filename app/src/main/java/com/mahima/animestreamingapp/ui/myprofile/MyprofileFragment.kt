@@ -17,6 +17,7 @@ import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.databinding.MyprofileFragmentBinding
 import com.mahima.animestreamingapp.ui.AboutusFragment
 import com.mahima.animestreamingapp.ui.myprofile.MyprofileViewModel
+import com.mahima.animestreamingapp.ui.shop.CartActivity
 
 class MyprofileFragment : Fragment() {
 
@@ -24,6 +25,7 @@ class MyprofileFragment : Fragment() {
     private var _binding: MyprofileFragmentBinding ? = null
     private lateinit var aboutus: CardView
     private lateinit var myorders : CardView
+    private lateinit var cart : CardView
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -64,11 +66,24 @@ class MyprofileFragment : Fragment() {
             }
         }
 
+//        cart
+        cart = root.findViewById(R.id.cart)
+        cart.setOnClickListener {
+            showCartActivty()
+        }
+
         return root
     }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+//    show cart
+    private fun showCartActivty(){
+        startActivity(
+            Intent(requireContext(), CartActivity::class.java)
+        )
     }
 }
 
