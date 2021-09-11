@@ -11,6 +11,7 @@ import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.entity.PetProductEntity
 import com.mahima.animestreamingapp.entity.Product
 import com.mahima.animestreamingapp.entity.ShoppingCartEntity
+import com.mahima.animestreamingapp.repository.FavoritesRepository
 import com.mahima.animestreamingapp.repository.ShoppingCartRepository
 import com.mahima.animestreamingapp.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
@@ -27,6 +28,7 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var tvproductdescription : TextView
     private lateinit var btnaddtocart:Button
     private lateinit var etquantity:EditText
+    private lateinit var btnaddtofavs : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,7 @@ class ProductDetailActivity : AppCompatActivity() {
         tvproductprice = findViewById(R.id.tvproduct_price)
         btnaddtocart=findViewById(R.id.btnaddtocart)
         etquantity=findViewById(R.id.etquantity)
+        btnaddtofavs = findViewById(R.id.btnaddtofavs)
 
 
 //        get intent
@@ -97,6 +100,32 @@ class ProductDetailActivity : AppCompatActivity() {
                 }
             }
 //            Toast.makeText(this,ServiceBuilder.userId.toString(),Toast.LENGTH_SHORT).show()
+        }
+
+//        click to add to favorites
+        btnaddtofavs.setOnClickListener { AddtoFavorites(getintent!!._id) }
+    }
+
+//    favorites funciton
+    private fun AddtoFavorites(productId:String){
+
+//        coroutines
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val repository= FavoritesRepository()
+                val response = repository.addToFavorites(ServiceBuilder.userId!!,productId)
+
+                if(response.success == true){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@ProductDetailActivity,"Added to Favorites",Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            catch (ex:Exception){
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@ProductDetailActivity,ex.toString(),Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

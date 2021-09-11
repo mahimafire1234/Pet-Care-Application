@@ -20,6 +20,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.mahima.animestreamingapp.databinding.ActivityDashboardBinding
 import com.mahima.animestreamingapp.ui.shop.CartActivity
+import com.mahima.animestreamingapp.ui.shop.FavoritesActivity
 
 class DashboardActivity : AppCompatActivity(), SensorEventListener {
 
@@ -31,7 +32,7 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
     private var brightnessValue : Int =0
 
 //    cart btn
-    private lateinit var btnforcart : ImageView
+    private lateinit var btnforfavs : ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +58,7 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
 //        cart
-//        btnforcart = findViewById(R.id.btnforcart)
+        btnforfavs = findViewById(R.id.btnforfavs)
 
 //        if sensor does not exist
         if(!CheckSensor()){
@@ -69,10 +70,10 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         }
 
 //        onclick for cart
-//        btnforcart.setOnClickListener {
-//            showCartActivty()
-//            Toast.makeText(this,"Clicked on cart",Toast.LENGTH_SHORT).show()
-//        }
+        btnforfavs.setOnClickListener {
+            showFavsActivty()
+            Toast.makeText(this,"Clicked on favorites",Toast.LENGTH_SHORT).show()
+        }
     }
     //    function to check if light sensor is present or not
     private fun CheckSensor() : Boolean{
@@ -134,9 +135,9 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
     }
 
 //    show cart btn
-    private fun showCartActivty(){
+    private fun showFavsActivty(){
         startActivity(
-            Intent(this,CartActivity::class.java)
+            Intent(this,FavoritesActivity::class.java)
         )
     }
 
