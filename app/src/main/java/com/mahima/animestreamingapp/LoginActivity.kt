@@ -1,6 +1,10 @@
 package com.mahima.animestreamingapp
 
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,12 +24,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(),SensorEventListener {
 //    declaring variables
     private lateinit var tvsignup:TextView
     private lateinit var btnlogin:Button
     private lateinit var etusername:EditText
     private lateinit var etpassword:EditText
+//    for sensor
+    private lateinit var sensorManager: SensorManager
+    private var sensor: Sensor?= null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -34,6 +42,17 @@ class LoginActivity : AppCompatActivity() {
         btnlogin=findViewById(R.id.btnlogin)
         etusername=findViewById(R.id.etusername)
         etpassword=findViewById(R.id.etpassword)
+
+//        for sensor
+        //        initializing variables
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+
+        if(!checkSensor()){
+            return
+        }else{
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+            sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
+        }
 
         tvsignup.setOnClickListener {
             startActivity(Intent(this@LoginActivity,SignupActivity::class.java))
@@ -44,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 // api way
-    private fun userValidation() {
+     fun userValidation() {
         val email = etusername.text.toString()
         val password = etpassword.text.toString()
 
@@ -115,6 +134,28 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("username",etusername.text.toString())
         editor.putString("password",etpassword.text.toString())
         editor.apply()
+    }
+
+//    for sensor
+    private fun checkSensor():Boolean{
+    var sensorPresent =true
+    if(sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null){
+        sensorPresent =false
+    }
+    return sensorPresent
+}
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        var valuex= event!!.values[0]
+        val loginActivity = LoginActivity()
+//        if (valuex<=5){
+//            userValidation()
+//            valuex=7.0F
+//            Toast.makeText(this,"Logged in using sensor",Toast.LENGTH_SHORT).show()
+//        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
 }
 

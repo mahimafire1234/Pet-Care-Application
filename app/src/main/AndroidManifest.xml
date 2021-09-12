@@ -23,6 +23,9 @@
         android:theme="@style/Theme.AnimeStreamingApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".sensors.GyroscopeActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.shop.FavoritesActivity"
             android:exported="true" />
         <activity

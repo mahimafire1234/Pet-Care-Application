@@ -27,6 +27,8 @@ class MyprofileFragment : Fragment() {
     private lateinit var myorders : CardView
     private lateinit var cart : CardView
     private lateinit var myprofileinfo :CardView
+    private lateinit var logout : CardView
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -77,6 +79,10 @@ class MyprofileFragment : Fragment() {
         myprofileinfo =root.findViewById(R.id.myprofileinfo)
         myprofileinfo.setOnClickListener { showMyProfileInfo() }
 
+//        logout
+        logout = root.findViewById(R.id.logout)
+//        logout.setOnClickListener {  }
+
         return root
     }
     override fun onDestroyView() {
@@ -92,12 +98,17 @@ class MyprofileFragment : Fragment() {
     }
 //    private open another fragment
     private fun showMyProfileInfo(){
-    requireActivity().supportFragmentManager.beginTransaction().apply {
+        requireActivity().supportFragmentManager.beginTransaction().apply {
         replace(R.id.linearContainer,UserInfoFragment())
             .addToBackStack(null)
             .commit()
     }
     }
+
+//    logout
+//    private fun logout(){
+//
+//    }
 }
 
 
