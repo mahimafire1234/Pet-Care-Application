@@ -9,7 +9,7 @@
     android:layout_marginTop="150dp"
 
     >
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_marginTop="160dp"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
@@ -22,7 +22,7 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 
