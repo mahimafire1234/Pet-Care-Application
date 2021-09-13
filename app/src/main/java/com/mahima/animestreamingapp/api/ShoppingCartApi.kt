@@ -11,7 +11,7 @@ interface ShoppingCartApi {
     @FormUrlEncoded
     @POST("/cart")
     suspend fun addToCart(
-
+        @Header("Authorization") token:String,
         @Field("userId") userId: String,
         @Field("productId") productId :String,
         @Field("quantity") quantity :Int
@@ -21,12 +21,14 @@ interface ShoppingCartApi {
 //    api for getting cart items
     @GET("/getCart/{id}")
     suspend fun showCart(
-        @Path("id") id: String
+    @Header("Authorization") token:String,
+    @Path("id") id: String
     ): Response<ShoppingCartResponse>
 
 //    api to delete cart item
     @DELETE("/deleteitem/{id}/{itemid}")
     suspend fun deleteCart(
+        @Header("Authorization") token:String,
         @Path("id") id :String,
         @Path("itemid") itemid :String
     ):Response<ShoppingCartDeleteResponse>

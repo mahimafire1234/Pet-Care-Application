@@ -9,7 +9,8 @@ interface OrderApi {
     @FormUrlEncoded
     @POST("/order/{id}")
     suspend fun createOrder(
-        @Path("id") id :String,
+    @Header("Authorization") token:String,
+    @Path("id") id :String,
         @Field("payment") payment : String,
         @Field("delivery_address") delivery_address: String
 
@@ -18,6 +19,7 @@ interface OrderApi {
 //    api to show order
     @GET("/getOrder/{id}")
     suspend fun showOrder(
-        @Path("id") id: String
+    @Header("Authorization") token:String,
+    @Path("id") id: String
     ):Response<OrderResponse>
 }

@@ -15,20 +15,20 @@ class ShoppingCartRepository:MyApiRequest() {
 //    function to add items to cart
     suspend fun addProducts(userId:String,productId:String,quantity:Int): ShoppingCartResponse {
         return apiRequest {
-            shoppingCartApi.addToCart(userId,productId,quantity)
+            shoppingCartApi.addToCart(ServiceBuilder.token!!,userId,productId,quantity)
         }
     }
 //    function to get cart items
     suspend fun getProduct(id: String) : ShoppingCartResponse{
         return apiRequest {
-            shoppingCartApi.showCart(id)
+            shoppingCartApi.showCart(ServiceBuilder.token!!,id)
         }
     }
 
 //    function to delete item from cart
     suspend fun deleteItem(id:String,itemid:String) : ShoppingCartDeleteResponse{
         return apiRequest {
-            shoppingCartApi.deleteCart(id,itemid)
+            shoppingCartApi.deleteCart(ServiceBuilder.token!!,id,itemid)
         }
     }
 }

@@ -13,21 +13,21 @@ class FavoritesRepository : MyApiRequest(){
 //    function to create favorites
     suspend fun addToFavorites(id:String,productId:String): FavoritesResponse{
         return apiRequest {
-            favoritesApi.addToFavorites(id,productId)
+            favoritesApi.addToFavorites(ServiceBuilder.token!!,id,productId)
         }
     }
 
     //    function to get favorites
     suspend fun showFavorites(id:String): FavoritesResponse{
         return apiRequest {
-            favoritesApi.getFavorites(id)
+            favoritesApi.getFavorites(ServiceBuilder.token!!,id)
         }
     }
 
     //    function to get favorites
     suspend fun deleteFavorites(id:String,productId: String): FavoritesResponse{
         return apiRequest {
-            favoritesApi.deleteFavorites(id,productId)
+            favoritesApi.deleteFavorites(ServiceBuilder.token!!,id,productId)
         }
     }
 

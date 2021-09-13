@@ -13,14 +13,14 @@ class OrderRespository : MyApiRequest() {
 //    function to make an order
     suspend fun createOrder(id : String,payment:String,delivery_address : String) : OrderResponse{
         return apiRequest {
-            orderCartApi.createOrder(id,payment, delivery_address)
+            orderCartApi.createOrder(ServiceBuilder.token!!,id,payment, delivery_address)
         }
     }
 
 //    function to show order
     suspend fun showOrder(id:String) :OrderResponse{
         return apiRequest {
-            orderCartApi.showOrder(id)
+            orderCartApi.showOrder(ServiceBuilder.token!!,id)
         }
     }
 

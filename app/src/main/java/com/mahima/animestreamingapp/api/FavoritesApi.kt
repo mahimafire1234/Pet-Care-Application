@@ -10,20 +10,23 @@ interface FavoritesApi {
     @FormUrlEncoded
     @POST("/addfavorites/{id}")
     suspend fun addToFavorites(
-        @Path("id") id : String,
+    @Header("Authorization") token:String,
+    @Path("id") id : String,
         @Field("productId") productId : String
     ): Response<FavoritesResponse>
 
 //    function to get favorites
     @GET("/getFavorites/{id}")
     suspend fun getFavorites(
-        @Path("id") id : String
+    @Header("Authorization") token:String,
+    @Path("id") id : String
     ):Response<FavoritesResponse>
 
 //    function to remove item from favorites
     @DELETE("/deleteFavoritesItem/{id}/{productId}")
     suspend fun deleteFavorites(
-        @Path("id") id :String,
+    @Header("Authorization") token:String,
+    @Path("id") id :String,
         @Path("productId") productId: String
     ):Response<FavoritesResponse>
 }
