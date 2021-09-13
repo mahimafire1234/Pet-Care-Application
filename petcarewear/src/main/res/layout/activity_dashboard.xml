@@ -7,12 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".DashboardActivity"
     tools:deviceIds="wear"
+    android:orientation="vertical"
     >
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/catpic"
+        />
     <TextView
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dashobard after login"
+        android:text="Time to feed me"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
         />
 
 </LinearLayout>
