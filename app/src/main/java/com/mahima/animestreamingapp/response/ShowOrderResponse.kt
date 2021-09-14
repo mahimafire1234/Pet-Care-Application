@@ -2,7 +2,7 @@ package com.mahima.animestreamingapp.response
 
 import com.mahima.animestreamingapp.entity.OrderEntity
 
-data class OrderResponse(
+data class ShowOrderResponse(
     val success : Boolean ?= null,
-    val order : OrderEntity ?= null
+    val order : ArrayList<OrderEntity>?= null
 )

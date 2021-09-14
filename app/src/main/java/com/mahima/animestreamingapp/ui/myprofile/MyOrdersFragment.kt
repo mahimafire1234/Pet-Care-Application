@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MyOrdersFragment : Fragment() {
-    private var data: ArrayList<OrderEntity>?= null
+    private var data: ArrayList<OrderEntity> ?= null
     private lateinit var recylerviewmyorders:RecyclerView
     companion object{
         var orderListForRecyclerView:ArrayList<OrderEntity> = ArrayList<OrderEntity>()
@@ -66,17 +66,19 @@ class MyOrdersFragment : Fragment() {
 //                ordertList =data!!.product
 
                 if(response.success ==true){
-                    for(i in data!!){
-                        ordertList=i.product
+                    for(i in data!!) {
+                        ordertList = i.product
                         orderListForRecyclerView.add(
                             OrderEntity(
                                 userId = i.userId,
                                 delivery_address = i.delivery_address,
                                 bill = i.bill,
-                                product = i.product
+                                product = i.product,
+                                date_added = i.date_added
                             )
                         )
                     }
+
                     withContext(Dispatchers.Main){
 
 //                        Toast.makeText(requireContext(),data.toString(),Toast.LENGTH_SHORT).show()

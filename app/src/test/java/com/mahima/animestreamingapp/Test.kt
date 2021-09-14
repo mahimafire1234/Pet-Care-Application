@@ -5,6 +5,7 @@ import com.mahima.animestreamingapp.entity.Product
 import com.mahima.animestreamingapp.entity.ShoppingCartEntity
 import com.mahima.animestreamingapp.model.UserModel
 import com.mahima.animestreamingapp.repository.FavoritesRepository
+import com.mahima.animestreamingapp.repository.OrderRespository
 import com.mahima.animestreamingapp.repository.ShoppingCartRepository
 import com.mahima.animestreamingapp.repository.UserRepository
 import kotlinx.coroutines.runBlocking
@@ -109,6 +110,37 @@ class Test {
         val actualResult = favoritesRepository.deleteFavorites(
             id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
             productId = "612c85ed97f1101dd56d7e3c"
+        ).success
+        Assert.assertEquals(expectedResult,actualResult)
+    }
+//    test case for order
+//    delete item from favorites
+    @Test
+    fun checkMyOrder() = runBlocking {
+        val userRepository = UserRepository()
+        val orderRepository = OrderRespository()
+
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+        val expectedResult = true
+        val actualResult = orderRepository.createOrder(
+            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
+            payment = 123412341234,
+            delivery_address = "home"
+        ).success
+        Assert.assertEquals(expectedResult,actualResult)
+    }
+
+    //    show item from myorder
+    @Test
+    fun showMyOrder() = runBlocking {
+        val userRepository = UserRepository()
+        val orderRepository = OrderRespository()
+
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+        val expectedResult = true
+        val actualResult = orderRepository.showOrder(
+            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!
+
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }

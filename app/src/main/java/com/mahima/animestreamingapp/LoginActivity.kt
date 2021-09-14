@@ -59,7 +59,21 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
         }
 
         btnlogin.setOnClickListener {
-            userValidation()
+            if(etusername.text.toString().trim().isEmpty()){
+                etusername.error="Fill this field"
+                etusername.requestFocus()
+                return@setOnClickListener
+            }
+            if(etpassword.text.toString().trim().isEmpty()){
+                etpassword.error="Fill this field"
+                etpassword.requestFocus()
+                return@setOnClickListener
+            }
+            if(etusername.text.toString().trim().isEmpty() && etpassword.text.toString().trim().isEmpty()){
+                Toast.makeText(this,"Please fill the inputs",Toast.LENGTH_LONG).show()
+            }else{
+                userValidation()
+            }
         }
     }
 // api way
@@ -67,6 +81,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
         val email = etusername.text.toString()
         val password = etpassword.text.toString()
 
+//
 //        inserting in user model
         val user = UserModel(email = email,password = password)
      CoroutineScope(Dispatchers.IO).launch {
