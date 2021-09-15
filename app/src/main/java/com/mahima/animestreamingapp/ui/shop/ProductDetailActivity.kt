@@ -27,8 +27,11 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var tvproductprice: TextView
     private lateinit var tvproductdescription : TextView
     private lateinit var btnaddtocart:Button
-    private lateinit var etquantity:EditText
+    private lateinit var etquantity:TextView
     private lateinit var btnaddtofavs : Button
+    private lateinit var btnminus : Button
+    private lateinit var btnplus : Button
+    private var quantity : Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,8 @@ class ProductDetailActivity : AppCompatActivity() {
         btnaddtocart=findViewById(R.id.btnaddtocart)
         etquantity=findViewById(R.id.etquantity)
         btnaddtofavs = findViewById(R.id.btnaddtofavs)
+        btnminus = findViewById(R.id.btnminus)
+        btnplus = findViewById(R.id.btnplus)
 
 
 //        get intent
@@ -55,11 +60,18 @@ class ProductDetailActivity : AppCompatActivity() {
             tvproductdescription.setText(getintent.productDescription)
         }
 
+        btnplus.setOnClickListener {
+            quantity = quantity + 1
+            etquantity.text=quantity.toString()
+        }
+        btnminus.setOnClickListener {
+            quantity=quantity-1
+            etquantity.text=quantity.toString()
+        }
 //        click on add to cart
         btnaddtocart.setOnClickListener {
             //        get the quantity
 
-            var quantity = etquantity.text.toString().toInt()
 //            check if quantity is empty
             if(etquantity.equals("")){
                 etquantity.error = "Type a quantity"
