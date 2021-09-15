@@ -7,48 +7,70 @@
     android:layout_height="match_parent"
     tools:context=".ui.shop.OrderActivity"
     android:orientation="vertical"
-
+    android:layout_margin="10dp"
     >
-
-    <TextView
-        android:id="@+id/tvcheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Orders"
-        android:textSize="25dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/fontforproduct"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        />
-    <EditText
-        android:id="@+id/etpayment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Card Number"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="#E6F2F2"
-        />
-
-    <EditText
-        android:id="@+id/etdelivery_address"
+        android:layout_height="250dp"
+        android:background="@drawable/curlyborder"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tvcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Out"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/fontforproduct"
+            android:layout_marginTop="20dp"
+            />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/payment"
+            />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Delivery Address"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="#E6F2F2"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="-5dp"
+        >
+        <EditText
+            android:id="@+id/etpayment"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Card Number"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#E6F2F2"
+            android:padding="10dp"
+            />
 
-    <Button
-        android:id="@+id/btnorder"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Order"
-        android:backgroundTint="#09F4F4"
+        <EditText
+            android:id="@+id/etdelivery_address"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Delivery Address"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#E6F2F2"
+            android:padding="10dp"
+            />
 
-        />
+        <Button
+            android:id="@+id/btnorder"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Confirm "
+            android:backgroundTint="#11F838"
+            android:textSize="18dp"
+            />
+    </LinearLayout>
+
 
 </LinearLayout>

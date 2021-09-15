@@ -104,8 +104,15 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
                 }
             }else {
                 withContext(Dispatchers.Main) {
-                        Toast.makeText(this@LoginActivity,"Invalid", Toast.LENGTH_SHORT)
+                    if(response.message == "Email does not exist"){
+                        Toast.makeText(this@LoginActivity,"Invalid email", Toast.LENGTH_SHORT)
                             .show()
+                    }
+                    if(response.message=="Password does not match"){
+                        Toast.makeText(this@LoginActivity,"Incorrect password", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+
                 }
             }
         }catch (ex: Exception){

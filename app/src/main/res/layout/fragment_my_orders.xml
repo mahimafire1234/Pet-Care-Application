@@ -7,21 +7,36 @@
     tools:context=".ui.myprofile.MyOrdersFragment"
     android:background="@color/white"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="My orders"
-            android:textSize="25dp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/fontforproduct"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/curlyborder"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/tvcheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/fontforproduct"
+                android:layout_marginTop="20dp"
+                />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/payment"
+                />
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recylerviewmyorders"
@@ -31,7 +46,5 @@
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
-
-
 
 </androidx.core.widget.NestedScrollView>

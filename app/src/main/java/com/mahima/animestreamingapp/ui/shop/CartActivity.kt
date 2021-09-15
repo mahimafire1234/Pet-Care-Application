@@ -34,6 +34,7 @@ class CartActivity : AppCompatActivity() {
         var productListForRecyclerView:ArrayList<Product> = ArrayList<Product>()
     }
     private lateinit var tvbillcart : TextView
+    private lateinit var tvnoitem : TextView
 
 //    recycler view
     private lateinit var recyclerviewcart : RecyclerView
@@ -45,6 +46,7 @@ class CartActivity : AppCompatActivity() {
 //        initializing variables
         tvbillcart=findViewById(R.id.tvbillcart)
         btnforcheckout= findViewById(R.id.btnforcheckout)
+        tvnoitem = findViewById(R.id.tvnoitem)
 
 //        recyclerview
         recyclerviewcart = findViewById(R.id.recyclerviewcart)
@@ -95,7 +97,7 @@ class CartActivity : AppCompatActivity() {
 //            exception handling
             catch (ex:Exception){
                 withContext(Dispatchers.Main){
-                    tvbillcart.setText("No items to show")
+                    tvnoitem.setText("No items to show")
                     btnforcheckout.visibility=View.INVISIBLE
 //                    Toast.makeText(this@CartActivity,ex.toString(),Toast.LENGTH_SHORT).show()
 //                    tvshowcart.setText(ex.toString())
