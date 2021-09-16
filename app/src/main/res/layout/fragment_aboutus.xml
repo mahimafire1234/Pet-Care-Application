@@ -15,43 +15,7 @@
     android:orientation="vertical"
     android:id="@+id/fragmentid"
     >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/gradient_bg"
-        >
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/logo"
-            android:src="@drawable/logo"
-            android:padding="10dp"
-            android:layout_width="150dp"
-            android:layout_height="140dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="-20dp"
 
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="JoJo"
-            android:textSize="40sp"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@+id/logo"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="-20dp"
-            android:fontFamily="@font/fontlogo"
-            />
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/like"
-            android:id="@+id/btnforfavs"
-            android:layout_alignParentEnd="true"
-            />
-    </RelativeLayout>
 <!--text view-->
     <TextView
         android:layout_width="wrap_content"

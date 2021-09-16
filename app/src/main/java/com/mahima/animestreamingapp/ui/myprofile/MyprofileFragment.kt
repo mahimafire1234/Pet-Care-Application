@@ -18,6 +18,7 @@ import com.mahima.animestreamingapp.databinding.MyprofileFragmentBinding
 import com.mahima.animestreamingapp.ui.AboutusFragment
 import com.mahima.animestreamingapp.ui.myprofile.MyprofileViewModel
 import com.mahima.animestreamingapp.ui.shop.CartActivity
+import com.mahima.animestreamingapp.ui.shop.FavoritesActivity
 
 class MyprofileFragment : Fragment() {
 
@@ -28,6 +29,7 @@ class MyprofileFragment : Fragment() {
     private lateinit var cart : CardView
     private lateinit var myprofileinfo :CardView
     private lateinit var logout : CardView
+    private lateinit var favorites : CardView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -83,6 +85,12 @@ class MyprofileFragment : Fragment() {
         logout = root.findViewById(R.id.logout)
 //        logout.setOnClickListener {  }
 
+        favorites = root.findViewById(R.id.favorites)
+        favorites.setOnClickListener {
+            showFavsActivty()
+            Toast.makeText(requireContext(),"Clicked on favorites",Toast.LENGTH_SHORT).show()
+        }
+
         return root
     }
     override fun onDestroyView() {
@@ -109,6 +117,14 @@ class MyprofileFragment : Fragment() {
 //    private fun logout(){
 //
 //    }
+
+    //    show cart btn
+    private fun showFavsActivty(){
+        startActivity(
+            Intent(requireContext(), FavoritesActivity::class.java)
+        )
+    }
+
 }
 
 
