@@ -4,10 +4,7 @@ import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.entity.Product
 import com.mahima.animestreamingapp.entity.ShoppingCartEntity
 import com.mahima.animestreamingapp.model.UserModel
-import com.mahima.animestreamingapp.repository.FavoritesRepository
-import com.mahima.animestreamingapp.repository.OrderRespository
-import com.mahima.animestreamingapp.repository.ShoppingCartRepository
-import com.mahima.animestreamingapp.repository.UserRepository
+import com.mahima.animestreamingapp.repository.*
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Test
@@ -141,6 +138,18 @@ class Test {
         val actualResult = orderRepository.showOrder(
             id = userRepository.userLogin("owner1@gmail.com","owner").userId!!
 
+        ).success
+        Assert.assertEquals(expectedResult,actualResult)
+    }
+
+    @Test
+    fun showMyhires() = runBlocking {
+        val orderRepository = HireRepository()
+        val userRepository = UserRepository()
+
+        val expectedResult = true
+        val actualResult = orderRepository.shoeHires(
+            id=userRepository.userLogin("owner1@gmail.com","owner").userId!!
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }

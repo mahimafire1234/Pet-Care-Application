@@ -30,6 +30,7 @@ class MyprofileFragment : Fragment() {
     private lateinit var myprofileinfo :CardView
     private lateinit var logout : CardView
     private lateinit var favorites : CardView
+    private lateinit var hires : CardView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -91,6 +92,11 @@ class MyprofileFragment : Fragment() {
             Toast.makeText(requireContext(),"Clicked on favorites",Toast.LENGTH_SHORT).show()
         }
 
+        hires = root.findViewById(R.id.hires)
+        hires.setOnClickListener {
+            hires()
+        }
+
         return root
     }
     override fun onDestroyView() {
@@ -113,15 +119,17 @@ class MyprofileFragment : Fragment() {
     }
     }
 
-//    logout
-//    private fun logout(){
-//
-//    }
-
     //    show cart btn
     private fun showFavsActivty(){
         startActivity(
             Intent(requireContext(), FavoritesActivity::class.java)
+        )
+    }
+
+//    hires
+    private fun hires(){
+        startActivity(
+            Intent(requireContext(),HireActivity::class.java)
         )
     }
 

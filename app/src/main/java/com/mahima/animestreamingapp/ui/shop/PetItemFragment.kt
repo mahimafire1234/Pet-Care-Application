@@ -45,6 +45,7 @@ class PetItemFragment : Fragment() {
         private lateinit var response:petresponse
         val ProductList: ArrayList<PetProductEntity> = ArrayList<PetProductEntity>()
     }
+    private lateinit var showitem : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +59,7 @@ class PetItemFragment : Fragment() {
         val view= inflater.inflate(R.layout.fragment_pet_item, container, false)
         recyclerview=view.findViewById(R.id.recyclerview)
 
+        showitem = view.findViewById(R.id.showitem)
         //adapter for recyclerview
         val adapter = adapterForPetProduct(requireContext(),ProductList)
 //        
@@ -67,6 +69,7 @@ class PetItemFragment : Fragment() {
                 repository = PetProductRespository()
                 response = repository.showProducts()
                 data = response.data!!
+                var length = data.size
 //                inserts data into room database
                 insertRb()
                 withContext(Dispatchers.Main){
@@ -74,6 +77,8 @@ class PetItemFragment : Fragment() {
                     recyclerview.adapter=adapter
                     ProductList.clear()
                     getProducts()
+                    showitem.text="Showing item : "+" "+ data.size+ " " +"of" + " "+ data.size
+                    Toast.makeText(requireContext(),data.size.toString(),Toast.LENGTH_LONG).show()
                 }
                 //        calling cuntion to show products
             }

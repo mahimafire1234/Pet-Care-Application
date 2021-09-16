@@ -79,24 +79,18 @@
                 android:orientation="vertical"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 >
                 <!--    add to cart button-->
                 <Button
                     android:id="@+id/btnaddtocart"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:text="Add to Cart"
+                    android:text="Hire"
                     android:backgroundTint="#f15bb5"
                     />
                 <!--    add to favorites button-->
-                <Button
-                    android:id="@+id/btnaddtofavs"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:text="Add to Favorites"
-                    android:backgroundTint="#3a86ff"
-                    android:layout_marginBottom="20dp"
-                    />
+
             </LinearLayout>
 
 

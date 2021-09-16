@@ -35,7 +35,7 @@ class adapterforPetCareTaker(
     override fun onBindViewHolder(holder: CareTakerHolder, position: Int) {
         val careTaker = petCareTakerList[position]
         holder.tvfullname.text=careTaker.fullName
-        holder.tvhirerate.text= "Rs"+careTaker.price.toString() + "per week"
+        holder.tvhirerate.text= "Rs : "+careTaker.price.toString()
         Glide.with(context)
             .load("http://192.168.1.80:80/"+careTaker.photo)
             .into(holder.imgproduct)

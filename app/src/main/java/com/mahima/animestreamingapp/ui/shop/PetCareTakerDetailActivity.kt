@@ -5,9 +5,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.mahima.animestreamingapp.R
+import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.entity.PetCareTakerEntity
+import com.mahima.animestreamingapp.repository.HireRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PetCareTakerDetailActivity : AppCompatActivity() {
 //    declaring variables
@@ -31,7 +38,6 @@ class PetCareTakerDetailActivity : AppCompatActivity() {
         tvhireprice = findViewById(R.id.tvhireprice)
         tvBio = findViewById(R.id.tvBio)
         btnaddtocart=findViewById(R.id.btnaddtocart)
-        btnaddtofavs  =findViewById(R.id.btnaddtofavs)
         imgviewproductimg=findViewById(R.id.imgviewproductimg)
 
 //        intent
@@ -48,6 +54,34 @@ class PetCareTakerDetailActivity : AppCompatActivity() {
                 .load("http://192.168.1.80:80/"+intent.photo)
                 .into(imgviewproductimg)
 
+        }
+
+//        hire
+        btnaddtocart.setOnClickListener { Hire(intent!!._id) }
+    }
+
+//    hire
+    private fun Hire(ProductId:String){
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val repository = HireRepository()
+                val response = repository.hire(ServiceBuilder.userId!!,ProductId)
+                if(response.success == true){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@PetCareTakerDetailActivity,"Hired!!",Toast.LENGTH_LONG).show()
+                    }
+                }
+                if(response.success == false && response.message =="already hired"){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@PetCareTakerDetailActivity,"Hired already",Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+            catch (ex:Exception){
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@PetCareTakerDetailActivity,ex.toString(),Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }
