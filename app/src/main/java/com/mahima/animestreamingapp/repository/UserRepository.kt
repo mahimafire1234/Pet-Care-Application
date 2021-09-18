@@ -6,6 +6,7 @@ import com.mahima.animestreamingapp.model.UserModel
 import com.mahima.animestreamingapp.response.UserResponse
 import com.mahima.animestreamingapp.api.MyApiRequest
 import com.mahima.animestreamingapp.response.UserGetResponse
+import okhttp3.MultipartBody
 
 
 //this file is for user repository
@@ -37,6 +38,13 @@ class UserRepository  : MyApiRequest(){
     suspend fun updateUser(id:String,fullName:String,email: String,password: String):UserResponse{
         return apiRequest {
             userApi.updateUser(id,fullName, email, password)
+        }
+    }
+
+//    function for image upload
+    suspend fun uploadImage(id:String,body:MultipartBody.Part) : UserResponse{
+        return apiRequest {
+            userApi.uploadImage(id,body)
         }
     }
 }

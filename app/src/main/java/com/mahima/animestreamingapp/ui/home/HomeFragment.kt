@@ -83,7 +83,6 @@ class HomeFragment : Fragment() {
             if (pet.isEmpty()){
                 withContext(Main){
                     tvpettext.setText("No pets to show. Add one")
-
                 }
             }else{
                 tvpettext.setText("")

@@ -19,24 +19,26 @@ class SplashActivity : AppCompatActivity() {
 //    username and password variable declaration for shared preferences
     var username : String ? =" "
     var password : String ? =" "
+    var token : String ? =" "
+    var userId : String ? =" "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        logo=findViewById(R.id.logo)
-        tvtext=findViewById(R.id.tvtext)
-        rel=findViewById(R.id.rel)
+        logo = findViewById(R.id.logo)
+        tvtext = findViewById(R.id.tvtext)
+        rel = findViewById(R.id.rel)
         //        for animation
 
-        val animation=AnimationUtils.loadAnimation(this,R.anim.top_animation)
-        val animation1=AnimationUtils.loadAnimation(this,R.anim.bottom_animation)
+        val animation = AnimationUtils.loadAnimation(this, R.anim.top_animation)
+        val animation1 = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
         logo.setAnimation(animation)
         tvtext.setAnimation(animation1)
 
-        CoroutineScope(Dispatchers.Main).launch{
+        CoroutineScope(Dispatchers.Main).launch {
             //suspend for the splash activity
             delay(5000)
             //open intent activity
-            startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
             //finish or destroy the splash screen
             finish()
         }
@@ -44,33 +46,33 @@ class SplashActivity : AppCompatActivity() {
 //        for shared preference
 //        getusernamepassword()
 //        login()
-
+    }
 
 //    get username and password
-//    private fun getusernamepassword(){
-//        val sharedPreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
-//        username=sharedPreferences.getString("username"," ")
-//        password=sharedPreferences.getString("password", "")
-//    }
+    private fun getusernamepassword(){
+        val sharedPreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+        username=sharedPreferences.getString("username"," ")
+        password=sharedPreferences.getString("password", "")
+        token =sharedPreferences.getString("token","")
+        userId=sharedPreferences.getString("userId","")
+    }
 ////    login function
-//    private fun login(){
-//        var user : adminEntity? =null
-//        CoroutineScope(Dispatchers.IO).launch {
-////            delays the splash screen for 5 seconds
-//            delay(5000)
-//            user= UserDatabase.getDatabase(this@SplashActivity).userDao().checkUser(username!!,password!!)
-//            if(user == null){
-//                withContext(Dispatchers.Main){
-//                    startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-//            }
-//        }
-//        else{
-//            startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
-//        }
-////            finishes the splash screen
-//            finish()
-//        }
-//    }
-}}
+    private fun login(){
+        CoroutineScope(Dispatchers.IO).launch {
+//            delays the splash screen for 5 seconds
+            delay(5000)
+            if(getusernamepassword()==null){
+                withContext(Dispatchers.Main){
+                    startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
+            }
+        }
+        else{
+            startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
+        }
+//            finishes the splash screen
+            finish()
+        }
+    }
+}
 
 

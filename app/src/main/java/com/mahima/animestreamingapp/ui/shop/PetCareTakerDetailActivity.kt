@@ -67,7 +67,7 @@ class PetCareTakerDetailActivity : AppCompatActivity(), SensorEventListener {
             tvage.setText("Age:"+" " + intent.age.toString())
             tvphonenum.setText("Phone number:" +" "+ intent.phoneNum.toString())
             tvBio.setText(intent.Bio)
-            tvhireprice.setText("Rs" + intent.price.toString() +" "+ "per week")
+            tvhireprice.setText("Rs: " + intent.price.toString() +" "+ "per week")
 
             Glide.with(this)
                 .load("http://192.168.1.80:80/"+intent.photo)

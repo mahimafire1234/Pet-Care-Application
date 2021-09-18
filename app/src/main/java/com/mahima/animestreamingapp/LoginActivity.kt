@@ -100,7 +100,6 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
                     withContext(Dispatchers.Main){
                         startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
                     }
-//                    saveUserData()
                 }
             }else {
                 withContext(Dispatchers.Main) {
@@ -124,29 +123,9 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
 
     }
     }
-//    check user validation room way
-//    private fun userValidation(){
-////        get data
-//        val username = etusername.text.toString()
-//        val password = etpassword.text.toString()
-//
-//        var user : adminEntity ? =null
-//        CoroutineScope(Dispatchers.IO).launch {
-//            user=UserDatabase.getDatabase(this@LoginActivity).userDao().checkUser(username,password)
-//            if(user == null){
-//                withContext(Main){
-//                    Toast.makeText(this@LoginActivity,"Invalid login credentials",Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//            else{
-//                startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
-////                if user exists save their user data
-//                saveUserData()
-//            }
-//        }
-//    }
+
 //    for shared preferences
-    private fun saveUserData(){
+    private fun saveUserData(token:String,userId:String){
 //    creating a shared preferences file with mode private
         val sharedpreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
 //    creating an editor
@@ -155,6 +134,8 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
 //        add data
         editor.putString("username",etusername.text.toString())
         editor.putString("password",etpassword.text.toString())
+        editor.putString("token", token)
+        editor.putString("userId", userId)
         editor.apply()
     }
 

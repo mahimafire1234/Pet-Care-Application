@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menugallery"
+        android:title="Open gallery"
+        />
+    <item
+        android:id="@+id/menucamera"
+        android:title="Open Camera"
+        />
+</menu>
