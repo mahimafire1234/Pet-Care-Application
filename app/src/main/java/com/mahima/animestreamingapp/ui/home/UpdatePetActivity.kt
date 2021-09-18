@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.mahima.animestreamingapp.DashboardActivity
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.adapter.adapterForRecyclerView
 import com.mahima.animestreamingapp.database.PetProductDatabase
@@ -103,13 +104,8 @@ class UpdatePetActivity : AppCompatActivity() {
                 PetProductDatabase.getDatabase(this@UpdatePetActivity)
                     .petDao()
                     .updatePet(pet)
-
                 withContext(Main) {
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.containerforupdate, HomeFragment())
-                            .addToBackStack(null)
-                            .commit()
-                    }
+                    startActivity(Intent(this@UpdatePetActivity,DashboardActivity::class.java))
                     Toast.makeText(this@UpdatePetActivity,"Pet updated successfully",Toast.LENGTH_SHORT).show()
 
                 }

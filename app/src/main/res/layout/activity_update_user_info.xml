@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/updateconatinaer"
+    tools:context=".ui.myprofile.UpdateUserInfoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Update My profile"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:fontFamily="@font/fontforproduct"
+            android:background="@drawable/curlyborder"
+            />
+<!--        username-->
+        <EditText
+            android:id="@+id/etusernameupdate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Username"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:background="@drawable/border"
+            android:layout_marginTop="20dp"
+            />
+<!--        email-->
+        <EditText
+            android:id="@+id/etemailupdate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Email"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:background="@drawable/border"
+            android:layout_marginTop="10dp"
+            />
+<!--        password-->
+        <EditText
+            android:id="@+id/etpasswordupdate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Old Password"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:background="@drawable/border"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+
+            />
+<!--        new password-->
+        <EditText
+            android:id="@+id/etconfirmpasswordupdate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="New password"
+            android:layout_marginHorizontal="20dp"
+            android:padding="10dp"
+            android:background="@drawable/border"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnupdateuserinfo"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            app:icon="@drawable/ic_baseline_edit_24"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Update"
+            android:padding="20dp"
+            app:backgroundTint="#E0CCF9"
+            android:layout_gravity="center"
+            android:background="@drawable/roundcorners"
+            />
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

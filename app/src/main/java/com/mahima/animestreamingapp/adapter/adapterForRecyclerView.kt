@@ -77,6 +77,7 @@ class adapterForRecyclerView(
             val intent = Intent(context, UpdatePetActivity::class.java)
             intent.putExtra("pet",pet)
             context.startActivity(intent)
+            notifyItemChanged(position)
         }
     }
 

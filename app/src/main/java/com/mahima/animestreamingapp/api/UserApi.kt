@@ -26,4 +26,14 @@ interface UserApi {
     suspend fun getUser(
         @Path("id") id :String
     ): Response<UserGetResponse>
+
+//    update user information
+    @FormUrlEncoded
+    @PUT("/users/updateInformation/")
+    suspend fun updateUser(
+        @Field("id") id :String,
+        @Field("fullName") fullName :String,
+        @Field("email") email : String,
+        @Field("password") password: String
+    ):Response<UserResponse>
 }

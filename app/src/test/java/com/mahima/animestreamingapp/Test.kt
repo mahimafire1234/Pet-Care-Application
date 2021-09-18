@@ -153,6 +153,20 @@ class Test {
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }
+
+    @Test
+    fun checkUpdate() = runBlocking {
+        val userRepository = UserRepository()
+        val response = userRepository.updateUser(
+            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
+            email = "owner1@gmail.com",
+            password = "owner",
+            fullName = "ownerjj"
+        )
+        val expectedResult = true
+        val actualResult = response.success
+        Assert.assertEquals(expectedResult,actualResult)
+    }
 }
 
 

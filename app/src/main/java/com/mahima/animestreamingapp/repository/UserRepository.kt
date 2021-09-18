@@ -32,4 +32,11 @@ class UserRepository  : MyApiRequest(){
             userApi.getUser(id)
         }
     }
+
+//    function for update user
+    suspend fun updateUser(id:String,fullName:String,email: String,password: String):UserResponse{
+        return apiRequest {
+            userApi.updateUser(id,fullName, email, password)
+        }
+    }
 }

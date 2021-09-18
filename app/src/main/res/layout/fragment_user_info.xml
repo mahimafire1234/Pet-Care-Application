@@ -55,6 +55,13 @@
             android:fontFamily="@font/fontforproduct"
             />
 
-
+        <Button
+            android:id="@+id/btnupdateinfo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Update"
+            android:backgroundTint="#09DCEB"
+            android:textSize="20dp"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

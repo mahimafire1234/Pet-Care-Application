@@ -23,6 +23,9 @@
         android:theme="@style/Theme.AnimeStreamingApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.myprofile.UpdateUserInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.myprofile.HireActivity"
             android:exported="true" />
         <activity
