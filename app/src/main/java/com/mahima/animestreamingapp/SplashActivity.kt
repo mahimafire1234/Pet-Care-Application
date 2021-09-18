@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.database.UserDatabase
 import com.mahima.animestreamingapp.entity.adminEntity
 import kotlinx.coroutines.*
@@ -34,40 +35,45 @@ class SplashActivity : AppCompatActivity() {
         logo.setAnimation(animation)
         tvtext.setAnimation(animation1)
 
-        CoroutineScope(Dispatchers.Main).launch {
-            //suspend for the splash activity
-            delay(5000)
-            //open intent activity
-            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-            //finish or destroy the splash screen
-            finish()
-        }
+//        CoroutineScope(Dispatchers.Main).launch {
+//            //suspend for the splash activity
+//            delay(5000)
+//            //open intent activity
+//            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+//            //finish or destroy the splash screen
+//            finish()
+//        }
 
 //        for shared preference
 //        getusernamepassword()
-//        login()
+        login()
     }
 
 //    get username and password
-    private fun getusernamepassword(){
-        val sharedPreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+    private fun getusernamepassword():Boolean{
+        val sharedPreferences=getSharedPreferences("NewLogin", MODE_PRIVATE)
         username=sharedPreferences.getString("username"," ")
         password=sharedPreferences.getString("password", "")
         token =sharedPreferences.getString("token","")
         userId=sharedPreferences.getString("userId","")
+        return username != ""  && password != ""
     }
 ////    login function
     private fun login(){
         CoroutineScope(Dispatchers.IO).launch {
 //            delays the splash screen for 5 seconds
             delay(5000)
-            if(getusernamepassword()==null){
+            if(getusernamepassword()){
                 withContext(Dispatchers.Main){
-                    startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-            }
+                    startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
+                    Toast.makeText(this@SplashActivity,token,Toast.LENGTH_SHORT).show()
+                    ServiceBuilder.userId = userId
+                    ServiceBuilder.token = token
+
+                }
         }
         else{
-            startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
+                startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
         }
 //            finishes the splash screen
             finish()

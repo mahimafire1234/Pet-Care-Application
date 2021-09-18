@@ -73,6 +73,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
                 Toast.makeText(this,"Please fill the inputs",Toast.LENGTH_LONG).show()
             }else{
                 userValidation()
+                sharedpred()
             }
         }
     }
@@ -100,7 +101,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
                     withContext(Dispatchers.Main){
                         startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
                     }
-//                    saveUserData(ServiceBuilder.token!!,ServiceBuilder.userId!!)
+                    saveUserData(ServiceBuilder.token!!,ServiceBuilder.userId!!)
                 }
             }else {
                 withContext(Dispatchers.Main) {
@@ -128,7 +129,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
 //    for shared preferences
     private fun saveUserData(token:String,userId:String){
 //    creating a shared preferences file with mode private
-        val sharedpreferences=getSharedPreferences("UserLoginData", MODE_PRIVATE)
+        val sharedpreferences=getSharedPreferences("NewLogin", MODE_PRIVATE)
 //    creating an editor
         val editor=sharedpreferences.edit()
 
@@ -138,7 +139,18 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
         editor.putString("token", token)
         editor.putString("userId", userId)
         editor.apply()
+        editor.commit()
     }
+
+//    get shared pref
+    private fun sharedpred(){
+        val sharedpreferences=getSharedPreferences("NewLogin", MODE_PRIVATE)
+        val email = sharedpreferences.getString("username","")
+        val password = sharedpreferences.getString("password","")
+        val token = sharedpreferences.getString("token","")
+        val userId = sharedpreferences.getString("userId","")
+
+}
 
 //    for sensor
     private fun checkSensor():Boolean{
