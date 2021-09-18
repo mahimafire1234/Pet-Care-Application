@@ -1,6 +1,7 @@
 package com.mahima.animestreamingapp.ui.myprofile
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,8 +12,10 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
+import com.mahima.animestreamingapp.LoginActivity
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.databinding.MyprofileFragmentBinding
 import com.mahima.animestreamingapp.ui.AboutusFragment
@@ -84,7 +87,11 @@ class MyprofileFragment : Fragment() {
 
 //        logout
         logout = root.findViewById(R.id.logout)
-//        logout.setOnClickListener {  }
+        logout.setOnClickListener {
+            logout()
+            Toast.makeText(requireContext(),"Logged out",Toast.LENGTH_SHORT).show()
+
+        }
 
         favorites = root.findViewById(R.id.favorites)
         favorites.setOnClickListener {
@@ -132,6 +139,16 @@ class MyprofileFragment : Fragment() {
             Intent(requireContext(),HireActivity::class.java)
         )
     }
+
+//    logout
+    private fun logout(){
+        val sharedpreferences=requireActivity().getSharedPreferences("NewLogin", AppCompatActivity.MODE_PRIVATE)
+        val editor=sharedpreferences.edit()
+        editor.clear()
+        editor.commit()
+        startActivity(Intent(requireContext(),LoginActivity::class.java))
+    }
+
 
 }
 
