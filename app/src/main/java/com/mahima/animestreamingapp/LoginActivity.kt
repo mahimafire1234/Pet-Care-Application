@@ -100,6 +100,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
                     withContext(Dispatchers.Main){
                         startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
                     }
+//                    saveUserData(ServiceBuilder.token!!,ServiceBuilder.userId!!)
                 }
             }else {
                 withContext(Dispatchers.Main) {
