@@ -59,9 +59,9 @@ class HireActivity : AppCompatActivity() {
                             )
                         )
                     }
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@HireActivity,data.toString(),Toast.LENGTH_LONG).show()
-                    }
+//                    withContext(Dispatchers.Main){
+//                        Toast.makeText(this@HireActivity,data.toString(),Toast.LENGTH_LONG).show()
+//                    }
                 }
             }
             catch (ex:Exception){

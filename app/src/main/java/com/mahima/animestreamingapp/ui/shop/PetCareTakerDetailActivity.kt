@@ -1,5 +1,9 @@
 package com.mahima.animestreamingapp.ui.shop
 
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -7,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.mahima.animestreamingapp.LoginActivity
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.api.ServiceBuilder
 import com.mahima.animestreamingapp.entity.PetCareTakerEntity
@@ -16,7 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PetCareTakerDetailActivity : AppCompatActivity() {
+class PetCareTakerDetailActivity : AppCompatActivity(), SensorEventListener {
 //    declaring variables
     private lateinit var tvfull_name: TextView
     private lateinit var tvage: TextView
@@ -26,6 +31,10 @@ class PetCareTakerDetailActivity : AppCompatActivity() {
     private lateinit var btnaddtocart:Button
     private lateinit var btnaddtofavs : Button
     private lateinit var imgviewproductimg : ImageView
+
+//    gyroscope
+    private lateinit var sensorManager: SensorManager
+    private var sensor: Sensor?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +48,16 @@ class PetCareTakerDetailActivity : AppCompatActivity() {
         tvBio = findViewById(R.id.tvBio)
         btnaddtocart=findViewById(R.id.btnaddtocart)
         imgviewproductimg=findViewById(R.id.imgviewproductimg)
+
+//        gyroscoope
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+
+        if(!checkSensor()){
+            return
+        }else{
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
+            sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
+        }
 
 //        intent
         val intent= intent.getParcelableExtra<PetCareTakerEntity>("PetCareDetail")
@@ -83,5 +102,29 @@ class PetCareTakerDetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+//    gyroscope
+//    function to check sensor
+    private fun checkSensor():Boolean{
+        var sensorPresent =true
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE) == null){
+            sensorPresent =false
+        }
+    return sensorPresent
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val values= event!!.values[1]
+//        if (values>0 && values<1){
+//            val secondintent= intent.getParcelableExtra<PetCareTakerEntity>("PetCareDetail")
+//            Hire(secondintent!!._id)
+//            sensorManager.unregisterListener(this)
+//            finish()
+//        }
+
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
 }
