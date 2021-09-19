@@ -78,7 +78,7 @@ class PetItemFragment : Fragment() {
                     ProductList.clear()
                     getProducts()
                     showitem.text="Showing item : "+" "+ data.size+ " " +"of" + " "+ data.size
-                    Toast.makeText(requireContext(),data.size.toString(),Toast.LENGTH_LONG).show()
+//                    Toast.makeText(requireContext(),data.size.toString(),Toast.LENGTH_LONG).show()
                 }
                 //        calling cuntion to show products
             }

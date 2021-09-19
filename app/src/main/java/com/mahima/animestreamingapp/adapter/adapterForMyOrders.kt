@@ -43,7 +43,7 @@ class adapterForMyOrders (
         holder.tvproductqtyorder.text = "Bill:" + order.bill
         holder.tvorderdate.text = "Date:" + order.date_added.toString()
 
-        Toast.makeText(context,order.date_added,Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context,order.date_added,Toast.LENGTH_SHORT).show()
     }
 
     override fun getItemCount(): Int {

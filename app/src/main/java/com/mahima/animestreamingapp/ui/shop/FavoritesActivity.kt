@@ -2,6 +2,7 @@ package com.mahima.animestreamingapp.ui.shop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,7 @@ class FavoritesActivity : AppCompatActivity() {
     companion object{
         var productListForRecyclerView:ArrayList<ProductFavorites> = ArrayList<ProductFavorites>()
     }
+    private lateinit var showitem : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,9 @@ class FavoritesActivity : AppCompatActivity() {
         recyclerviewfavorites.adapter = adapter
         productListForRecyclerView!!.clear()
 
+//        show item
+        showitem = findViewById(R.id.showitem)
+
     }
 
     private fun showFavorites(){
@@ -54,6 +59,7 @@ class FavoritesActivity : AppCompatActivity() {
                 if(response.success == true){
                     data = response.favoriteItem!!
                     productList = data!!.product
+                    val length = productList!!.size
 
                     withContext(Dispatchers.Main){
                         if(data!=null){
@@ -68,6 +74,7 @@ class FavoritesActivity : AppCompatActivity() {
                                 )
                             }
                         }
+                        showitem.text="Showing items :" + length + " "+"of" + " "+length
                     }
 
                 }

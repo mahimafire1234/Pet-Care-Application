@@ -8,91 +8,101 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
     >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/gradient_bg"
-        >
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/logo"
-            android:src="@drawable/logo"
-            android:padding="10dp"
-            android:layout_width="150dp"
-            android:layout_height="140dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="-20dp"
-
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="JoJo"
-            android:textSize="40sp"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@+id/logo"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="-20dp"
-            android:fontFamily="@font/fontlogo"
-            />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:text="My pet"
-            android:id="@+id/tvpet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:fontFamily="@font/fontforproduct"
-            android:layout_marginTop="20dp"
-            />
-
-        <TextView
-            android:text=""
-            android:id="@+id/tvpettext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#5B5B5B"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:fontFamily="@font/fontforproduct"
-            />
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-127dp"
-
+        android:fillViewport="true"
         >
-        <!--    recycler view-->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_marginTop="160dp"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/gradient_bg"
+                android:id="@+id/rv"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/logo"
+                    android:src="@drawable/logo"
+                    android:padding="10dp"
+                    android:layout_width="150dp"
+                    android:layout_height="140dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="-20dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JoJo"
+                    android:textSize="40sp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/logo"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="-20dp"
+                    android:fontFamily="@font/fontlogo"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/rv"
+                >
+                <TextView
+                    android:text="My pet"
+                    android:id="@+id/tvpet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/fontforproduct"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:text=""
+                    android:id="@+id/tvpettext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#5B5B5B"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/fontforproduct"
+                    />
+            </LinearLayout>
+
+            <!--    recycler view-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@+id/linearlayout"
+                android:id="@+id/recyclerview"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--    floating action button-->
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabaddpet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="70dp"
+                    android:src="@drawable/paw"
+                    android:translationZ="-3dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+
     </ScrollView>
 
-        <!--    floating action button-->
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabaddpet"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="70dp"
-            android:layout_gravity="end|bottom"
-            android:src="@drawable/paw"
-            android:translationZ="-3dp"
-            />
 </FrameLayout>

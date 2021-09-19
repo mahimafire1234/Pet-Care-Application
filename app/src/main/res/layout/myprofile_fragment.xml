@@ -35,7 +35,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
@@ -50,6 +50,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
                         android:text="My Info"
                         android:textAlignment="center" />
 
@@ -68,7 +70,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
@@ -84,7 +86,10 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:text="Cart"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -100,7 +105,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
@@ -116,6 +121,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:text="My Favorites"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -132,7 +139,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
@@ -148,6 +155,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:text="About us"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -164,7 +173,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
@@ -179,6 +188,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
                         android:text="My Orders"
                         android:textAlignment="center" />
 
@@ -196,7 +207,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
@@ -212,7 +223,10 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:text="Log out"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -227,7 +241,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="140dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
@@ -235,7 +249,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/like" />
+                        android:src="@drawable/run" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -243,6 +257,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:text="My Hires"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
                         android:textAlignment="center" />
 
                 </LinearLayout>

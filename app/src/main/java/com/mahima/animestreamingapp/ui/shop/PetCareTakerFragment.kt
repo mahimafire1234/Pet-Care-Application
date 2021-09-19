@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,7 @@ import java.lang.Exception
 
 class PetCareTakerFragment : Fragment() {
 
+    private lateinit var showitem : TextView
 //    companion object of variables
     companion object{
         private lateinit var data:ArrayList<PetCareTakerEntity>
@@ -46,6 +48,8 @@ class PetCareTakerFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_pet_care_taker, container, false)
 //        recyclerview
         recyclerview=view.findViewById(R.id.recyclerview)
+
+        showitem = view.findViewById(R.id.showitem)
         
         val adapter = adapterforPetCareTaker(requireContext(), PetCareList)
 
@@ -56,6 +60,7 @@ class PetCareTakerFragment : Fragment() {
                 repository= PetCareTakerRepository()
                 response = repository.getPetCareTaker()
                 data= response.data!!
+                var length = data.size
 
 //                function call for insertion
                 insertInRoomDb()
@@ -65,6 +70,8 @@ class PetCareTakerFragment : Fragment() {
                     recyclerview.adapter=adapter
                     PetCareList.clear()
                     getDataFromRoomDb()
+                    showitem.text="Showing item : "+" "+ data.size+ " " +"of" + " "+ data.size
+
                 }
             }
             catch (ex : Exception){
