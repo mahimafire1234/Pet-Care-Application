@@ -18,7 +18,7 @@ interface FavoritesApi {
 //    function to get favorites
     @GET("/getFavorites/{id}")
     suspend fun getFavorites(
-    @Header("Authorization") token:String,
+//    @Header("Authorization") token:String,
     @Path("id") id : String
     ):Response<FavoritesResponse>
 

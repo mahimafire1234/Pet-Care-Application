@@ -20,7 +20,7 @@ class FavoritesRepository : MyApiRequest(){
     //    function to get favorites
     suspend fun showFavorites(id:String): FavoritesResponse{
         return apiRequest {
-            favoritesApi.getFavorites(ServiceBuilder.token!!,id)
+            favoritesApi.getFavorites(id)
         }
     }
 

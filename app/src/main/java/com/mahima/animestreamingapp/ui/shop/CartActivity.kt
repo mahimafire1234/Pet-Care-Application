@@ -98,6 +98,7 @@ class CartActivity : AppCompatActivity() {
             catch (ex:Exception){
                 withContext(Dispatchers.Main){
                     tvnoitem.setText("No items to show")
+                    tvbillcart.visibility=View.INVISIBLE
                     btnforcheckout.visibility=View.INVISIBLE
 //                    Toast.makeText(this@CartActivity,ex.toString(),Toast.LENGTH_SHORT).show()
 //                    tvshowcart.setText(ex.toString())

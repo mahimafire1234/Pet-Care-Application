@@ -2,6 +2,7 @@ package com.mahima.animestreamingapp.ui.myprofile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,7 @@ import kotlinx.coroutines.withContext
 class HireActivity : AppCompatActivity() {
     private lateinit var recyclerviewhire : RecyclerView
     private var data: HireEntity ?= null
+    private lateinit var noitem : TextView
 //    companion object for recycler view
     companion object{
         var hireListForRecyclerView:ArrayList<PetCareTakerHire> = ArrayList<PetCareTakerHire>()
@@ -38,6 +40,8 @@ class HireActivity : AppCompatActivity() {
         recyclerviewhire.adapter = adapter
         hireListForRecyclerView.clear()
         adapter.notifyDataSetChanged()
+
+        noitem=findViewById(R.id.noitem)
     }
 
     private fun getHire(){
@@ -66,7 +70,8 @@ class HireActivity : AppCompatActivity() {
             }
             catch (ex:Exception){
                 withContext(Dispatchers.Main){
-                    Toast.makeText(this@HireActivity,ex.toString(),Toast.LENGTH_LONG).show()
+                    noitem.text="No Hires yet"
+//                    Toast.makeText(this@HireActivity,ex.toString(),Toast.LENGTH_LONG).show()
                 }
             }
         }

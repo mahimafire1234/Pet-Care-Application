@@ -166,6 +166,18 @@ class Test {
         val actualResult = response.success
         Assert.assertEquals(expectedResult,actualResult)
     }
+
+    @Test
+    fun showMyfavs() = runBlocking {
+        val orderRepository = FavoritesRepository()
+        val userRepository = UserRepository()
+
+        val expectedResult = true
+        val actualResult = orderRepository.showFavorites(
+            id=userRepository.userLogin("owner1@gmail.com","owner").userId!!
+        ).success
+        Assert.assertEquals(expectedResult,actualResult)
+    }
 }
 
 

@@ -2,6 +2,7 @@ package com.mahima.animestreamingapp.ui.shop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,7 @@ class FavoritesActivity : AppCompatActivity() {
     private lateinit var recyclerviewfavorites:RecyclerView
     private var data: FavoritesEntity ?= null
     private var productList : List<ProductFavorites> ?= null
+    private lateinit  var noitem : TextView
     companion object{
         var productListForRecyclerView:ArrayList<ProductFavorites> = ArrayList<ProductFavorites>()
     }
@@ -47,6 +49,7 @@ class FavoritesActivity : AppCompatActivity() {
 
 //        show item
         showitem = findViewById(R.id.showitem)
+        noitem = findViewById(R.id.noitem)
 
     }
 
@@ -76,12 +79,13 @@ class FavoritesActivity : AppCompatActivity() {
                         }
                         showitem.text="Showing items :" + length + " "+"of" + " "+length
                     }
-
                 }
             }
             catch (ex:Exception){
                 withContext(Dispatchers.Main){
-                    Toast.makeText(this@FavoritesActivity,ex.toString(),Toast.LENGTH_SHORT).show()
+                    noitem.text = "No items in favorites"
+                    showitem.visibility=View.INVISIBLE
+//                    Toast.makeText(this@FavoritesActivity,ex.toString(),Toast.LENGTH_SHORT).show()
                 }
             }
         }
