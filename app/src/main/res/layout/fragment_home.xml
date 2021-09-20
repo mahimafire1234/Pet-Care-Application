@@ -81,12 +81,17 @@
             </LinearLayout>
 
             <!--    recycler view-->
-            <androidx.recyclerview.widget.RecyclerView
+            <ScrollView
                 android:layout_below="@+id/linearlayout"
-                android:id="@+id/recyclerview"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </ScrollView>
+
 
             <!--    floating action button-->
 

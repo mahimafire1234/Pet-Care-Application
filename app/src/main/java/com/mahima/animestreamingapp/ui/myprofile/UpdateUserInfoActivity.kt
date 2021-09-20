@@ -115,7 +115,7 @@ class UpdateUserInfoActivity : AppCompatActivity() {
 
 //    request codes
     private val CAMERA_CODE = 1
-    private val GALLERY_CODE = 2
+    private val GALLERY_CODE = 0
 
     private var imageUrl =""
 
@@ -133,7 +133,7 @@ class UpdateUserInfoActivity : AppCompatActivity() {
 //    gallery
     private fun openGallery(){
         if(!checkPermission()){
-            ActivityCompat.requestPermissions(this,permissions,2)
+            ActivityCompat.requestPermissions(this,permissions,0)
         }else{
             val galleryIntent = Intent(Intent.ACTION_PICK)
             galleryIntent.type="image/*"
@@ -147,18 +147,19 @@ class UpdateUserInfoActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(resultCode == Activity.RESULT_OK){
-
 //            if for gallery
-            if(resultCode == GALLERY_CODE && data != null){
-                val ImageSelected = data.data
+            if(requestCode == GALLERY_CODE && data != null){
+                val selectedImage = data.data
+                Toast.makeText(this,"here",Toast.LENGTH_SHORT).show()
                 val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
-                val contentResolver = contentResolver
+                val contentResolver = this.contentResolver
                 val cursor =
-                    contentResolver.query(ImageSelected!!, filePathColumn, null, null, null)
+                    contentResolver.query(selectedImage!!, filePathColumn, null, null, null)
                 cursor!!.moveToFirst()
                 val columnIndex = cursor.getColumnIndex(filePathColumn[0])
                 imageUrl = cursor.getString(columnIndex)
                 imgviewphoto.setImageBitmap(BitmapFactory.decodeFile(imageUrl))
+                Log.d("imageurl", imageUrl)
                 cursor.close()
             } else if (requestCode == CAMERA_CODE && data != null) {
                 val imageBitmap = data.extras?.get("data") as Bitmap
@@ -234,7 +235,7 @@ class UpdateUserInfoActivity : AppCompatActivity() {
                     Log.d("Error ", ex.localizedMessage)
                     Toast.makeText(
                         this@UpdateUserInfoActivity,
-                        imageUrl,
+                        ex.toString(),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -268,7 +269,7 @@ class UpdateUserInfoActivity : AppCompatActivity() {
             }
             catch (ex:Exception){
                 withContext(Dispatchers.Main){
-                    Toast.makeText(this@UpdateUserInfoActivity,imageUrl,Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@UpdateUserInfoActivity,ex.toString(),Toast.LENGTH_LONG).show()
                 }
             }
         }

@@ -7,12 +7,12 @@
     tools:context=".ui.mypet.BathReminderFragment"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="10dp"
     >
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -96,16 +96,13 @@
                 android:text="Done"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/roundcorners"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="30dp"
                 app:backgroundTint="#A7FF8F"
                 />
             <!--    -->
         </LinearLayout>
 
-
     </LinearLayout>
-
-
 </ScrollView>
 
 </LinearLayout>

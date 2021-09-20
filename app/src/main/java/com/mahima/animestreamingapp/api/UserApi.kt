@@ -40,7 +40,7 @@ interface UserApi {
 
 //    upload image
     @Multipart
-    @PUT("/users/Imageuploadandroid/{id}/image")
+    @PUT("/users/Imageuploadandroid/{id}")
     suspend fun uploadImage(
         @Path("id") id :String,
         @Part file:MultipartBody.Part
