@@ -1,13 +1,19 @@
 
 package com.mahima.animestreamingapp.ui.shop
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.bumptech.glide.Glide
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.api.ServiceBuilder
+import com.mahima.animestreamingapp.classes.CartNotification
 import com.mahima.animestreamingapp.entity.PetProductEntity
 import com.mahima.animestreamingapp.entity.Product
 import com.mahima.animestreamingapp.entity.ShoppingCartEntity
@@ -19,6 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import java.time.LocalDateTime
 
 class ProductDetailActivity : AppCompatActivity() {
 //    decalring variables
@@ -96,10 +103,11 @@ class ProductDetailActivity : AppCompatActivity() {
                     )
                     if(response.success == true){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(
-                                this@ProductDetailActivity,
-                                "Added to cart",
-                                Toast.LENGTH_SHORT).show()
+                            showNotification()
+//                            Toast.makeText(
+//                                this@ProductDetailActivity,
+//                                "Added to cart",
+//                                Toast.LENGTH_SHORT).show()
                         }
                         print(shoppingCart)
                     }
@@ -128,9 +136,10 @@ class ProductDetailActivity : AppCompatActivity() {
                 val response = repository.addToFavorites(ServiceBuilder.userId!!,productId)
 
                 if(response.success == true){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@ProductDetailActivity,"Added to Favorites",Toast.LENGTH_SHORT).show()
-                    }
+                    showFavsNotification()
+//                    withContext(Dispatchers.Main){
+//                        Toast.makeText(this@ProductDetailActivity,"Added to Favorites",Toast.LENGTH_SHORT).show()
+//                    }
                 }
             }
             catch (ex:Exception){
@@ -139,5 +148,35 @@ class ProductDetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+//    notifications
+    private  fun showNotification(){
+        val notificationManager = NotificationManagerCompat.from(this)
+        val  notificationChannels = CartNotification(this)
+        notificationChannels.createNofiticationChannels()
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_3)
+        .setSmallIcon(R.drawable.trolley)
+        .setContentTitle("Successful")
+        .setContentText("Added to cart successfully")
+        .setColor(Color.GREEN)
+        .build()
+
+        notificationManager.notify(3,notification)
+    }
+
+//    for favorites
+    private  fun showFavsNotification(){
+        val notificationManager = NotificationManagerCompat.from(this)
+        val  notificationChannels = CartNotification(this)
+        notificationChannels.createNofiticationChannels()
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_4)
+        .setSmallIcon(R.drawable.like)
+        .setContentTitle("Successful")
+        .setContentText("Added to favorites successfully")
+        .setColor(Color.GREEN)
+        .build()
+
+        notificationManager.notify(4,notification)
     }
 }

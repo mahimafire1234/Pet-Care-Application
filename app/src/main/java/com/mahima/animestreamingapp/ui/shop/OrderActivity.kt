@@ -1,13 +1,17 @@
 package com.mahima.animestreamingapp.ui.shop
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.mahima.animestreamingapp.R
 import com.mahima.animestreamingapp.api.ServiceBuilder
+import com.mahima.animestreamingapp.classes.CartNotification
 import com.mahima.animestreamingapp.repository.OrderRespository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -71,10 +75,11 @@ class OrderActivity : AppCompatActivity() {
                 val response = repository.createOrder(ServiceBuilder.userId!!,payment.toLong(),delivery_address)
 
                 if(response.success == true){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@OrderActivity,"Checkout complete",Toast.LENGTH_SHORT).show()
-
-                    }
+                    showNotification()
+//                    withContext(Dispatchers.Main){
+//                        Toast.makeText(this@OrderActivity,"Checkout complete",Toast.LENGTH_SHORT).show()
+//
+//                    }
                 }
 
             }
@@ -86,5 +91,20 @@ class OrderActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+//    checkout notification
+    private  fun showNotification(){
+        val notificationManager = NotificationManagerCompat.from(this)
+        val  notificationChannels = CartNotification(this)
+        notificationChannels.createNofiticationChannels()
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_5)
+        .setSmallIcon(R.drawable.trolley)
+        .setContentTitle("Successful")
+        .setContentText("Checked out successfully")
+        .setColor(Color.GREEN)
+        .build()
+
+        notificationManager.notify(5,notification)
     }
 }

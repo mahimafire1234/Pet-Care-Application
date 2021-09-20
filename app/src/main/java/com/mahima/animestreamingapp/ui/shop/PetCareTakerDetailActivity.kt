@@ -116,12 +116,12 @@ class PetCareTakerDetailActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         val values= event!!.values[1]
-        if (values>0 && values<1){
-            val secondintent= intent.getParcelableExtra<PetCareTakerEntity>("PetCareDetail")
-            Hire(secondintent!!._id)
-            sensorManager.unregisterListener(this)
-            finish()
-        }
+//        if (values>0 && values<1){
+//            val secondintent= intent.getParcelableExtra<PetCareTakerEntity>("PetCareDetail")
+//            Hire(secondintent!!._id)
+//            sensorManager.unregisterListener(this)
+//            finish()
+//        }
 
     }
 

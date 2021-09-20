@@ -66,7 +66,7 @@ class SplashActivity : AppCompatActivity() {
             if(getusernamepassword()){
                 withContext(Dispatchers.Main){
                     startActivity(Intent(this@SplashActivity,DashboardActivity::class.java))
-                    Toast.makeText(this@SplashActivity,token,Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@SplashActivity,token,Toast.LENGTH_SHORT).show()
                     ServiceBuilder.userId = userId
                     ServiceBuilder.token = token
 
