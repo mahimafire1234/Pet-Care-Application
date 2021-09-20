@@ -111,7 +111,6 @@ class Test {
         Assert.assertEquals(expectedResult,actualResult)
     }
 //    test case for order
-//    delete item from favorites
     @Test
     fun checkMyOrder() = runBlocking {
         val userRepository = UserRepository()
@@ -141,7 +140,7 @@ class Test {
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }
-
+//test case for hires
     @Test
     fun showMyhires() = runBlocking {
         val orderRepository = HireRepository()
@@ -153,7 +152,7 @@ class Test {
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }
-
+//test case for user information update
     @Test
     fun checkUpdate() = runBlocking {
         val userRepository = UserRepository()

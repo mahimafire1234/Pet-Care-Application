@@ -164,11 +164,10 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         var valuex= event!!.values[0]
         val loginActivity = LoginActivity()
-//        if (valuex<=5){
-//            userValidation()
-//            valuex=7.0F
-//            Toast.makeText(this,"Logged in using sensor",Toast.LENGTH_SHORT).show()
-//        }
+        if (valuex<=3){
+            userValidation()
+            Toast.makeText(this,"Logged in using sensor",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {

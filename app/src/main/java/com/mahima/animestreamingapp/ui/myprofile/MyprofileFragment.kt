@@ -2,6 +2,10 @@ package com.mahima.animestreamingapp.ui.myprofile
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,6 +18,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
 import com.mahima.animestreamingapp.LoginActivity
 import com.mahima.animestreamingapp.R
@@ -23,7 +29,7 @@ import com.mahima.animestreamingapp.ui.myprofile.MyprofileViewModel
 import com.mahima.animestreamingapp.ui.shop.CartActivity
 import com.mahima.animestreamingapp.ui.shop.FavoritesActivity
 
-class MyprofileFragment : Fragment() {
+class MyprofileFragment : Fragment(),SensorEventListener {
 
     private lateinit var myprofileViewModel: MyprofileViewModel
     private var _binding: MyprofileFragmentBinding ? = null
@@ -34,6 +40,10 @@ class MyprofileFragment : Fragment() {
     private lateinit var logout : CardView
     private lateinit var favorites : CardView
     private lateinit var hires : CardView
+
+//    sensors
+    private lateinit var sensorManager: SensorManager
+    private var sensor: Sensor?= null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -92,16 +102,27 @@ class MyprofileFragment : Fragment() {
             Toast.makeText(requireContext(),"Logged out",Toast.LENGTH_SHORT).show()
 
         }
-
+//        for favorites
         favorites = root.findViewById(R.id.favorites)
         favorites.setOnClickListener {
             showFavsActivty()
             Toast.makeText(requireContext(),"Clicked on favorites",Toast.LENGTH_SHORT).show()
         }
-
+//for hires
         hires = root.findViewById(R.id.hires)
         hires.setOnClickListener {
             hires()
+        }
+
+//        /        for sensor
+        //        initializing variables
+        sensorManager = requireContext().getSystemService(AppCompatActivity.SENSOR_SERVICE) as SensorManager
+
+        if(!checkSensor()){
+            return null
+        }else{
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+            sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
         }
 
         return root
@@ -147,6 +168,32 @@ class MyprofileFragment : Fragment() {
         editor.clear()
         editor.commit()
         startActivity(Intent(requireContext(),LoginActivity::class.java))
+        finishAffinity(requireActivity())
+    }
+
+//    /    for sensor
+    private fun checkSensor():Boolean{
+        var sensorPresent =true
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) == null){
+            sensorPresent =false
+        }
+        return sensorPresent
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val values = event!!.values
+        val xAxis = values[0]
+        val yAxis = values[1]
+        val zAxis = values[2]
+
+        if (xAxis>=5 && yAxis<0 && zAxis<=4 ){
+            logout()
+            Toast.makeText(requireContext(),"Logged out",Toast.LENGTH_SHORT).show()
+            sensorManager.unregisterListener(this)
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
 
 
