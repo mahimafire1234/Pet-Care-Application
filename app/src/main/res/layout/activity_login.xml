@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/loginParent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -51,9 +52,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="Email"
-        android:paddingHorizontal="20dp"
+        android:padding="10dp"
         android:layout_margin="10dp"
         android:background="@drawable/roundcorners"
+        android:drawableStart="@drawable/ic_baseline_email_24"
         />
 <!--textview password-->
     <TextView
@@ -72,9 +74,11 @@
         android:layout_height="60dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="20dp"
+        android:padding="10dp"
         android:layout_margin="10dp"
         android:background="@drawable/roundcorners"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+
         />
 <!--    login button-->
     <Button
