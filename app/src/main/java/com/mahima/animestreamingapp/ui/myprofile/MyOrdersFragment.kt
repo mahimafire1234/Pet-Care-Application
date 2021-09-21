@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,7 @@ class MyOrdersFragment : Fragment() {
         var ordertList : List<ProductOrder> ?= null
 
     }
+    private lateinit var showitem : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +48,14 @@ class MyOrdersFragment : Fragment() {
 
         showMyOrder()
 //        recyler view
-        val adapter= adapterForMyOrders(requireContext(),orderListForRecyclerView)
-        recylerviewmyorders.layoutManager= LinearLayoutManager(requireContext())
-        recylerviewmyorders.adapter = adapter
-        orderListForRecyclerView.clear()
-        adapter.notifyDataSetChanged()
+//        val adapter= adapterForMyOrders(requireContext(),orderListForRecyclerView)
+//        recylerviewmyorders.layoutManager= LinearLayoutManager(requireContext())
+//        recylerviewmyorders.adapter = adapter
+//        orderListForRecyclerView.clear()
+//        adapter.notifyDataSetChanged()
+
+//        show item text view
+        showitem = view.findViewById(R.id.showitem)
 
 
         return view
@@ -63,32 +68,37 @@ class MyOrdersFragment : Fragment() {
                 val repository = OrderRespository()
                 val response = repository.showOrder(ServiceBuilder.userId!!)
                 data = response.order!!
+                val length = data!!.size
 //                ordertList =data!!.product
 
                 if(response.success ==true){
-                    for(i in data!!) {
-                        ordertList = i.product
-                        orderListForRecyclerView.add(
-                            OrderEntity(
-                                userId = i.userId,
-                                delivery_address = i.delivery_address,
-                                bill = i.bill,
-                                product = i.product,
-                                date_added = i.date_added
+                    if(data!=null){
+                        for(i in data!!) {
+                            ordertList = i.product
+                            orderListForRecyclerView.add(
+                                OrderEntity(
+                                    userId = i.userId,
+                                    delivery_address = i.delivery_address,
+                                    bill = i.bill,
+                                    product = i.product,
+                                    date_added = i.date_added
+                                )
                             )
-                        )
+                        }
                     }
-
                     withContext(Dispatchers.Main){
-
-//                        Toast.makeText(requireContext(),data.toString(),Toast.LENGTH_SHORT).show()
-
+                        showitem.text = "Showing items : " + " " + length + "of " + " " + length
+                        val adapter= adapterForMyOrders(requireContext(),orderListForRecyclerView)
+                        recylerviewmyorders.layoutManager= LinearLayoutManager(requireContext())
+                        recylerviewmyorders.adapter = adapter
+                        orderListForRecyclerView.clear()
                     }
                 }
             }
             catch (ex:Exception){
                 withContext(Dispatchers.Main){
-                    Toast.makeText(requireContext(),ex.toString(),Toast.LENGTH_SHORT).show()
+                    showitem.text = "No items to show"
+//                    Toast.makeText(requireContext(),ex.toString(),Toast.LENGTH_SHORT).show()
                 }
             }
         }

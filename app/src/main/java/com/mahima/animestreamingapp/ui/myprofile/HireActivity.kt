@@ -22,9 +22,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HireActivity : AppCompatActivity() {
+//    declaring varibales
     private lateinit var recyclerviewhire : RecyclerView
     private var data: HireEntity ?= null
     private lateinit var noitem : TextView
+    private lateinit var showitem : TextView
+
 //    companion object for recycler view
     companion object{
         var hireListForRecyclerView:ArrayList<PetCareTakerHire> = ArrayList<PetCareTakerHire>()
@@ -33,6 +36,7 @@ class HireActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hire)
 
+//        recylerview
         getHire()
         val adapter= adapterForHires(this, hireListForRecyclerView)
         recyclerviewhire=findViewById(R.id.recyclerviewhire)
@@ -41,7 +45,12 @@ class HireActivity : AppCompatActivity() {
         hireListForRecyclerView.clear()
         adapter.notifyDataSetChanged()
 
+//        no item
         noitem=findViewById(R.id.noitem)
+
+//        showitem
+        showitem = findViewById(R.id.showitem)
+
     }
 
     private fun getHire(){
@@ -50,22 +59,25 @@ class HireActivity : AppCompatActivity() {
                 val repository = HireRepository()
                 val response = repository.shoeHires(ServiceBuilder.userId!!)
                 data = response.hiredITem
-                if(response.success == true){
+                val length = data!!.petcaretaker!!.size
 
-                    for(i in data!!.petcaretaker!!){
-                        hireListForRecyclerView.add(
-                            PetCareTakerHire(
-                                petcaretakerId = i.petcaretakerId,
-                                fullName = i.fullName,
-                                photo = i.photo,
-                                hire_date = i.hire_date,
-                                price = i.price
+                if(response.success == true){
+                    if(data!=null){
+                        for(i in data!!.petcaretaker!!){
+                            hireListForRecyclerView.add(
+                                PetCareTakerHire(
+                                    petcaretakerId = i.petcaretakerId,
+                                    fullName = i.fullName,
+                                    photo = i.photo,
+                                    hire_date = i.hire_date,
+                                    price = i.price
+                                )
                             )
-                        )
+                        }
                     }
-//                    withContext(Dispatchers.Main){
-//                        Toast.makeText(this@HireActivity,data.toString(),Toast.LENGTH_LONG).show()
-//                    }
+                    withContext(Dispatchers.Main){
+                        showitem.text = "Showing items :" + " "+length + "of " + " "+ length
+                    }
                 }
             }
             catch (ex:Exception){

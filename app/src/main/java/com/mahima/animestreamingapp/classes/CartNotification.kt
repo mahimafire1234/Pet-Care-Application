@@ -7,9 +7,12 @@ import android.os.Build
 import androidx.core.content.ContextCompat.getSystemService
 
 class CartNotification (val context :Context){
-    val CHANNEL_3 :String = "Cart"
-    val CHANNEL_4:String = "Favorites"
+    val CHANNEL_3 : String = "Cart"
+    val CHANNEL_4:  String = "Favorites"
     val CHANNEL_5 : String ="Checkout"
+    val CHANNEL_6:  String = "Logout"
+
+//    creating notification channels
     fun  createNofiticationChannels(){
         if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
 //            notification for cart
@@ -36,6 +39,14 @@ class CartNotification (val context :Context){
                 NotificationManager.IMPORTANCE_LOW
             )
             channel5.description="Checkout Channel"
+
+//            notification channel for logout
+            val channel6 = NotificationChannel(
+                CHANNEL_6,
+                "LOG OUT",
+                NotificationManager.IMPORTANCE_LOW
+            )
+            channel5.description="Logout Channel"
 
 //            notification manager
             val notificationManager =

@@ -174,7 +174,7 @@ class ProductDetailActivity : AppCompatActivity() {
         .setSmallIcon(R.drawable.like)
         .setContentTitle("Successful")
         .setContentText("Added to favorites successfully")
-        .setColor(Color.GREEN)
+        .setColor(Color.MAGENTA)
         .build()
 
         notificationManager.notify(4,notification)

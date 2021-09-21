@@ -6,9 +6,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.myprofile.OrderDetailActivity">
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="@drawable/curlyborder"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/tvcheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/fontforproduct"
+                android:layout_marginTop="20dp"
+                />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/payment"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/showitem"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Showing items"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="50dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerviewmyorder"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="600dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
 </LinearLayout>
