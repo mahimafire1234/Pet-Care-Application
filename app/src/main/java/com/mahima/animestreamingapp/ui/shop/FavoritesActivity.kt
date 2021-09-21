@@ -43,7 +43,7 @@ class FavoritesActivity : AppCompatActivity() {
         var adapter = adapterForMyFavorites(this, productListForRecyclerView!!)
 
         showFavorites()
-        recyclerviewfavorites.layoutManager= LinearLayoutManager(this)
+        recyclerviewfavorites.layoutManager= LinearLayoutManager(this@FavoritesActivity)
         recyclerviewfavorites.adapter = adapter
         productListForRecyclerView!!.clear()
 

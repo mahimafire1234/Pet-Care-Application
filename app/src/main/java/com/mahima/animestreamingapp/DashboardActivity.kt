@@ -108,10 +108,8 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
                 intent.setData(Uri.parse("package:"+applicationContext.packageName))
                 startActivityForResult(intent,100)
             }
-
         }
     }
-
 
     //    set brightness
     private fun setBrightness( brightnessValue :Int){
@@ -123,9 +121,6 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         }
         var contentResolver = applicationContext.contentResolver
         Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS,brightnessValue)
-
-
     }
-
 
 }

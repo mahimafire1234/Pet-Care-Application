@@ -13,18 +13,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="Update My profile"
+            android:text="My profile"
             android:textSize="20dp"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:fontFamily="@font/fontforproduct"
             android:background="@drawable/curlyborder"
             />
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_width="200dp"

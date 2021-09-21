@@ -20,7 +20,7 @@
             android:layout_height="180dp"
             android:background="#FBC7FB"
             android:orientation="vertical"
-            android:padding="15dp"
+            android:padding="5dp"
             >
             <TextView
                 android:id="@+id/fullNamehire"
@@ -57,7 +57,7 @@
                 />
             <ImageView
                 android:id="@+id/imghire"
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:layout_gravity="end"
                 android:layout_marginTop="-80dp"

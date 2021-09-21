@@ -36,7 +36,7 @@ class HireActivity : AppCompatActivity() {
         getHire()
         val adapter= adapterForHires(this, hireListForRecyclerView)
         recyclerviewhire=findViewById(R.id.recyclerviewhire)
-        recyclerviewhire.layoutManager= LinearLayoutManager(this)
+        recyclerviewhire.layoutManager= LinearLayoutManager(this@HireActivity)
         recyclerviewhire.adapter = adapter
         hireListForRecyclerView.clear()
         adapter.notifyDataSetChanged()

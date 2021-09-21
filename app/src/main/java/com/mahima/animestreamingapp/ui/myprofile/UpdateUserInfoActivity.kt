@@ -150,7 +150,7 @@ class UpdateUserInfoActivity : AppCompatActivity() {
 //            if for gallery
             if(requestCode == GALLERY_CODE && data != null){
                 val selectedImage = data.data
-                Toast.makeText(this,"here",Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this,"here",Toast.LENGTH_SHORT).show()
                 val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
                 val contentResolver = this.contentResolver
                 val cursor =

@@ -15,16 +15,30 @@ tools:context=".ui.shop.FavoritesActivity"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Favorites"
-        android:textSize="25dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/fontforproduct"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/curlyborder"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/touch"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Favorites"
+            android:layout_marginTop="30dp"
+            android:textSize="23dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/fontforproduct"
+            android:gravity="center"
+            />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/showitem"

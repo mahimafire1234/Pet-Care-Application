@@ -7,6 +7,7 @@
     tools:context=".ui.myprofile.UserInfoFragment"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
     >
 
     <LinearLayout
@@ -26,27 +27,27 @@
             android:fontFamily="@font/fontforproduct"
             android:textColor="@color/black"
             />
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgprofile"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_width="150dp"
             android:layout_height="200dp"/>
 
         <TextView
             android:id="@+id/fullName"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:textColor="@color/black"
-            android:textSize="14dp"
+            android:textSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/fontforproduct"
             />
 
         <TextView
             android:id="@+id/email"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:textSize="14dp"
@@ -58,10 +59,11 @@
         <Button
             android:id="@+id/btnupdateinfo"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:text="Update"
             android:backgroundTint="#09DCEB"
             android:textSize="20dp"
+            android:layout_marginTop="20dp"
             />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

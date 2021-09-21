@@ -52,7 +52,7 @@ class CartActivity : AppCompatActivity() {
         recyclerviewcart = findViewById(R.id.recyclerviewcart)
         var adapter = adapterForShoppingCart(this,productListForRecyclerView!!)
 
-        recyclerviewcart.layoutManager=LinearLayoutManager(this)
+        recyclerviewcart.layoutManager=LinearLayoutManager(this@CartActivity)
         recyclerviewcart.adapter = adapter
         productListForRecyclerView!!.clear()
 
@@ -86,12 +86,14 @@ class CartActivity : AppCompatActivity() {
                                 )
                              }
                         }
+
                         else{
                             Toast.makeText(this@CartActivity,"No items to show",Toast.LENGTH_SHORT).show()
                         }
 
                         tvbillcart.setText("Bill:" + " "+ data!!.bill)
                     }
+
                 }
             }
 //            exception handling
