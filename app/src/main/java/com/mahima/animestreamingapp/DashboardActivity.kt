@@ -31,9 +31,6 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
     private var permission : Boolean = true
     private var brightnessValue : Int =0
 
-//    cart btn
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -56,17 +53,13 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
         //        initializing sensormanager
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
-//        cart
-
 //        if sensor does not exist
         if(!CheckSensor()){
             return
         }else{
             sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
-
         }
-
     }
     //    function to check if light sensor is present or not
     private fun CheckSensor() : Boolean{
@@ -89,17 +82,15 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
             AskPermission()
             setBrightness(50)
         }
-
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
+
     //    function to ask for permission
     private fun AskPermission(){
-
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             permission = Settings.System.canWrite(applicationContext)
-
             if(permission){
                 success = true
             }
@@ -113,7 +104,6 @@ class DashboardActivity : AppCompatActivity(), SensorEventListener {
 
     //    set brightness
     private fun setBrightness( brightnessValue :Int){
-
         if(brightnessValue <0){
             this.brightnessValue =0
         }else if(brightnessValue>255){

@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
         etpassword=findViewById(R.id.etpassword)
 
 //        for sensor
-        //        initializing variables
+//        initializing variables
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
         if(!checkSensor()){
@@ -82,48 +82,45 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
         val email = etusername.text.toString()
         val password = etpassword.text.toString()
 
-//
 //        inserting in user model
         val user = UserModel(email = email,password = password)
-     CoroutineScope(Dispatchers.IO).launch {
-        try{
-            val repository = UserRepository()
-            val response =repository.userLogin(email, password)
-            if(response.success == true){
-                ServiceBuilder.token = "Bearer ${response.token}"
-                ServiceBuilder.userId = response.userId
-                withContext(Dispatchers.Main){
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Successfully logged in",
-                        Toast.LENGTH_SHORT).
-                    show()
+        CoroutineScope(Dispatchers.IO).launch {
+            try{
+                val repository = UserRepository()
+                val response =repository.userLogin(email, password)
+                if(response.success == true){
+                    ServiceBuilder.token = "Bearer ${response.token}"
+                    ServiceBuilder.userId = response.userId
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Successfully logged in",
+                            Toast.LENGTH_SHORT).
+                        show()
                     withContext(Dispatchers.Main){
                         startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
                     }
                     saveUserData(ServiceBuilder.token!!,ServiceBuilder.userId!!)
                 }
-            }else {
-                withContext(Dispatchers.Main) {
-                    if(response.message == "Email does not exist"){
-                        Toast.makeText(this@LoginActivity,"Invalid email", Toast.LENGTH_SHORT)
+                }else {
+                    withContext(Dispatchers.Main) {
+                        if(response.message == "Email does not exist"){
+                            Toast.makeText(this@LoginActivity,"Invalid email", Toast.LENGTH_SHORT)
                             .show()
-                    }
-                    if(response.message=="Password does not match"){
-                        Toast.makeText(this@LoginActivity,"Incorrect password", Toast.LENGTH_SHORT)
+                        }
+                        if(response.message=="Password does not match"){
+                            Toast.makeText(this@LoginActivity,"Incorrect password", Toast.LENGTH_SHORT)
                             .show()
+                        }
                     }
-
                 }
-            }
-        }catch (ex: Exception){
-            withContext(Dispatchers.Main) {
+            }catch (ex: Exception){
+                withContext(Dispatchers.Main) {
                     Toast.makeText(this@LoginActivity,ex.toString(), Toast.LENGTH_SHORT)
                     .show()
                 }
             }
-
-    }
+        }
     }
 
 //    for shared preferences
@@ -149,17 +146,16 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
         val password = sharedpreferences.getString("password","")
         val token = sharedpreferences.getString("token","")
         val userId = sharedpreferences.getString("userId","")
-
-}
+    }
 
 //    for sensor
     private fun checkSensor():Boolean{
-    var sensorPresent =true
-    if(sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null){
-        sensorPresent =false
+        var sensorPresent =true
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null){
+            sensorPresent =false
+        }
+        return sensorPresent
     }
-    return sensorPresent
-}
 
     override fun onSensorChanged(event: SensorEvent?) {
         var valuex= event!!.values[0]

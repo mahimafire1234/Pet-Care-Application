@@ -22,6 +22,7 @@ class SplashActivity : AppCompatActivity() {
     var password : String ? =" "
     var token : String ? =" "
     var userId : String ? =" "
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -69,12 +70,11 @@ class SplashActivity : AppCompatActivity() {
 //                    Toast.makeText(this@SplashActivity,token,Toast.LENGTH_SHORT).show()
                     ServiceBuilder.userId = userId
                     ServiceBuilder.token = token
-
                 }
-        }
-        else{
+            }
+            else{
                 startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
-        }
+            }
 //            finishes the splash screen
             finish()
         }

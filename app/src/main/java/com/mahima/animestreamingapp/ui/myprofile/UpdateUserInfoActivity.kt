@@ -263,7 +263,7 @@ class UpdateUserInfoActivity : AppCompatActivity() {
                 if(response.success == true){
                     withContext(Dispatchers.Main){
                         uploadImage()
-                        Toast.makeText(this@UpdateUserInfoActivity,"Your user info has been updated successfully",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@UpdateUserInfoActivity,"Your info has been updated successfully",Toast.LENGTH_LONG).show()
                     }
                 }
             }
