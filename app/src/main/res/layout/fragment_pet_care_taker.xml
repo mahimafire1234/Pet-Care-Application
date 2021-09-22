@@ -23,6 +23,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-127dp"
         android:background="#FFFFFF"
+        android:id="@+id/cardproduct"
         >
     <!--    for recycler view-->
     <androidx.recyclerview.widget.RecyclerView

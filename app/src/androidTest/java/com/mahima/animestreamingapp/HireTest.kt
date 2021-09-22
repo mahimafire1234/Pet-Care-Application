@@ -1,47 +1,37 @@
 package com.mahima.animestreamingapp
 
-import android.text.TextUtils.replace
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.contrib.ViewPagerActions
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import com.mahima.animestreamingapp.ui.shop.PetItemFragment
-import com.mahima.animestreamingapp.ui.shop.ProductDetailActivity
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.TypeSafeMatcher
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
-import java.util.EnumSet.allOf
-
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class AddtoCart {
+class HireTest {
     @Rule
     @JvmField
     val testRule = ActivityTestRule(LoginActivity::class.java)
 
     @Test
-    fun addtocart() {
+    fun hiretest() {
 
 //        username
-        val emailEditText = onView(
+        val emailEditText = Espresso.onView(
             Matchers.allOf(
-                withId(R.id.etusername),
+                ViewMatchers.withId(R.id.etusername),
                 ViewMatchers.isDisplayed()
             )
         )
@@ -52,9 +42,9 @@ class AddtoCart {
         )
 
 //        password entry
-        val passwordEditText = onView(
+        val passwordEditText = Espresso.onView(
             Matchers.allOf(
-                withId(R.id.etpassword),
+                ViewMatchers.withId(R.id.etpassword),
                 ViewMatchers.isDisplayed()
             )
         )
@@ -64,19 +54,21 @@ class AddtoCart {
             ViewActions.closeSoftKeyboard()
         )
 
-
-        val LoginButton = onView(
-                withId(R.id.btnlogin)
+//      to log in
+        val LoginButton = Espresso.onView(
+            ViewMatchers.withId(R.id.btnlogin)
 
         )
         LoginButton.perform(ViewActions.click())
         Thread.sleep(2000)
-        val bottomNavigationItemView = onView(
+//        click on shop icon
+        val bottomNavigationItemView = Espresso.onView(
             Matchers.allOf(
-                withId(R.id.navigation_shop), ViewMatchers.withContentDescription("Shop"),
+                ViewMatchers.withId(R.id.navigation_shop),
+                ViewMatchers.withContentDescription("Shop"),
                 childAtPosition(
                     childAtPosition(
-                        withId(R.id.nav_view),
+                        ViewMatchers.withId(R.id.nav_view),
                         0
                     ),
                     1
@@ -85,33 +77,51 @@ class AddtoCart {
             )
         )
         bottomNavigationItemView.perform(ViewActions.click())
-
         Thread.sleep(3000)
-        val recyclerView = onView(
+
+//to swipe right for hiring in the viewpager
+        val swipeforhire = Espresso.onView(
             Matchers.allOf(
-                withId(R.id.recyclerview),
+                ViewMatchers.withId(R.id.container),
                 childAtPosition(
-                    withId(R.id.cardproduct),
+                    childAtPosition(
+                        ViewMatchers.withId(R.id.viewpager),
+                        2),
+                0
+                ),
+            ViewMatchers.isDisplayed()
+            )
+        )
+       swipeforhire.perform(ViewPagerActions.scrollRight())
+
+//        click on hires
+        val recyclerView = Espresso.onView(
+            Matchers.allOf(
+                ViewMatchers.withId(R.id.recyclerview),
+                childAtPosition(
+                    ViewMatchers.withId(R.id.cardproduct),
                     0
                 )
             )
         )
         recyclerView.perform(
-            actionOnItemAtPosition<RecyclerView.ViewHolder>
-                (0, ViewActions.click()))
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>
+                (0, ViewActions.click())
+        )
 
         Thread.sleep(3000)
-        val textView = onView(
+        val textView = Espresso.onView(
             Matchers.allOf(
-                withId(R.id.tvproduct_name), ViewMatchers.withText("Dog Food"),
-                ViewMatchers.withParent(ViewMatchers.withParent(withId(R.id.productdetail))),
+                ViewMatchers.withId(R.id.tvproduct_name), ViewMatchers.withText("Dog Food"),
+                ViewMatchers.withParent(ViewMatchers.withParent(ViewMatchers.withId(R.id.productdetail))),
                 ViewMatchers.isDisplayed()
             )
         )
+
         ViewMatchers.isDisplayed()
         Thread.sleep(3000)
-        val CartButton = onView(
-            withId(R.id.btnaddtocart)
+        val CartButton = Espresso.onView(
+            ViewMatchers.withId(R.id.btnaddtocart)
         )
         CartButton.perform(ViewActions.click())
         Thread.sleep(3000)
@@ -135,4 +145,6 @@ class AddtoCart {
             }
         }
     }
+
+
 }
