@@ -58,7 +58,7 @@ class Test {
         val userRepository = UserRepository()
         val cartRepository = ShoppingCartRepository()
 
-        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = cartRepository.addProducts(
             userId = userRepository.userLogin("test@test.com","test").userId!!,
@@ -102,10 +102,10 @@ class Test {
         val userRepository = UserRepository()
         val favoritesRepository = FavoritesRepository()
 
-        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = favoritesRepository.deleteFavorites(
-            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
+            id = userRepository.userLogin("test@test.com","test").userId!!,
             productId = "612c85ed97f1101dd56d7e3c"
         ).success
         Assert.assertEquals(expectedResult,actualResult)
@@ -116,10 +116,10 @@ class Test {
         val userRepository = UserRepository()
         val orderRepository = OrderRespository()
 
-        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+    ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = orderRepository.createOrder(
-            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
+            id = userRepository.userLogin("test@test.com","test").userId!!,
             payment = 123412341234,
             delivery_address = "home"
         ).success
@@ -132,11 +132,25 @@ class Test {
         val userRepository = UserRepository()
         val orderRepository = OrderRespository()
 
-        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = orderRepository.showOrder(
-            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!
+            id = userRepository.userLogin("test@test.com","test").userId!!
 
+        ).success
+        Assert.assertEquals(expectedResult,actualResult)
+    }
+    //test case for hires
+    @Test
+    fun createHire() = runBlocking {
+        val orderRepository = HireRepository()
+        val userRepository = UserRepository()
+
+//        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
+        val expectedResult = true
+        val actualResult = orderRepository.hire(
+            userId =userRepository.userLogin("test@test.com","test").userId!!,
+            "612c7f507c2a5a1c6a13a04d"
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }
@@ -146,9 +160,10 @@ class Test {
         val orderRepository = HireRepository()
         val userRepository = UserRepository()
 
+//        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = orderRepository.shoeHires(
-            id=userRepository.userLogin("owner1@gmail.com","owner").userId!!
+            id=userRepository.userLogin("test@test.com","test").userId!!
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }
@@ -157,10 +172,10 @@ class Test {
     fun checkUpdate() = runBlocking {
         val userRepository = UserRepository()
         val response = userRepository.updateUser(
-            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
-            email = "owner1@gmail.com",
-            password = "owner",
-            fullName = "ownerjj"
+            id = userRepository.userLogin("test@test.com","test").userId!!,
+            email = "test@test.com",
+            password = "test",
+            fullName = "test123"
         )
         val expectedResult = true
         val actualResult = response.success
@@ -172,9 +187,10 @@ class Test {
         val orderRepository = FavoritesRepository()
         val userRepository = UserRepository()
 
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = orderRepository.showFavorites(
-            id=userRepository.userLogin("owner1@gmail.com","owner").userId!!
+            id=userRepository.userLogin("test@test.com","test").userId!!
         ).success
         Assert.assertEquals(expectedResult,actualResult)
     }
