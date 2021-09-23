@@ -14,7 +14,7 @@ class Test {
 //    test for login
     fun checkLogin() = runBlocking {
         val userRepository = UserRepository()
-        val response = userRepository.userLogin("owner1@gmail.com","owner")
+        val response = userRepository.userLogin("test@test.com","test")
         val expectedResult = true
         val actualResult = response.success
         Assert.assertEquals(expectedResult,actualResult)
@@ -61,7 +61,7 @@ class Test {
         ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
         val expectedResult = true
         val actualResult = cartRepository.addProducts(
-            userId = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
+            userId = userRepository.userLogin("test@test.com","test").userId!!,
             productId = "612b65a1183934106d04b3f7",
             1
         ).success
@@ -73,10 +73,10 @@ class Test {
         val userRepository = UserRepository()
         val cartRepository = ShoppingCartRepository()
 
-        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = cartRepository.deleteItem(
-            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
+            id = userRepository.userLogin("test@test.com","test").userId!!,
             itemid = "612b65a1183934106d04b3f7"
 
         ).success
@@ -88,10 +88,10 @@ class Test {
         val userRepository = UserRepository()
         val favoritesRepository = FavoritesRepository()
 
-        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("owner1@gmail.com","owner").token
+        ServiceBuilder.token = "Bearer "+ userRepository.userLogin("test@test.com","test").token
         val expectedResult = true
         val actualResult = favoritesRepository.addToFavorites(
-            id = userRepository.userLogin("owner1@gmail.com","owner").userId!!,
+            id = userRepository.userLogin("test@test.com","test").userId!!,
             productId = "612c85ed97f1101dd56d7e3c"
         ).success
         Assert.assertEquals(expectedResult,actualResult)

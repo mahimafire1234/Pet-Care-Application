@@ -19,7 +19,8 @@
             <!--        product image-->
             <ImageView
                 android:id="@+id/imgproduct"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
+                android:layout_centerHorizontal="true"
                 android:scaleType="fitXY"
                 android:layout_height="140dp"
                 android:layout_marginHorizontal="10dp"

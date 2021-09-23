@@ -19,7 +19,7 @@ class CartNotification (val context :Context){
             val channel3 = NotificationChannel(
                 CHANNEL_3,
                 "CART",
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_HIGH
             )
             channel3.description="Cart Channel"
 
@@ -27,7 +27,7 @@ class CartNotification (val context :Context){
             val channel4 = NotificationChannel(
                 CHANNEL_4,
                 "FAVORITES",
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_HIGH
             )
             channel4.description="Favorites Channel"
 
@@ -36,7 +36,7 @@ class CartNotification (val context :Context){
             val channel5 = NotificationChannel(
                 CHANNEL_5,
                 "CHECK OUT",
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_HIGH
             )
             channel5.description="Checkout Channel"
 
@@ -44,7 +44,7 @@ class CartNotification (val context :Context){
             val channel6 = NotificationChannel(
                 CHANNEL_6,
                 "LOG OUT",
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_HIGH
             )
             channel5.description="Logout Channel"
 
