@@ -38,6 +38,7 @@ class AddtoCart {
     @Test
     fun addtocart() {
 
+//        for login and getting user details
 //        username
         val emailEditText = onView(
             Matchers.allOf(
@@ -64,13 +65,15 @@ class AddtoCart {
             ViewActions.closeSoftKeyboard()
         )
 
-
+//login button
         val LoginButton = onView(
                 withId(R.id.btnlogin)
 
         )
         LoginButton.perform(ViewActions.click())
         Thread.sleep(2000)
+
+//        to click on a particular item in the bottom navigation
         val bottomNavigationItemView = onView(
             Matchers.allOf(
                 withId(R.id.navigation_shop), ViewMatchers.withContentDescription("Shop"),
@@ -87,6 +90,8 @@ class AddtoCart {
         bottomNavigationItemView.perform(ViewActions.click())
 
         Thread.sleep(3000)
+
+//        for recyclerview
         val recyclerView = onView(
             Matchers.allOf(
                 withId(R.id.recyclerview),
@@ -96,11 +101,13 @@ class AddtoCart {
                 )
             )
         )
+//        clicks on recylerview at position 0
         recyclerView.perform(
             actionOnItemAtPosition<RecyclerView.ViewHolder>
                 (0, ViewActions.click()))
 
         Thread.sleep(3000)
+
         val textView = onView(
             Matchers.allOf(
                 withId(R.id.tvproduct_name), ViewMatchers.withText("Dog Food"),
@@ -108,11 +115,14 @@ class AddtoCart {
                 ViewMatchers.isDisplayed()
             )
         )
+
         ViewMatchers.isDisplayed()
+
         Thread.sleep(3000)
         val CartButton = onView(
             withId(R.id.btnaddtocart)
         )
+//        add to cart
         CartButton.perform(ViewActions.click())
         Thread.sleep(3000)
 

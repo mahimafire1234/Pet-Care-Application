@@ -47,7 +47,7 @@ class PetCareTakerFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_pet_care_taker, container, false)
 //        recyclerview
-        recyclerview=view.findViewById(R.id.recyclerview)
+        recyclerview=view.findViewById(R.id.recyclerviewpet)
 
         showitem = view.findViewById(R.id.showitem)
         

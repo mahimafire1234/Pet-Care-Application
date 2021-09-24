@@ -23,11 +23,11 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-127dp"
         android:background="#FFFFFF"
-        android:id="@+id/cardproduct"
+        android:id="@+id/cardproductpet"
         >
     <!--    for recycler view-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/recyclerviewpet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     </ScrollView>
