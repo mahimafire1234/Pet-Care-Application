@@ -3,6 +3,7 @@ package com.mahima.animestreamingapp
 import android.app.Activity
 import androidx.test.espresso.Espresso.closeSoftKeyboard
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions
@@ -29,12 +30,14 @@ class InstrumentedTest {
     @Test
     fun checkLogin(){
         onView(withId(R.id.etusername))
-            .perform(typeText("owner1@gmail.com"))
+            .perform(typeText("test2@email.com"))
+        onView(ViewMatchers.withId(R.id.etpassword)).perform(ViewActions.scrollTo())
 
         onView(withId(R.id.etpassword))
-        .perform(typeText("owner"))
+        .perform(typeText("test123"))
 
         closeSoftKeyboard()
+    onView(ViewMatchers.withId(R.id.etpassword)).perform(ViewActions.scrollTo())
 
         onView(withId(R.id.btnlogin))
             .perform(click())

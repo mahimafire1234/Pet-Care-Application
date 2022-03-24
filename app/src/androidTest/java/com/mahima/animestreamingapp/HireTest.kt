@@ -50,9 +50,11 @@ class HireTest {
         )
 
         emailEditText.perform(
-            ViewActions.replaceText("owner1@gmail.com"),
+            ViewActions.replaceText("test2@email.com"),
             ViewActions.closeSoftKeyboard()
         )
+
+        onView(ViewMatchers.withId(R.id.etpassword)).perform(ViewActions.scrollTo())
 
 //        password entry
         val passwordEditText = Espresso.onView(
@@ -63,9 +65,10 @@ class HireTest {
         )
 
         passwordEditText.perform(
-            ViewActions.replaceText("owner"),
+            ViewActions.replaceText("test123"),
             ViewActions.closeSoftKeyboard()
         )
+        onView(ViewMatchers.withId(R.id.etpassword)).perform(ViewActions.scrollTo())
 
 //      to log in
         val LoginButton = Espresso.onView(

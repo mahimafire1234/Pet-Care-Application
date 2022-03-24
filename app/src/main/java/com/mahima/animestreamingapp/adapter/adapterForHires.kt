@@ -49,6 +49,9 @@ class adapterForHires(
             Glide.with(context)
                 .load("http://192.168.1.80:80/"+product.photo)
                 .into(holder.imghire)
+
+//        tablet
+
             holder.hire_date.text="Hire date:" +" "+ product.hire_date
         }
 

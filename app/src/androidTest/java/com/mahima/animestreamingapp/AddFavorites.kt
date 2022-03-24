@@ -48,7 +48,7 @@ class AddFavorites {
         )
 
         emailEditText.perform(
-            ViewActions.replaceText("owner1@gmail.com"),
+            ViewActions.replaceText("test2@email.com"),
             ViewActions.closeSoftKeyboard()
         )
 
@@ -61,7 +61,7 @@ class AddFavorites {
         )
 
         passwordEditText.perform(
-            ViewActions.replaceText("owner"),
+            ViewActions.replaceText("test123"),
             ViewActions.closeSoftKeyboard()
         )
 
@@ -113,10 +113,18 @@ class AddFavorites {
 
         ViewMatchers.isDisplayed()
         Thread.sleep(3000)
+
         val CartButton = onView(
+            withId(R.id.btnaddtocart)
+        )
+        onView(ViewMatchers.withId(R.id.btnaddtocart)).perform(ViewActions.scrollTo())
+
+        val favsButon = onView(
             withId(R.id.btnaddtofavs)
         )
-        CartButton.perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.btnaddtofavs)).perform(ViewActions.scrollTo())
+
+        favsButon.perform(ViewActions.click())
         Thread.sleep(3000)
 
     }

@@ -48,9 +48,10 @@ class AddtoCart {
         )
 
         emailEditText.perform(
-            ViewActions.replaceText("owner1@gmail.com"),
+            ViewActions.replaceText("test2@email.com"),
             ViewActions.closeSoftKeyboard()
         )
+        onView(ViewMatchers.withId(R.id.etpassword)).perform(ViewActions.scrollTo())
 
 //        password entry
         val passwordEditText = onView(
@@ -61,9 +62,10 @@ class AddtoCart {
         )
 
         passwordEditText.perform(
-            ViewActions.replaceText("owner"),
+            ViewActions.replaceText("test123"),
             ViewActions.closeSoftKeyboard()
         )
+        onView(ViewMatchers.withId(R.id.etpassword)).perform(ViewActions.scrollTo())
 
 //login button
         val LoginButton = onView(
@@ -122,6 +124,8 @@ class AddtoCart {
         val CartButton = onView(
             withId(R.id.btnaddtocart)
         )
+        onView(ViewMatchers.withId(R.id.btnaddtocart)).perform(ViewActions.scrollTo())
+
 //        add to cart
         CartButton.perform(ViewActions.click())
         Thread.sleep(3000)

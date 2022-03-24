@@ -8,6 +8,7 @@ object ServiceBuilder {
 
 //    base url
     private val BASE_URL = "http://192.168.1.80:80/"
+//    private val BASE_URL = "http://172.25.0.243:80"
     var token : String ?= null
     var userId : String ?= null
 //    create instance for retrofit

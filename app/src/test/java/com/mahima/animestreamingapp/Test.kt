@@ -24,7 +24,7 @@ class Test {
 //    failed test case for login
     fun checkLoginFailed() = runBlocking {
         val userRepository = UserRepository()
-        val response = userRepository.userLogin("owner@gmail.com", "owner")
+        val response = userRepository.userLogin("test5@test.com", "owner")
         val expectedResult = true
         val actualResult = response.success
         Assert.assertEquals(expectedResult, actualResult)

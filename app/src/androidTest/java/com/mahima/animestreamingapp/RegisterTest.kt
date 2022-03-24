@@ -33,6 +33,9 @@ class RegisterTest {
         onView(ViewMatchers.withId(R.id.etemail))
             .perform(ViewActions.typeText("test2@email.com"))
 
+        onView(ViewMatchers.withId(R.id.etpassword)).perform(ViewActions.scrollTo())
+
+
         onView(ViewMatchers.withId(R.id.etpassword))
             .perform(ViewActions.typeText("test123"))
 

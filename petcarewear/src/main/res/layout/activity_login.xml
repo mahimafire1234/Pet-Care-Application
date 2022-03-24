@@ -12,6 +12,15 @@
     android:orientation="vertical"
     tools:deviceIds="wear">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        />
+
     <EditText
         android:id="@+id/etemail"
         android:hint="Email Address"
